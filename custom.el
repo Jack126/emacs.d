@@ -12,9 +12,6 @@
  ;; If there is more than one, they won't work right.
  )
 
-;; zenburn theme
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(load-theme 'zenburn t)
 
  ;; M-x now 
 (defun now ()

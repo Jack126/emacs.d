@@ -19,6 +19,9 @@
 ;; all the third-part packages configed here
 (require 'init-package)
 
+;; theme
+(require 'init-theme)
+
 (provide 'init-common)
 ;;; init-common.el ends here
 ;; Local Variables:
