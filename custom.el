@@ -13,7 +13,7 @@
  )
 
 
- ;; M-x now 
+ ;; M-x now
 (defun now ()
 (interactive)
 ( insert (concat "Date: "
@@ -37,7 +37,7 @@
 )
 
 (global-set-key (kbd "M-r") 'query-replace)
-(global-set-key (kbd "C-c .") 'now) ;; now time 
+(global-set-key (kbd "C-c .") 'now) ;; now time
 (global-set-key (kbd "C-c ,") 'user) ;; user
 (global-set-key (kbd "M-o") 'other-window) ;; other-window
 (global-set-key (kbd "C-d") 'duplicate-line) ;; duplicate-line
