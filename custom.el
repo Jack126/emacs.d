@@ -44,4 +44,4 @@
 (global-set-key (kbd "C-c ,") 'user) ;; user
 (global-set-key (kbd "M-o") 'other-window) ;; other-window
 (global-set-key (kbd "C-d") 'duplicate-line) ;; duplicate-line
-(global-set-key (kbd "M-,") 'previous-buffer) ;;previous-buffer
+(global-set-key (kbd "M-,") 'pop-tag-mark) ;;previous-buffer
