@@ -16,19 +16,19 @@
   :diminish "Cmp"
   :hook (after-init . global-company-mode)
   :config (setq company-minimum-prefix-length 1
-                ;;company-echo-delay 0
-                ;;company-show-numbers t
-                company-show-quick-access t
-                ))
+                company-show-quick-access t))
 
 ;; ctrlf, good isearch alternative
 (use-package ctrlf
   :hook (after-init . ctrlf-mode))
 
 ;; crux, a collection of many useful extensions/commands
-(use-package crux
-  :bind (("C-c C-d" . #'crux-duplicate-current-line-or-region)
-	     ("C-a" . #'crux-move-beginning-of-line)))
+;; without key-binding you can use
+;; C-a for its original definition
+;; M-m to the indentation of current line
+;; C-M-<ARROW> for duplicate lines
+;; crux commands? Pls use M-x.
+(use-package crux)
 
 ;; Settings for exec-path-from-shell
 ;; fix the PATH environment variable issue
