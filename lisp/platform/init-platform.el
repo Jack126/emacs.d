@@ -8,7 +8,8 @@
 
 (cond
  (os--windows
-  ;; fix the  issue on Windows
+  ;; fix the 
+ issue on Windows
   (setq buffer-file-coding-system 'utf-8)
   (when (boundp 'w32-get-true-file-attributes)
     (setq w32-get-true-file-attributes nil
@@ -16,8 +17,9 @@
 	      w32-pipe-buffer-size (* 64 1024))))
  (os--macos
   ;; <macOS> Command -> Meta, Option -> Super
-  (setq mac-command-modifier 'meta
-	    mac-option-modifier 'super
+  (setq 
+  ;;mac-command-modifier 'meta
+	;;    mac-option-modifier 'super
 	    ns-use-native-fullscreen t))
  (t nil))
 
