@@ -36,6 +36,8 @@
   (yank)
 )
 
+(setq display-line-numbers-type `relative)
+
 (global-set-key (kbd "M-r") 'query-replace)
 (global-set-key (kbd "C-c .") 'now) ;; now time
 (global-set-key (kbd "C-c ,") 'user) ;; user

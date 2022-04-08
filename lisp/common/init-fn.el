@@ -29,20 +29,26 @@
       (if (member font (font-family-list))
 	      (throw 'font font)))))
 
+(defvar cn-fonts-list '("Hack Nerd Font" "黑体" "STHeiti" "微软雅黑" "文泉译微米黑")
+  "定义使用的中文字体候选列表.")
+
+(defvar en-fonts-list '("Hack Nerd Font" "Cascadia Code" "Courier New" "Monaco" "Ubuntu Mono")
+  "定义使用的英文字体候选列表.")
+
+(defvar emoji-fonts-list '("Apple Color Emoji" "Segoe UI Emoji" "Noto Color Emoji" "Symbola" "Symbol")
+  "定义使用Emoji字体候选列表.")
+
 ;;;###autoload
 (defun tenon--font-setup ()
   "Font setup."
 
   (interactive)
-  (let* ((efl '("Cascadia Code" "Source Code Pro" "JetBrains Mono" "Courier New" "Monaco" "Ubuntu Mono"))
-	     (cfl '("黑体" "楷体" "STHeiti" "STKaiti" "微软雅黑" "文泉译微米黑"))
-         (eml '("Apple Color Emoji" "Segoe UI Emoji" "Noto Color Emoji" "Symbola" "Symbol"))
-	     (cf (tenon--available-font cfl))
-	     (ef (tenon--available-font efl))
-         (em (tenon--available-font eml)))
+  (let* ((cf (tenon--available-font cn-fonts-list))
+	     (ef (tenon--available-font en-fonts-list))
+         (em (tenon--available-font emoji-fonts-list)))
     (when ef
       (dolist (face '(default fixed-pitch fixed-pitch-serif variable-pitch))
-	    (set-face-attribute face nil :family ef)))
+	    (set-face-attribute face nil :family ef :height 135)))
     (when em
       (dolist (charset `(unicode unicode-bmp ,(if (> emacs-major-version 27) 'emoji 'symbol)))
         (set-fontset-font t charset em nil 'prepend)))
@@ -50,7 +56,7 @@
       (dolist (charset '(kana han cjk-misc bopomofo))
 	    (set-fontset-font t charset cf))
       (setq face-font-rescale-alist
-	        (mapcar (lambda (item) (cons item 1.2)) '(cf em))))))
+	        (mapcar (lambda (item) (cons item 1.2)) `(,cf ,em))))))
 
 ;;;autoload
 (defun tenon--cleaner-ui ()
