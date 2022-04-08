@@ -48,7 +48,7 @@
          (em (tenon--available-font emoji-fonts-list)))
     (when ef
       (dolist (face '(default fixed-pitch fixed-pitch-serif variable-pitch))
-	    (set-face-attribute face nil :family ef :height 135)))
+	    (set-face-attribute face nil :family ef :height 150)))
     (when em
       (dolist (charset `(unicode unicode-bmp ,(if (> emacs-major-version 27) 'emoji 'symbol)))
         (set-fontset-font t charset em nil 'prepend)))

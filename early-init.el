@@ -27,7 +27,7 @@
 
 ;; System default coding
 (set-language-environment 'utf-8)
-
+(global-hl-line-mode 1)
 ;; Load theme early to avoid the blinking
 ;; use new modus theme when greater than 28
 ;; Comment out these lines, if you use customized themes.
@@ -39,3 +39,11 @@
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)
 ;; END:
+;; start time
+(add-hook 'emacs-startup-hook
+    (lambda ()
+        (message "Emacs ready in %s with %d garbage collections."
+            (format "%.2f seconds"
+                (float-time
+                    (time-subtract after-init-time before-init-time)))
+        gcs-done)))
