@@ -16,6 +16,7 @@
 (require 'init-lang-python)
 (require 'init-lang-rust)
 (require 'init-lang-web)
+(require 'init-lang-php)
 
 ;; program useful text/config files
 (use-package json-mode)

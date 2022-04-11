@@ -105,6 +105,14 @@
   :bind ("C-o" . yas-expand))
 (use-package yasnippet-snippets :diminish)
 
+
+;; auto-save
+(use-package super-save
+  :ensure t
+  :config
+  (super-save-mode +1)
+  (setq auto-save-default nil)) ;不生成那个讨厌的文件)
+
 (provide 'init-package)
 
 ;; Local Variables:
