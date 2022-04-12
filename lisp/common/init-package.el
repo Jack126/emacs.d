@@ -28,7 +28,8 @@
 ;; M-m to the indentation of current line
 ;; C-M-<ARROW> for duplicate lines
 ;; crux commands? Pls use M-x.
-(use-package crux)
+(use-package crux
+  :bind ("C-c k" . crux-smart-kill-line))
 
 ;; Settings for exec-path-from-shell
 ;; fix the PATH environment variable issue
