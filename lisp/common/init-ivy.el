@@ -14,7 +14,6 @@
   :after (ivy) 
   :bind (("M-x" . counsel-M-x) 
          ("C-x C-f" . counsel-find-file) 
-         ("C-c f" . counsel-recentf)
          ("C-c g" . counsel-git))) 
 
 (use-package swiper 

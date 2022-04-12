@@ -5,14 +5,14 @@
 ;;; Code:
 
 ;;;###autoload
-(defun tenon--change-theme ()
-  "Change theme."
+;; (defun tenon--change-theme ()
+;;   "Change theme."
 
-  (interactive)
-  (let ((theme-list custom-enabled-themes))
-    (call-interactively 'load-theme)
-    (unless (equal custom-enabled-themes theme-list)
-      (mapcar #'disable-theme theme-list))))
+;;   (interactive)
+;;   (let ((theme-list custom-enabled-themes))
+;;     (call-interactively 'load-theme)
+;;     (unless (equal custom-enabled-themes theme-list)
+;;       (mapcar #'disable-theme theme-list))))
 
 ;;;###autoload
 (defmacro tenon--timer (&rest body)
@@ -35,7 +35,7 @@
 (defvar en-fonts-list '("Hack Nerd Font" "Cascadia Code" "Courier New" "Monaco" "Ubuntu Mono")
   "定义使用的英文字体候选列表.")
 
-(defvar emoji-fonts-list '("Apple Color Emoji" "Segoe UI Emoji" "Noto Color Emoji" "Symbola" "Symbol")
+(defvar emoji-fonts-list '("Hack Nerd Font" "Apple Color Emoji" "Segoe UI Emoji" "Noto Color Emoji" "Symbola" "Symbol")
   "定义使用Emoji字体候选列表.")
 
 ;;;###autoload
