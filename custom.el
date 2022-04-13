@@ -42,6 +42,6 @@
 (global-set-key (kbd "M-o") 'other-window) ;; other-window
 (global-set-key (kbd "C-d") 'duplicate-line) ;; duplicate-line
 (global-set-key (kbd "M-,") 'pop-tag-mark) ;;previous-buffer
-
+(global-set-key (kbd "C-c f")  'format-all-buffer)
 ;; line number 
 (setq display-line-numbers-type `relative)
