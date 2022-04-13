@@ -41,6 +41,7 @@
 ;; and "pacman -S pacman -S mingw64/mingw-w64-x86_64-aspell{,-en}" on msys2 (Windows)
 ;; for performance issue, do NOT use on Windows
 (use-package flyspell
+  :defer 1
   :hook ((text-mode org-mode) . flyspell-mode))
 
 ;; ibuffer
@@ -56,6 +57,7 @@
 
 ;; Org Mode
 (use-package org
+  :defer 1
   :ensure nil
   :config
   (setq org-hide-leading-stars t
@@ -73,6 +75,7 @@
 
 ;; Recentf
 (use-package recentf
+  :defer 1
   :hook (after-init . recentf-mode)
   :bind (("C-c r" . #'recentf-open-files))
   :config
@@ -85,6 +88,7 @@
 
 ;; windmove.el, use shift-<arrow key> to switch buffers
 (use-package windmove
+  :defer 1
   :init (windmove-default-keybindings))
 
 (provide 'init-builtin)

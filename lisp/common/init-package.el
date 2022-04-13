@@ -8,6 +8,7 @@
 ;; Auto update packages
 ;; this maybe useful, if you want to update all the packages with command, just like me
 (use-package auto-package-update
+  :defer 1
   :init (setq auto-package-update-delete-old-versions t
 	          auto-package-update-hide-results t))
 
@@ -20,6 +21,7 @@
 
 ;; ctrlf, good isearch alternative
 (use-package ctrlf
+  :defer 1
   :hook (after-init . ctrlf-mode))
 
 ;; crux, a collection of many useful extensions/commands
@@ -29,6 +31,7 @@
 ;; C-M-<ARROW> for duplicate lines
 ;; crux commands? Pls use M-x.
 (use-package crux
+  :defer 1
   :bind ("C-c k" . crux-smart-kill-line))
 
 ;; Settings for exec-path-from-shell
@@ -51,7 +54,8 @@
 ;;   :bind ("C-c f" . #'format-all-buffer))
 
 ;; gnu-elpa-keyring-update
-(use-package gnu-elpa-keyring-update)
+(use-package gnu-elpa-keyring-update
+  :defer 1)
 
 ;; iedit
 (use-package iedit
@@ -93,19 +97,56 @@
 
 ;; Settings for yasnippet
 (use-package yasnippet
+  :defer 1
   :diminish yas-minor-mode
   :hook (prog-mode . yas-minor-mode)
   :config (yas-reload-all)
   :bind ("C-o" . yas-expand))
 (use-package yasnippet-snippets :diminish)
 
-
 ;; auto-save
 (use-package super-save
+  :defer 1
   :ensure t
   :config
   (super-save-mode +1)
   (setq auto-save-default nil)) ;不生成那个讨厌的文件)
+
+;; Flymake
+(use-package flymake
+  :defer 1
+  :hook (prog-mode . flymake-mode)
+  :config
+  (global-set-key (kbd "M-n") #'flymake-goto-next-error)
+  (global-set-key (kbd "M-p") #'flymake-goto-prev-error))
+
+
+;; Useful Tools
+(use-package quickrun)                  ; quickrun code
+(use-package restclient                 ; restclient support
+  :mode (("\\.http\\'" . restclient-mode)))
+
+
+;; Rainbow delimiters
+(use-package rainbow-delimiters
+  :defer 1
+  :hook (prog-mode . rainbow-delimiters-mode))
+(use-package highlight-parentheses
+  :defer 1
+  :diminish
+  :hook (prog-mode . highlight-parentheses-mode))
+
+;; Program Useful text/config files
+(use-package json-mode)
+(use-package markdown-mode)
+(use-package protobuf-mode)
+(use-package yaml-mode)
+
+;; 测试启动时间
+;; (use-package esup
+;;   :ensure t
+;;   ;; To use MELPA Stable use ":pin melpa-stable",
+;;   :pin melpa)
 
 (provide 'init-package)
 
