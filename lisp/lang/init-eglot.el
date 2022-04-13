@@ -31,6 +31,7 @@
   (add-hook 'eglot--managed-mode-hook #'eglot-actions-before-save))
 
 (provide 'init-eglot)
+
 ;;; init-eglot.el ends here
 
 ;; Local Variables:
