@@ -105,12 +105,18 @@
 (use-package yasnippet-snippets :diminish)
 
 ;; auto-save
-(use-package super-save
-  :defer 1
-  :ensure t
-  :config
-  (super-save-mode +1)
-  (setq auto-save-default nil)) ;不生成那个讨厌的文件)
+(add-to-list 'load-path "~/.emacs.d/modules/auto-save/") ; add auto-save to your load-path
+(require 'auto-save)
+(auto-save-enable)
+(setq auto-save-silent t)   ; quietly save
+(setq auto-save-delete-trailing-whitespace t)  ; automatically delete spaces at the end of the line when saving
+;;; custom predicates if you don't want auto save.
+;;; disable auto save mode when current filetype is an gpg file.
+(setq auto-save-disable-predicates
+      '((lambda ()
+      (string-suffix-p
+      "gpg"
+      (file-name-extension (buffer-name)) t))))
 
 ;; Flymake
 (use-package flymake
