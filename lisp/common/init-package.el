@@ -127,14 +127,17 @@
   :mode (("\\.http\\'" . restclient-mode)))
 
 
-;; Rainbow delimiters
+;; 括号高亮
 (use-package rainbow-delimiters
-  :defer 1
   :hook (prog-mode . rainbow-delimiters-mode))
+
 (use-package highlight-parentheses
   :defer 1
   :diminish
   :hook (prog-mode . highlight-parentheses-mode))
+;; 变量高亮
+;; (use-package rainbow-identifiers
+;;   :hook (prog-mode . rainbow-identifiers-mode))
 
 ;; Program Useful text/config files
 (use-package json-mode)
