@@ -32,7 +32,7 @@
 ;; crux commands? Pls use M-x.
 (use-package crux
   :defer 1
-  :bind ("C-c k" . crux-smart-kill-line))
+  :bind ("C-k" . crux-smart-kill-line))
 
 ;; Settings for exec-path-from-shell
 ;; fix the PATH environment variable issue
@@ -48,10 +48,10 @@
 
 ;; format all, formatter for almost languages
 ;; great for programmers
-;; (use-package format-all
-;;   :diminish
-;;   :hook (prog-mode . format-all-ensure-formatter)
-;;   :bind ("C-c f" . #'format-all-buffer))
+(use-package format-all
+  :diminish
+  :hook (prog-mode . format-all-ensure-formatter)
+  :bind ("C-c f" . #'format-all-buffer))
 
 ;; gnu-elpa-keyring-update
 (use-package gnu-elpa-keyring-update

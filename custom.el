@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(super-save restclient quickrun yaml-mode protobuf-mode markdown-mode json-mode typescript-mode web-mode emmet-mode rust-mode go-mode eglot yasnippet-snippets yasnippet which-key highlight-parentheses rainbow-delimiters popwin org-superstar neotree move-dup info-colors iedit gnu-elpa-keyring-update exec-path-from-shell crux ctrlf company auto-package-update delight diminish use-package)))
+   '(super-save restclient quickrun yaml-mode protobuf-mode markdown-mode json-mode typescript-mode web-mode emmet-mode rust-mode go-mode eglot yasnippet-snippets yasnippet which-key highlight-parentheses rainbow-delimiters popwin org-superstar neotree move-dup info-colors iedit gnu-elpa-keyring-update exec-path-from-shell crux ctrlf company auto-package-update format-all delight diminish use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -45,5 +45,6 @@
 (global-set-key (kbd "C-c f")  'format-all-buffer)
 (global-set-key (kbd "C-c c f")  'counsel-find-file)
 (global-set-key (kbd "C-c c r")  'counsel-rg)
+(global-set-key (kbd "C-s")  'save-buffer)
 ;; line number
 (setq display-line-numbers-type `relative)
