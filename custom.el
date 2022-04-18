@@ -45,5 +45,4 @@
 (global-set-key (kbd "C-c c f")  'counsel-find-file)
 (global-set-key (kbd "C-c c r")  'counsel-rg)
 (global-set-key (kbd "C-c s")  'save-buffer)
-;; line number
-(setq display-line-numbers-type `relative)
+

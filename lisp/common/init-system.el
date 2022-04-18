@@ -44,6 +44,9 @@
 )
 (global-set-key (kbd "C-c z") 'show-file-name)
 
+;; line number
+(setq display-line-numbers-type `relative)
+
 (provide 'init-system)
 ;;; init-system.el ends here
 ;; Local Variables:
