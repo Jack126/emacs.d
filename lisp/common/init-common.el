@@ -23,7 +23,7 @@
 (require 'init-theme)
 
 ;; ivy-counsel-swiper
-(require 'init-ivy)
+;;(require 'init-ivy)
 
 (provide 'init-common)
 ;;; init-common.el ends here
