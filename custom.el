@@ -25,22 +25,21 @@
 ( insert (concat "Author: "
                  (user-login-name))))
 
-;; copy line
-(defun duplicate-line()
+;; 复制当前行 
+(defun copy-line ()
   (interactive)
-  (move-beginning-of-line 1)
-  (kill-line)
-  (yank)
-  (open-line 1)
-  (next-line 1)
-  (yank)
-)
+  (save-excursion
+    (back-to-indentation)
+    (kill-ring-save
+     (point)
+     (line-end-position)))
+     (message "1 line copied"))
 
 (global-set-key (kbd "M-q") 'query-replace)
 (global-set-key (kbd "C-c .") 'now) ;; now time
 (global-set-key (kbd "C-c ,") 'user) ;; user
 (global-set-key (kbd "M-o") 'other-window) ;; other-window
-(global-set-key (kbd "C-d") 'duplicate-line) ;; duplicate-line
+(global-set-key (kbd "C-d") 'copy-line) ;; duplicate-line ;; (M-y) 粘贴
 (global-set-key (kbd "M-,") 'pop-tag-mark) ;;previous-buffer
 (global-set-key (kbd "C-c f")  'format-all-buffer)
 (global-set-key (kbd "C-c c f")  'counsel-find-file)
