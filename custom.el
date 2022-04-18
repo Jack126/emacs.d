@@ -42,7 +42,7 @@
 (global-set-key (kbd "C-d") 'copy-line) ;; duplicate-line ;; (M-y) 粘贴
 (global-set-key (kbd "M-,") 'pop-tag-mark) ;;previous-buffer
 (global-set-key (kbd "C-c f")  'format-all-buffer)
-(global-set-key (kbd "C-c c f")  'counsel-find-file)
-(global-set-key (kbd "C-c c r")  'counsel-rg)
-(global-set-key (kbd "C-c s")  'save-buffer)
+;; (global-set-key (kbd "C-c c f")  'counsel-find-file)
+;; (global-set-key (kbd "C-c c r")  'counsel-rg)
+;; (global-set-key (kbd "C-c s")  'save-buffer)
 
