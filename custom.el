@@ -36,7 +36,7 @@
   (yank)
 )
 
-(global-set-key (kbd "M-r") 'query-replace)
+(global-set-key (kbd "M-q") 'query-replace)
 (global-set-key (kbd "C-c .") 'now) ;; now time
 (global-set-key (kbd "C-c ,") 'user) ;; user
 (global-set-key (kbd "M-o") 'other-window) ;; other-window
