@@ -22,6 +22,9 @@
 ;; theme
 (require 'init-theme)
 
+;; custom setting
+(require 'init-setting)
+
 ;; ivy-counsel-swiper
 ;;(require 'init-ivy)
 
