@@ -15,6 +15,8 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 
 # PS
 
+目前emacs新手一枚，摸索大佬配置中前进，望诸君共勉!
+
 1. 目前emacs版本28.1 ，系统版本 mac 10.15.7 下正常使用，其他版本下未测
 2. 目前支持终端下使用，gui模式亦可（该模式下文字大小需调整 lisp/common/init-fn.el 51行 height）
 3. 需安装字体 Nerd Font 
@@ -60,7 +62,17 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 # 常用快捷键
 1. C-c f格式化代码
 2. M-q 查找替换
-3. C-c p f 项目中文件查找
-4. M-o 窗口切换
-5. C-d 拷贝当前行 （搭配 M-y 粘贴 使用，贼好用）
-6. shift -> , <- ,(Shift + 方向左右)， 可切换窗口
+3. C-x p f 项目中文件查找
+4. C-x p g 项目中关键字查找
+5. C-x p p 项目切换
+6. M-o 窗口切换
+7. C-d 拷贝当前行 （搭配 M-y 粘贴 使用，贼好用）
+8. shift -> , <- ,(Shift + 方向左右)， 可切换窗口
+9. C-c r 查看最近打开文件
+10. C-x b 切换buffer
+11. C-k 删除当前行
+12. C-c z 查看当前文件绝对路径
+13. C-c C-j imenu（查看当前文件菜单？）
+14. C-x k 关掉当前buffer
+15. C-x u 撤销
+16. C-h k 查看按键是否绑定（快捷键冲突检测用）
