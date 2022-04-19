@@ -76,3 +76,4 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 14. C-x k 关掉当前buffer
 15. C-x u 撤销
 16. C-h k 查看按键是否绑定（快捷键冲突检测用）
+17. C-s , C-r 查找（前后），查找下一个 继续按 C-s 或 C-r
