@@ -19,7 +19,7 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 2. 目前支持终端下使用，gui模式亦可（该模式下文字大小需调整 lisp/common/init-fn.el 51行 height）
 3. 需安装字体 Nerd Font 
 
-(
+```
 
     brew cask
 
@@ -30,7 +30,7 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
     brew install font-Fira-Code-nerd-font
 
     brew install font-hack-nerd-font
-)
+```
 
 4. 建议使用iterm2（终端色彩下能好看一点） [iterm2](https://www.iterm2.com/downloads.html)
 
