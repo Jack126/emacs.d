@@ -1,7 +1,7 @@
 
 ;; zenburn theme
-;;(add-to-list 'custom-theme-load-path "~/.emacs.d/modules/themes/")
-(load-theme 'misterioso t)
+(add-to-list 'custom-theme-load-path "~/.emacs.d/modules/themes/")
+(load-theme 'zenburn t)
 
 ;; hello message
 (defun my-show-scratch-buffer-message ()
