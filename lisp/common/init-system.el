@@ -46,6 +46,9 @@
 
 ;; line number
 (setq display-line-numbers-type `relative)
+;;显示时间、星期、日期
+(display-time-mode 1) ;; 常显
+(setq display-time-day-and-date t) 
 
 (provide 'init-system)
 ;;; init-system.el ends here
