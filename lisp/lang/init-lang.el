@@ -30,7 +30,7 @@
 (require 'init-lang-web)
 (require 'init-lang-php)
 
-
+;;(require 'mk-php)
 (provide 'init-lang)
 
 ;;; init-lang.el ends here

@@ -67,7 +67,7 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 5. C-x p p 项目切换
 6. M-o 窗口切换
 7. C-d 拷贝当前行 （搭配 M-y 粘贴 使用，贼好用）
-8. shift -> , <- ,(Shift + 方向左右)， 可切换窗口
+8. shift -> , <- ,(Shift + 方向左右)， 可切换窗口 同6
 9. C-c r 查看最近打开文件
 10. C-x b 切换buffer
 11. C-k 删除当前行
@@ -77,3 +77,4 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 15. C-x u 撤销
 16. C-h k 查看按键是否绑定（快捷键冲突检测用）
 17. C-s , C-r 查找（前后），查找下一个 继续按 C-s 或 C-r
+18. <f8> neotree 显示隐藏
