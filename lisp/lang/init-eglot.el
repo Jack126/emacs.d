@@ -6,10 +6,7 @@
 ;; - `python-mode' with `elpy'
 
 ;;; Code:
-;; (defvar phpactor-executable "/usr/local/bin/phpactor")
 
-;; (defclass eglot-php (eglot-lsp-server) ()
-;;     :documentation "Phpactor lsp server.")
 
 (use-package eglot
   :hook ((c-mode
@@ -29,13 +26,8 @@
   ;; (setq eglot-ignored-server-capabilities '(:documentHighlightProvider))
   (add-to-list 'eglot-server-programs 
         '(web-mode "vls")
-        ;;`(php-mode . (eglot-php . ("php" "-d" "memory_limit=1024M" ,phpactor-executable "language-server")))
         )
-;;   (cl-defmethod eglot-initialization-options ((server eglot-php))
-;;     "Passes through required vetur initialization options to VLS."
-;;     `(:language_server.session_parameters []
-;;                                           :indexer.exclude_patterns []
-;;                                           :language_server_code_transform.import_globals ,t))
+
   (defun eglot-actions-before-save()
     (add-hook 'before-save-hook
               (lambda ()
