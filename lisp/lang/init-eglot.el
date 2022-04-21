@@ -7,7 +7,6 @@
 
 ;;; Code:
 
-
 (use-package eglot
   :hook ((c-mode
           c++-mode
@@ -16,7 +15,6 @@
           js-mode
           python-mode
           rust-mode
-          php-mode
           web-mode) . eglot-ensure)
   :bind (("C-c e f" . #'eglot-format)
          ("C-c e a" . #'eglot-code-actions)
@@ -28,7 +26,7 @@
         '(web-mode "vls")
         )
 
-  (defun eglot-actions-before-save()
+(defun eglot-actions-before-save()
     (add-hook 'before-save-hook
               (lambda ()
                 (call-interactively #'eglot-format)
