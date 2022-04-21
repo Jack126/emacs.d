@@ -36,7 +36,7 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 
 4. 建议使用iterm2（终端色彩下能好看一点） [iterm2](https://www.iterm2.com/downloads.html)
 
-5. 使用auto-save 自动保存（C-x C-s)可以少按几次了。。
+5. 使用[auto-save](https://github.com/manateelazycat/auto-save) 自动保存（C-x C-s)可以少按几次了。。
 
 6. 使用eglot 需搭配其他开发环境使用，需另搭建（请自行查阅）
 
