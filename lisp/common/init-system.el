@@ -49,6 +49,8 @@
 ;;显示时间、星期、日期
 (display-time-mode 1) ;; 常显
 (setq display-time-day-and-date t) 
+;; 使用 X 剪贴板
+(setq x-select-enable-clipboard t)
 
 (provide 'init-system)
 ;;; init-system.el ends here
