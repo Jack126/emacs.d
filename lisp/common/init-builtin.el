@@ -79,8 +79,8 @@
   :hook (after-init . recentf-mode)
   :bind (("C-c r" . #'recentf-open-files))
   :config
-  (setq-default recentf-max-menu-items 20
-                recentf-max-saved-items 20)
+  (setq-default recentf-max-menu-items 30
+                recentf-max-saved-items 30)
   (add-to-list 'recentf-exclude '("~\/.emacs.d\/elpa\/")))
 
 ;; global visual line mode
