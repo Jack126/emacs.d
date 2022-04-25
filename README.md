@@ -89,3 +89,4 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 22. M-, 跳回
 23. M-q 查找替换
 24. M-o 窗口切换
+25. M-g g 跳行 
