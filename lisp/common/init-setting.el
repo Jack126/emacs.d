@@ -35,6 +35,6 @@
 (global-set-key (kbd "C-c ,") 'user) ;; user - Date
 (global-set-key (kbd "C-c d") 'copy-line) ;; duplicate-line ;; (M-y) 粘贴
 (global-set-key (kbd "C-c f")  'format-all-buffer)
-
+(global-set-key (kbd "C-c C-j")  'imenu)
 
 (provide 'init-setting)
