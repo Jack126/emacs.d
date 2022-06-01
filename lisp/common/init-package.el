@@ -5,24 +5,11 @@
 
 ;;; Code:
 
-;; Auto update packages
-;; this maybe useful, if you want to update all the packages with command, just like me
-(use-package auto-package-update
-  :defer 1
-  :init (setq auto-package-update-delete-old-versions t
-	          auto-package-update-hide-results t))
 
-;; Settings for company, auto-complete for texting, coding, etc.
 (use-package company
-  :diminish "Cmp"
-  :hook (after-init . global-company-mode)
+  :hook (prog-mode . company-mode)
   :config (setq company-minimum-prefix-length 1
                 company-show-quick-access t))
-
-;; ctrlf, good isearch alternative
-(use-package ctrlf
-  :defer 1
-  :hook (after-init . ctrlf-mode))
 
 ;; crux, a collection of many useful extensions/commands
 ;; without key-binding you can use
@@ -41,10 +28,7 @@
   :when (or (memq window-system '(mac ns x))
             (unless (memq system-type '(windows-nt dos))
               (daemonp)))
-  :init
-  ;; (exec-path-from-shell-copy-env "CLASSPATH")
-  ;; (exec-path-from-shell-copy-env "JAVA_HOME")
-  (exec-path-from-shell-initialize))
+  :init (exec-path-from-shell-initialize))
 
 ;; format all, formatter for almost languages
 ;; great for programmers
@@ -57,9 +41,8 @@
 (use-package gnu-elpa-keyring-update
   :defer 1)
 
-;; iedit
-(use-package iedit
-  :bind ("C-M-;" . iedit-mode))
+;; iedit - edit same text in one buffer or region
+(use-package iedit)
 
 ;; info-colors, make the info manual as colorful
 (use-package info-colors
@@ -82,9 +65,7 @@
 ;; make the org mode more beautiful with optimized leading chars
 (use-package org-superstar
   :hook (org-mode . org-superstar-mode)
-  :config
-  (setq org-superstar-prettify-item-bullets t
-        org-superstar-headline-bullets-list '("🐭" "🐮" "🐯" "🐰" "🐲" "🐸" "🐴" "🐑" "🐵" "🐔" "🐶" "🐷")))
+  :config (setq org-superstar-prettify-item-bullets t))
 
 ;; popwin
 (use-package popwin
