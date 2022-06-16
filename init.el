@@ -29,7 +29,7 @@
 (require 'init-lang)
 
 ;; other features, such as UI/daemon etc.
-;;(require 'init-feature)
+(require 'init-feature)
 
 ;; DON'T forget to define and load custom file at last
 (setq custom-file (locate-user-emacs-file "custom.el"))
