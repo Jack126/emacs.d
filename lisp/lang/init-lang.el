@@ -8,12 +8,12 @@
 ;;; Code:
 
 ;; Common features when programming
+;; **************************************************
 (add-hook 'prog-mode-hook
           (lambda ()
             (display-line-numbers-mode)
             (electric-layout-mode)
             (electric-pair-mode)
-            (highlight-parentheses-mode)
             (hs-minor-mode)
             (prettify-symbols-mode)))
 
@@ -22,10 +22,12 @@
 
 
 ;; Language Server
-;; `eglot', a light-weight lsp client
+;; **************************************************
+;; `eglot', a light-weight LSP client
 (require 'init-eglot)
-;; `lsp-mode', enable next line if you like lsp-mode and disable the previous eglot line
+;; `lsp-mode', a full-feature LSP client
 ;; (require 'init-lsp)
+
 
 ;; Specific Languages
 (require 'init-lang-go)
@@ -33,6 +35,7 @@
 (require 'init-lang-rust)
 (require 'init-lang-web)
 (require 'init-lang-php)
+
 
 (provide 'init-lang)
 

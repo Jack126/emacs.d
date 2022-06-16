@@ -22,15 +22,9 @@
          ("C-c e q" . #'eglot-code-action-quickfix))
   :config
   ;; (setq eglot-ignored-server-capabilities '(:documentHighlightProvider))
-  (add-to-list 'eglot-server-programs 
-        '(web-mode "vls")
-        )
-
-(defun eglot-actions-before-save()
-    (add-hook 'before-save-hook
-              (lambda ()
-                (call-interactively #'eglot-format)
-                (call-interactively #'eglot-code-action-organize-imports))))
+  (add-to-list 'eglot-server-programs '(web-mode "vls"))
+  (defun eglot-actions-before-save()
+    (add-hook 'before-save-hook #'eglot-format-buffer))
   (add-hook 'eglot--managed-mode-hook #'eglot-actions-before-save))
 
 (provide 'init-eglot)
