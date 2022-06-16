@@ -25,8 +25,6 @@
 ;; custom setting
 (require 'init-setting)
 
-;; ivy-counsel-swiper
-;;(require 'init-ivy)
 
 (provide 'init-common)
 ;;; init-common.el ends here

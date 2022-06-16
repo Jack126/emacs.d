@@ -48,6 +48,12 @@
 ;;   :hook ((text-mode org-mode) . flyspell-mode))
 (add-hook 'text-mode-hook 'flyspell-mode)
 
+;; Follow Mode - Continue reading with parallel buffer
+(add-hook 'after-init-hook 'follow-mode)
+
+;; Highlight Current Line
+(add-hook 'after-init-hook 'global-hl-line-mode)
+
 ;; ibuffer
 (defalias 'list-buffers 'ibuffer)
 
@@ -64,13 +70,13 @@
 (setq mode-line-compact t)
 
 ;; Org Mode
-(use-package org
-  :defer 1
-  :ensure nil
-  :config
-  (setq org-hide-leading-stars t
-        org-hide-emphasis-markers t
-        org-startup-indented t))
+;; (use-package org
+;;   :defer 1
+;;   :ensure nil
+;;   :config
+;;   (setq org-hide-leading-stars t
+;;         org-hide-emphasis-markers t
+;;         org-startup-indented t))
 
 ;; pulse the cursor line
 (dolist (cmd '(recenter-top-bottom other-window))
@@ -87,12 +93,18 @@
                 recentf-max-saved-items 30)
   (add-to-list 'recentf-exclude '("~\/.emacs.d\/elpa\/")))
 
+;; Repeat Mode (builtin from 28)
+(add-hook 'after-init-hook 'repeat-mode)
+
+;; Show Paren Mode
+(setq show-paren-when-point-in-periphery t
+      show-paren-when-point-inside-paren t)
+
 ;; global visual line mode
 (add-hook 'after-init-hook 'global-visual-line-mode)
 
 ;; windmove.el, use shift-<arrow key> to switch buffers
-
-(add-hook 'after-init-hook 'windmove-default-keybindings)
+;;(add-hook 'after-init-hook 'windmove-default-keybindings)
 
 (provide 'init-builtin)
 

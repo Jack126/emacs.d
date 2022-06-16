@@ -32,7 +32,7 @@
 ;; Specific Languages
 (require 'init-lang-go)
 (require 'init-lang-python)
-(require 'init-lang-rust)
+;;(require 'init-lang-rust)
 (require 'init-lang-web)
 (require 'init-lang-php)
 

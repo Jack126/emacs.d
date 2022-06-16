@@ -25,7 +25,7 @@
   "定义使用的中文字体候选列表.")
 
 (defvar en-fonts-list '("Hack Nerd Font" "Cascadia Code" "Courier New" "Monaco" "Ubuntu Mono")
-
+"定义使用的英文字体候选列表.")
 
 (defvar emoji-fonts-list '("Hack Nerd Font" "Apple Color Emoji" "Segoe UI Emoji" "Noto Color Emoji" "Symbola" "Symbol")
   "定义使用Emoji字体候选列表.")
@@ -70,19 +70,6 @@
   (when (and (fboundp 'tooltip-mode) (not (eq tooltip-mode -1)))
     (tooltip-mode -1)))
 
-;;;autoload
-(defun cabins/set-theme-on-windows ()
-  "Set theme on Windows 10 based on system dark mode."
-
-  (interactive)
-  (when (memq system-type '(ms-dos windows-nt cygwin))
-    (setq modus-themes-mode-line '(borderless (padding . 4) (height . 0.9)))
-    (let* ((cmd "powershell (Get-ItemProperty -Path HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize -Name AppsUseLightTheme).AppsUseLightTheme")
-           (mode (string-trim (shell-command-to-string cmd))))
-      (if (equal mode "1")
-          (load-theme 'modus-operandi t)
-        (load-theme 'modus-vivendi t)))))
-(add-hook 'after-init-hook #'cabins/set-theme-on-windows)
 
 (provide 'init-fn)
 ;;; init-fn.el ends here
