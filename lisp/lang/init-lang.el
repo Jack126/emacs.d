@@ -35,7 +35,7 @@
 ;;(require 'init-lang-rust)
 (require 'init-lang-web)
 (require 'init-lang-php)
-
+(require 'init-lang-lua)
 
 (provide 'init-lang)
 
