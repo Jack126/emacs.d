@@ -58,7 +58,8 @@
   :config (setq neo-autorefresh t
 		        neo-theme 'nerd
 		        neo-click-changes-root t
-		        neo-smart-open t)
+		        ;; neo-smart-open t
+                )
   :bind ("<f8>" . neotree-toggle))
 
 ;; org-superstar
