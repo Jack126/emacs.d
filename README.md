@@ -87,3 +87,4 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 22. M-q 查找替换
 23. M-o 窗口切换
 24. M-g g 跳行
+25. C-S SPC mark-set (C-SPC 替代品, S - Shift)
