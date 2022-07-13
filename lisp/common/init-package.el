@@ -86,7 +86,6 @@
   :bind ("C-o" . yas-expand))
 (add-to-list 'load-path
               "~/.emacs.d/snippets")
-(yas-global-mode 1)
 (use-package yasnippet-snippets :diminish)
 
 ;; auto-save
