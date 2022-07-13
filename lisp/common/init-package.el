@@ -124,14 +124,14 @@
   :diminish
   :hook (prog-mode . highlight-parentheses-mode))
 ;; 变量高亮
-;; (use-package rainbow-identifiers
-;;   :hook (prog-mode . rainbow-identifiers-mode))
+(use-package rainbow-identifiers
+  :hook (prog-mode . rainbow-identifiers-mode))
 
 ;; Program Useful text/config files
 (use-package json-mode)
 (use-package markdown-mode)
 (use-package protobuf-mode)
-(use-package yaml-mode)
+;;(use-package yaml-mode)
 
 ;; 测试启动时间
 ;; (use-package esup
