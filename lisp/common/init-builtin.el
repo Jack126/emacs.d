@@ -8,9 +8,9 @@
 (setq use-short-answers t)
 
 ;; make tab-width always 4
-(setq-default tab-width 4)
 ;; only use spaces instead of TAB, use C-q TAB to input the TAB char
-(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4
+              indent-tabs-mode nil)
 
 ;; auto-fill-mode, Help by command or variable name
 (add-hook 'after-init-hook 'auto-fill-mode)
@@ -32,7 +32,10 @@
 ;; `fido-mode' is provided by icomplete.el
 (add-hook 'after-init-hook 'fido-vertical-mode)
 ;; customized
-(setq completions-detailed t
+(setq read-buffer-completion-ignore-case t
+      read-file-name-completion-ignore-case t
+      completion-ignore-case t
+      completions-detailed t
       completions-format 'one-column)
 
 ;; Flyspell
@@ -40,12 +43,23 @@
 ;; for example, "pacman -S aspell" on archlinux
 ;; and "pacman -S pacman -S mingw64/mingw-w64-x86_64-aspell{,-en}" on msys2 (Windows)
 ;; for performance issue, do NOT use on Windows
-(use-package flyspell
-  :defer 1
-  :hook ((text-mode org-mode) . flyspell-mode))
+;; (use-package flyspell
+;;   :defer 1
+;;   :hook ((text-mode org-mode) . flyspell-mode))
+(add-hook 'text-mode-hook 'flyspell-mode)
+
+;; Follow Mode - Continue reading with parallel buffer
+(add-hook 'after-init-hook 'follow-mode)
+
+;; Highlight Current Line
+(add-hook 'after-init-hook 'global-hl-line-mode)
 
 ;; ibuffer
 (defalias 'list-buffers 'ibuffer)
+
+;; iSearch
+(setq isearch-allow-motion t
+      isearch-lazy-count t)
 
 ;; minibuffer
 (add-hook 'after-init-hook 'minibuffer-electric-default-mode)
@@ -56,17 +70,13 @@
 (setq mode-line-compact t)
 
 ;; Org Mode
-(use-package org
-  :defer 1
-  :ensure nil
-  :config
-  (setq org-hide-leading-stars t
-        org-hide-emphasis-markers t
-        org-startup-indented t))
-
-;; Prettify Symbols
-;; `global-prettify-symbols-mode' and `prettify-symbols-mode' are provided by prog-mode.el
-(add-hook 'prog-mode-hook 'prettify-symbols-mode)
+;; (use-package org
+;;   :defer 1
+;;   :ensure nil
+;;   :config
+;;   (setq org-hide-leading-stars t
+;;         org-hide-emphasis-markers t
+;;         org-startup-indented t))
 
 ;; pulse the cursor line
 (dolist (cmd '(recenter-top-bottom other-window))
@@ -83,13 +93,18 @@
                 recentf-max-saved-items 30)
   (add-to-list 'recentf-exclude '("~\/.emacs.d\/elpa\/")))
 
+;; Repeat Mode (builtin from 28)
+(add-hook 'after-init-hook 'repeat-mode)
+
+;; Show Paren Mode
+(setq show-paren-when-point-in-periphery t
+      show-paren-when-point-inside-paren t)
+
 ;; global visual line mode
 (add-hook 'after-init-hook 'global-visual-line-mode)
 
 ;; windmove.el, use shift-<arrow key> to switch buffers
-(use-package windmove
-  :defer 1
-  :init (windmove-default-keybindings))
+;;(add-hook 'after-init-hook 'windmove-default-keybindings)
 
 (provide 'init-builtin)
 

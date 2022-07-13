@@ -14,8 +14,11 @@
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (with-selected-frame frame
-                  (tenon--font-setup))))
-  (tenon--font-setup))
+                  (cabins/font-setup))))
+  (cabins/font-setup))
+
+;; flypy - 小鹤音形输入法
+;;(require 'init-chinese-flypy)
 
 (provide 'init-feature)
 

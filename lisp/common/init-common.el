@@ -25,8 +25,8 @@
 ;; custom setting
 (require 'init-setting)
 
-;; ivy-counsel-swiper
-;;(require 'init-ivy)
+;; youdao
+(require 'init-youdao)
 
 (provide 'init-common)
 ;;; init-common.el ends here

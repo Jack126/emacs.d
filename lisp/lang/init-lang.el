@@ -8,27 +8,34 @@
 ;;; Code:
 
 ;; Common features when programming
+;; **************************************************
 (add-hook 'prog-mode-hook
           (lambda ()
+            (display-line-numbers-mode)
             (electric-layout-mode)
             (electric-pair-mode)
             (hs-minor-mode)
-            (display-line-numbers-mode)))
+            (prettify-symbols-mode)))
 
 ;; cc-mode
 (add-hook 'c-mode-common-hook 'c-toggle-auto-hungry-state)
 
 
 ;; Language Server
-(require 'init-eglot) ; eglot
-;; (require 'init-lsp)   ; lsp, enable this line if you like lsp-mode and disable eglot line
+;; **************************************************
+;; `eglot', a light-weight LSP client
+(require 'init-eglot)
+;; `lsp-mode', a full-feature LSP client
+;; (require 'init-lsp)
+
 
 ;; Specific Languages
 (require 'init-lang-go)
 (require 'init-lang-python)
-(require 'init-lang-rust)
+;;(require 'init-lang-rust)
 (require 'init-lang-web)
 (require 'init-lang-php)
+(require 'init-lang-lua)
 
 (provide 'init-lang)
 
