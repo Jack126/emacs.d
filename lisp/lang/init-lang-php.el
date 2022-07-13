@@ -13,11 +13,11 @@
          company-phpactor
          company-files
          ))))))
-(add-hook 'php-mode-hook
-          (lambda ()
-            (make-local-variable 'eldoc-documentation-function)
-            (setq eldoc-documentation-function
-                  'phpactor-hover)))
+;; (add-hook 'php-mode-hook
+;;           (lambda ()
+;;             (make-local-variable 'eldoc-documentation-function)
+;;             (setq eldoc-documentation-function
+;;                   'phpactor-hover)))
 (with-eval-after-load 'php-mode
   (define-key php-mode-map (kbd "M-.") #'phpactor-goto-definition)
   (define-key php-mode-map (kbd "M-?") #'phpactor-find-references))

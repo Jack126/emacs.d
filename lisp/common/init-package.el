@@ -115,10 +115,10 @@
   :mode (("\\.http\\'" . restclient-mode)))
 
 
-;; 括号高亮
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
+;; 括号高亮
 (use-package highlight-parentheses
   :defer 1
   :diminish
