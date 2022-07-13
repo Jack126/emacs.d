@@ -139,6 +139,11 @@
 ;;   ;; To use MELPA Stable use ":pin melpa-stable",
 ;;   :pin melpa)
 
+;; youdao
+(use-package youdao-dictionary
+:defer 1
+)
+
 (provide 'init-package)
 
 ;; Local Variables:

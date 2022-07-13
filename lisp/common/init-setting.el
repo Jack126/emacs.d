@@ -49,4 +49,12 @@ occurence of CHAR."
 (global-set-key (kbd "C-c f")  'format-all-buffer)
 (global-set-key (kbd "C-c C-j")  'imenu)
 
+
+
+;; youdao dictionary
+(defconst *youdao-dictionary-key* "C-c y")
+
+;; Translation result display scheme, optional postframe, tootip, popup-tip
+(defconst *youdao-dictionary-result-display-scheme* 'postframe)
+
 (provide 'init-setting)

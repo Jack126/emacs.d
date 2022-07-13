@@ -25,6 +25,8 @@
 ;; custom setting
 (require 'init-setting)
 
+;; youdao
+(require 'init-youdao)
 
 (provide 'init-common)
 ;;; init-common.el ends here
