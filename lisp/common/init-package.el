@@ -127,8 +127,7 @@
   :hook (prog-mode . highlight-parentheses-mode))
 ;; 变量高亮
 (use-package rainbow-identifiers
-  :hook (prog-mode . rainbow-identifiers-mode))
-
+  :hook ((prog-mode emacs-lisp-mode) . rainbow-identifiers-mode))
 ;; Program Useful text/config files
 (use-package json-mode)
 (use-package markdown-mode)
