@@ -106,6 +106,10 @@
 ;; windmove.el, use shift-<arrow key> to switch buffers
 ;;(add-hook 'after-init-hook 'windmove-default-keybindings)
 
+
+;; auto-highlight-symbol
+(add-hook 'after-init-hook 'global-auto-highlight-symbol-mode)
+
 (provide 'init-builtin)
 
 ;;; init-builtin.el ends here

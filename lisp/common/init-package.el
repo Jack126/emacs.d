@@ -143,8 +143,12 @@
 
 ;; youdao
 (use-package youdao-dictionary
-:defer 1
-)
+:defer 1)
+
+;; auto-highlight-symbol
+(use-package auto-highlight-symbol
+:defer 1)
+
 
 (provide 'init-package)
 
