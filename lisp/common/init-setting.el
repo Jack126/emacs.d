@@ -58,9 +58,4 @@ occurence of CHAR."
 (defconst *youdao-dictionary-result-display-scheme* 'postframe)
 
 
-(global-set-key (kbd "C-<backspace>") (lambda ()
-                                        (interactive)
-                                        (kill-line 0)
-                                        (indent-according-to-mode)))
-
 (provide 'init-setting)
