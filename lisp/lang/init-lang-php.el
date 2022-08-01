@@ -8,7 +8,8 @@
 (defvar php-executable "/usr/local/opt/php@7.4/bin/php")
 
 (use-package php-mode
-  :hook ((php-mode . (lambda () (set (make-local-variable 'company-backends)
+  :hook ((php-mode . (lambda () (
+        ;;set (make-local-variable 'company-backends)
        '(;; list of backends
          company-phpactor
          company-files
