@@ -22,8 +22,10 @@
     :defer 1
 )
 (winum-mode)
-
-
+;; set neotree the number 0
+(defun winum-assign-0-to-neotree ()
+  (when (string-match-p (buffer-name) ".*\\*NeoTree\\*.*") 10))
+(add-to-list 'winum-assign-functions #'winum-assign-0-to-neotree)
 (provide 'init-winum)
 ;;; init-fn.el ends here
 ;; Local Variables:
