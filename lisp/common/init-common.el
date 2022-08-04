@@ -28,6 +28,8 @@
 ;; youdao
 (require 'init-youdao)
 
+;; windows number
+(require 'init-winum)
 (provide 'init-common)
 ;;; init-common.el ends here
 ;; Local Variables:
