@@ -30,6 +30,10 @@
 
 ;; windows number
 (require 'init-winum)
+
+;; calendar
+(require 'init-calendar)
+
 (provide 'init-common)
 ;;; init-common.el ends here
 ;; Local Variables:

@@ -48,9 +48,17 @@ occurence of CHAR."
 (global-set-key (kbd "C-c d") 'copy-line) ;; duplicate-line ;; (M-y) 粘贴
 (global-set-key (kbd "C-c f")  'format-all-buffer)
 (global-set-key (kbd "C-c C-j")  'imenu)
-
-
-
+(global-set-key [f1] 'manual-entry)
+(global-set-key [C-f1] 'info )
+(global-set-key [f9] 'list-bookmarks)
+(global-set-key [f12] 'calendar)
+(global-set-key [home] 'beginning-of-buffer)
+(global-set-key [end] 'end-of-buffer)
+;;设置home键指向buffer开头，end键指向buffer结尾
+(setq track-eol t)
+;; 当光标在行尾上下移动的时候，始终保持在行尾。
+(global-set-key (kbd "M-g") 'goto-line)
+;;设置M-g为goto-line
 ;; youdao dictionary
 (defconst *youdao-dictionary-key* "C-c y")
 
