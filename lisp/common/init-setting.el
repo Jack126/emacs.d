@@ -55,16 +55,13 @@ occurence of CHAR."
 (global-set-key [home] 'beginning-of-buffer)
 (global-set-key [end] 'end-of-buffer)
 ;;设置home键指向buffer开头，end键指向buffer结尾
-(setq track-eol t)
+
 ;; 当光标在行尾上下移动的时候，始终保持在行尾。
-(global-set-key (kbd "M-g") 'goto-line)
-;;设置M-g为goto-line
 ;; youdao dictionary
 (defconst *youdao-dictionary-key* "C-c y")
-
 ;; Translation result display scheme, optional postframe, tootip, popup-tip
 (defconst *youdao-dictionary-result-display-scheme* 'postframe)
-
+;; 切换php-mode web-mode
 (defun toggle-php-flavor-mode ()
   (interactive)
   "Toggle mode between PHP & Web-Mode Helper modes"

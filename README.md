@@ -86,7 +86,7 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 21. M-, 跳回
 22. M-q 查找替换
 23. M-o 窗口切换
-24. M-g g 跳行
+24. M-g 跳行
 25. C-S SPC mark-set (C-SPC 替代品, S - Shift)
 26. C-l 重新绘制屏幕画面，当前行放在画面中心处
 27. C-x C-t 交换两行的位置(下交换上)
@@ -94,3 +94,8 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 29. M-l 与M-u 相反使从光标位置到单词结尾处的字母变成小写
 30. M-c 使从光标位置开始的单词的首字母变为大写 (M-l)
 31. f5 php-mode和web-mode之间快速切换
+32. f12 calendar 打开日历 （q 退出）
+33. f9 list bookmarks
+34. home beginning-of-buffer
+35. end end-of-buffer
+36. C-c y 单词翻译

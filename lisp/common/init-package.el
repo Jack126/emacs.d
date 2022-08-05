@@ -5,7 +5,6 @@
 
 ;;; Code:
 
-
 (use-package company
   :hook (prog-mode . company-mode)
   :config (setq company-minimum-prefix-length 1
