@@ -88,3 +88,9 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 23. M-o 窗口切换
 24. M-g g 跳行
 25. C-S SPC mark-set (C-SPC 替代品, S - Shift)
+26. C-l 重新绘制屏幕画面，当前行放在画面中心处
+27. C-x C-t 交换两行的位置(下交换上)
+28. M-u 使从光标位置到单词结尾处的字母变成大写
+29. M-l 与M-u 相反使从光标位置到单词结尾处的字母变成小写
+30. M-c 使从光标位置开始的单词的首字母变为大写 (M-l)
+31. f5 php-mode和web-mode之间快速切换

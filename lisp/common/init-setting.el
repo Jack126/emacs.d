@@ -57,5 +57,13 @@ occurence of CHAR."
 ;; Translation result display scheme, optional postframe, tootip, popup-tip
 (defconst *youdao-dictionary-result-display-scheme* 'postframe)
 
+(defun toggle-php-flavor-mode ()
+  (interactive)
+  "Toggle mode between PHP & Web-Mode Helper modes"
+  (cond ((string= mode-name "PHP")
+         (web-mode))
+        ((string= mode-name "Web")
+         (php-mode))))
 
+(global-set-key [f5] 'toggle-php-flavor-mode)
 (provide 'init-setting)

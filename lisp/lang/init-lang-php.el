@@ -7,36 +7,27 @@
 ;; A method , use-package
 (defvar php-executable "/usr/local/opt/php@7.4/bin/php")
 
+;; Enable auto-complete-mode
+(auto-complete-mode t)
+(use-package ac-php)
 (use-package php-mode
-  :hook ((php-mode . (lambda () (set (make-local-variable 'company-backends)
-       '(;; list of backends
-         company-phpactor
-         company-files
-         ))))))
-
+  :hook (php-mode
+          . (lambda ()
+             (setq ac-sources '(ac-source-php))
+             ;; As an example (optional)
+             (yas-global-mode 1)
+             ;; Enable ElDoc support (optional)
+             (ac-php-core-eldoc-setup)
+             )))
 (with-eval-after-load 'php-mode
-  (define-key php-mode-map (kbd "M-.") #'phpactor-goto-definition)
-  (define-key php-mode-map (kbd "M-?") #'phpactor-find-references))
-;; B method , git clone https://github.com/emacs-php/php-mode
+  (define-key php-mode-map (kbd "M-]") #'ac-php-find-symbol-at-point)
+  (define-key php-mode-map (kbd "M-[") #'ac-php-location-stack-back))
+(defun bs-php-mode-hook ()
+  (setq indent-tabs-mode nil)
+  (setq php-template-compatibility nil)
+  (setq c-basic-offset 2))
 
-;; (when (file-directory-p "~/.emacs.d/modules/php-mode/lisp/")
-;;   (load "~/.emacs.d/modules/php-mode/lisp/php-mode-autoloads.el"))
-(defun electric-pair ()
-      "If at end of line, insert character pair without surrounding spaces.
-    Otherwise, just insert the typed character."
-      (interactive)
-      (if (eolp) (let (parens-require-spaces) (insert-pair)) (self-insert-command 1)))
-(add-hook 'php-mode-hook
-              (lambda ()
-                (define-key php-mode-map "\"" 'electric-pair)
-                (define-key php-mode-map "\'" 'electric-pair)
-                (define-key php-mode-map "(" 'electric-pair)
-                (define-key php-mode-map "[" 'electric-pair)
-                (define-key php-mode-map "{" 'electric-pair)))
-
-;; phpactor
-(use-package phpactor :ensure t)
-(use-package company-phpactor :ensure t)
+(add-hook 'php-mode-hook 'bs-php-mode-hook)
 (provide 'init-lang-php)
 
 ;; Local Variables:

@@ -21,6 +21,15 @@
 
 (use-package typescript-mode)
 
+
+(defun bs-web-mode-hook ()
+  (local-set-key '[backtab] 'indent-relative)
+  (setq indent-tabs-mode nil)
+  (setq web-mode-markup-indent-offset 2
+        web-mode-css-indent-offset 2
+        web-mode-code-indent-offset 2))
+
+(add-hook 'web-mode-hook 'bs-web-mode-hook)
 (provide 'init-lang-web)
 
 ;;; init-lang-web.el ends here
