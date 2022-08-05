@@ -19,9 +19,6 @@
              ;; Enable ElDoc support (optional)
              (ac-php-core-eldoc-setup)
              )))
-(with-eval-after-load 'php-mode
-  (define-key php-mode-map (kbd "M-]") #'ac-php-find-symbol-at-point)
-  (define-key php-mode-map (kbd "M-[") #'ac-php-location-stack-back))
 (defun bs-php-mode-hook ()
   (setq indent-tabs-mode nil)
   (setq php-template-compatibility nil)
