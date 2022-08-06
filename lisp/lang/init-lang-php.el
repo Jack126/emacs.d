@@ -5,6 +5,7 @@
 
 (defvar php-executable "/usr/local/opt/php@7.4/bin/php")
 ;; Enable auto-complete-mode
+(use-package auto-complete)
 (auto-complete-mode t)
 (use-package ac-php)
 (use-package php-mode
