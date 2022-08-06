@@ -3,10 +3,7 @@
 ;; Thanks to Eglot, we just need to install the `php-mode'.
 ;;; Code:
 
-;; php
-;; A method , use-package
 (defvar php-executable "/usr/local/opt/php@7.4/bin/php")
-
 ;; Enable auto-complete-mode
 (auto-complete-mode t)
 (use-package ac-php)
@@ -25,6 +22,7 @@
   (setq c-basic-offset 2))
 
 (add-hook 'php-mode-hook 'bs-php-mode-hook)
+
 (provide 'init-lang-php)
 
 ;; Local Variables:
