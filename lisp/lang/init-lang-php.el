@@ -18,9 +18,7 @@
              (ac-php-core-eldoc-setup)
              )))
 (defun bs-php-mode-hook ()
-  (setq indent-tabs-mode nil)
-  (setq php-template-compatibility nil)
-  (setq c-basic-offset 2))
+  (setq php-template-compatibility nil))
 
 (add-hook 'php-mode-hook 'bs-php-mode-hook)
 
