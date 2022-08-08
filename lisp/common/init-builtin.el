@@ -69,15 +69,6 @@
 (add-hook 'after-init-hook 'column-number-mode)
 (setq mode-line-compact t)
 
-;; Org Mode
-;; (use-package org
-;;   :defer 1
-;;   :ensure nil
-;;   :config
-;;   (setq org-hide-leading-stars t
-;;         org-hide-emphasis-markers t
-;;         org-startup-indented t))
-
 ;; pulse the cursor line
 (dolist (cmd '(recenter-top-bottom other-window))
   (advice-add cmd :after
@@ -102,10 +93,6 @@
 
 ;; global visual line mode
 (add-hook 'after-init-hook 'global-visual-line-mode)
-
-;; windmove.el, use shift-<arrow key> to switch buffers
-;;(add-hook 'after-init-hook 'windmove-default-keybindings)
-
 
 ;; auto-highlight-symbol
 (add-hook 'after-init-hook 'global-auto-highlight-symbol-mode)
