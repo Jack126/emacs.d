@@ -100,3 +100,4 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 35. end end-of-buffer
 36. C-c y 单词翻译
 37. C-c t 展示 todo list
+38. C-c w 显示天气
