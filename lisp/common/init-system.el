@@ -63,6 +63,13 @@
   (project-find-regexp "TODO")
 )
 (global-set-key (kbd "C-c t") 'show-todo-list)
+
+;; weather
+(defun tianqi ()
+  "天气预报 based on https://github.com/chubin/wttr.in"
+  (interactive)
+  (eww "zh-cn.wttr.in/qingdao?TAFm"))
+(global-set-key (kbd "C-c w") 'tianqi)
 (provide 'init-system)
 ;;; init-system.el ends here
 ;; Local Variables:
