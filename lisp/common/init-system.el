@@ -43,7 +43,7 @@
 (setq display-line-numbers-type `relative)
 ;;显示时间、星期、日期
 (display-time-mode 1) ;; 常显
-(setq display-time-day-and-date t) 
+(setq display-time-day-and-date t)
 ;; 使用 X 剪贴板
 (setq x-select-enable-clipboard t)
 
@@ -53,6 +53,14 @@
     (font-lock-add-keywords
         nil '(("\\<\\(FIXME\\|DEBUG\\|TODO\\):"
             1 font-lock-warning-face prepend)))))
+
+;; show todo list
+(defun show-todo-list()
+"show todo list"
+  (interactive)
+  (project-find-regexp "TODO")
+)
+(global-set-key (kbd "C-c t") 'show-todo-list)
 (provide 'init-system)
 ;;; init-system.el ends here
 ;; Local Variables:
