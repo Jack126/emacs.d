@@ -47,6 +47,12 @@
 ;; 使用 X 剪贴板
 (setq x-select-enable-clipboard t)
 
+;; todo关键词 上色
+(add-hook 'prog-mode-hook
+    (lambda ()
+    (font-lock-add-keywords
+        nil '(("\\<\\(FIXME\\|DEBUG\\|TODO\\):"
+            1 font-lock-warning-face prepend)))))
 (provide 'init-system)
 ;;; init-system.el ends here
 ;; Local Variables:
