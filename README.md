@@ -60,7 +60,7 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 
 1. C-c f 格式化代码
 2. C-x p f 项目中文件查找
-3. C-x p g 项目中关键字查找
+3. C-x p g 项目中关键字查找(可配合关键词TODO，DEBUG简单使用todo功能)
 4. C-x p p 项目切换
 5. C-c d 拷贝当前行 （搭配 M-y 粘贴 使用，贼好用）
 6. C-c r 查看最近打开文件
