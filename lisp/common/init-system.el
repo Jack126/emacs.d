@@ -47,6 +47,8 @@
 ;; 使用 X 剪贴板
 (setq x-select-enable-clipboard t)
 
+;; 关闭提示音
+(setq visible-bell t)
 ;; todo关键词 上色
 (add-hook 'prog-mode-hook
     (lambda ()
