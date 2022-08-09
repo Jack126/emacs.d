@@ -68,7 +68,7 @@
 (defun tianqi ()
   "天气预报 based on https://github.com/chubin/wttr.in"
   (interactive)
-  (eww "zh-cn.wttr.in/qingdao?TAFm"))
+  (eww "zh-cn.wttr.in/qingdao?TAFm")) ;;qingdao,laoshan?TAFm 带区县也是可以
 (global-set-key (kbd "C-c w") 'tianqi)
 (provide 'init-system)
 ;;; init-system.el ends here
