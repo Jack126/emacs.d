@@ -19,9 +19,6 @@
 ;; all the third-part packages configed here
 (require 'init-package)
 
-;; theme
-(require 'init-theme)
-
 ;; custom setting
 (require 'init-setting)
 
