@@ -16,20 +16,20 @@
 ;; change default Emacs settings with built-in packages
 (require 'init-builtin)
 
-;; all the third-part packages configed here
-(require 'init-package)
-
-;; custom setting
-(require 'init-setting)
-
 ;; youdao
-(require 'init-youdao)
+;;(require 'init-youdao)
 
 ;; windows number
 (require 'init-winum)
 
 ;; calendar
 (require 'init-calendar)
+
+;; all the third-part packages configed here
+(require 'init-package)
+
+;; custom setting
+(require 'init-setting)
 
 (provide 'init-common)
 ;;; init-common.el ends here

@@ -19,8 +19,7 @@
       map))
 
 (use-package winum
-    :defer 1
-)
+  :defer 1)
 (winum-mode)
 ;; set neotree the number 0
 (defun winum-assign-0-to-neotree ()

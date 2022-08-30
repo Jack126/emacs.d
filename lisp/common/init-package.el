@@ -32,16 +32,19 @@
 ;; format all, formatter for almost languages
 ;; great for programmers
 (use-package format-all
+  :defer 1
   :diminish
   :hook (prog-mode . format-all-ensure-formatter)
   :bind ("C-c f" . #'format-all-buffer))
 
 ;; gnu-elpa-keyring-update
 (use-package gnu-elpa-keyring-update
+  :defer 1
   :defer 1)
 
 ;; iedit - edit same text in one buffer or region
-(use-package iedit)
+(use-package iedit
+  :defer 1)
 
 ;; info-colors, make the info manual as colorful
 (use-package info-colors
@@ -49,10 +52,12 @@
 
 ;; move-dup, move/copy line or region
 (use-package move-dup
+  :defer 1
   :hook (after-init . global-move-dup-mode))
 
 ;; neotree, file tree manager
 (use-package neotree
+  :defer 1
   :commands (neo-buffer--lock-width neo-buffer--unlock-width)
   :config (setq neo-autorefresh t
 		        neo-theme 'nerd
@@ -69,10 +74,12 @@
 
 ;; popwin
 (use-package popwin
+  :defer 1
   :hook (after-init . popwin-mode))
 
 ;; Settings for which-key - suggest next key
 (use-package which-key
+  :defer 1
   :diminish
   :hook (after-init . which-key-mode))
 
@@ -85,7 +92,9 @@
   :bind ("C-o" . yas-expand))
 (add-to-list 'load-path
               "~/.emacs.d/snippets")
-(use-package yasnippet-snippets :diminish)
+(use-package yasnippet-snippets 
+  :defer 1
+  :diminish)
 
 ;; auto-save
 (add-to-list 'load-path "~/.emacs.d/modules/auto-save/") ; add auto-save to your load-path
@@ -101,37 +110,16 @@
       "gpg"
       (file-name-extension (buffer-name)) t))))
 
-;; Flymake
-(use-package flymake
-  :defer 1
-  :hook (prog-mode . flymake-mode)
-  :config
-  (global-set-key (kbd "M-n") #'flymake-goto-next-error)
-  (global-set-key (kbd "M-p") #'flymake-goto-prev-error))
-
-
-;; Useful Tools
-(use-package quickrun)                  ; quickrun code
-(use-package restclient                 ; restclient support
-  :mode (("\\.http\\'" . restclient-mode)))
-
-
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
 ;; 括号高亮
 (use-package highlight-parentheses
-  :defer 1
   :diminish
   :hook (prog-mode . highlight-parentheses-mode))
 ;; 变量高亮
 (use-package rainbow-identifiers
   :hook ((prog-mode emacs-lisp-mode) . rainbow-identifiers-mode))
-;; Program Useful text/config files
-(use-package json-mode)
-(use-package markdown-mode)
-(use-package protobuf-mode)
-;;(use-package yaml-mode)
 
 ;; 测试启动时间
 ;; (use-package esup
@@ -140,12 +128,32 @@
 ;;   :pin melpa)
 
 ;; youdao
-(use-package youdao-dictionary
-:defer 1)
+(use-package youdao-dictionary)
+;; youdao dictionary
+(defconst *youdao-dictionary-key* "C-c y")
+;; Translation result display scheme, optional postframe, tootip, popup-tip
+(defconst *youdao-dictionary-result-display-scheme* 'postframe)
+(global-set-key
+ (kbd *youdao-dictionary-key*)
+ #'(lambda ()
+    (interactive)
+    (if (display-graphic-p)
+      (cond
+       ((eq *youdao-dictionary-result-display-scheme* 'tooltip)
+	(youdao-dictionary-search-at-point-tooltip))
+       ((eq *youdao-dictionary-result-display-scheme* 'postframe)
+	(youdao-dictionary-search-at-point-posframe))
+       ((eq *youdao-dictionary-result-display-scheme* 'popup-tip)
+	(youdao-dictionary-search-at-point+)))
+      (youdao-dictionary-search-at-point+))))
 
 ;; auto-highlight-symbol
-(use-package auto-highlight-symbol
-:defer 1)
+(use-package auto-highlight-symbol)
+
+;;; winum
+(use-package winum
+  :defer 1)
+(winum-mode)
 
 
 (provide 'init-package)
