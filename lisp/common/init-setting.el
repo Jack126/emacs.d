@@ -38,7 +38,8 @@
 
 ;; 关闭提示音
 (setq visible-bell t)
-
+;; Speedbar
+(setq speedbar-show-unknown-files t)
 ;; weather
 (defun tianqi ()
   "天气预报 based on https://github.com/chubin/wttr.in"
