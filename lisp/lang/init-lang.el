@@ -81,7 +81,7 @@
 (use-package quickrun)                  ; quickrun code
 (use-package restclient                 ; restclient support
   :mode (("\\.http\\'" . restclient-mode)))
-  
+
 ;; Specific Languages
 (require 'init-lang-python)
 (require 'init-lang-php)

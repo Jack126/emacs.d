@@ -6,12 +6,11 @@
 (defvar php-executable "/usr/local/opt/php@7.4/bin/php")
 ;; Enable auto-complete-mode
 (use-package auto-complete
-:defer 1)
+ :defer 1)
 (auto-complete-mode t)
-(use-package ac-php
-:defer 1)
+(use-package ac-php)
+
 (use-package php-mode
-  :defer 1
   :hook (php-mode
           . (lambda ()
              (setq ac-sources '(ac-source-php))

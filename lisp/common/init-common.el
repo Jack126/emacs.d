@@ -16,9 +16,6 @@
 ;; change default Emacs settings with built-in packages
 (require 'init-builtin)
 
-;; youdao
-;;(require 'init-youdao)
-
 ;; windows number
 (require 'init-winum)
 
