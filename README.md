@@ -72,7 +72,7 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 12. C-x u 撤销
 13. C-h k 查看按键是否绑定（快捷键冲突检测用）
 14. C-s , C-r 查找（前后），查找下一个 继续查找按 C-s 或 C-r
-15. F8 neotree 显示隐藏
+15. F8 neotree 显示隐藏 (可屏蔽neotree，使用speedbar)
 16. 多行注释：
     1. 选中一段区域到最后一行行首（！很重要！）；
     2. 按 C-x r t ；
