@@ -147,6 +147,6 @@ occurence of CHAR."
 (global-set-key (kbd "C-c a") 'wy-go-to-char) ;;go-to-char 
 (global-set-key (kbd "C-c z") 'show-file-name) ;; 展示本文件物理地址
 (global-set-key (kbd "C-c w") 'tianqi) ;;查看天气
-
+;;(global-set-key (kbd "<f8>") #'speedbar)
 
 (provide 'init-setting)
