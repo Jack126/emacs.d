@@ -39,7 +39,6 @@
 
 ;; gnu-elpa-keyring-update
 (use-package gnu-elpa-keyring-update
-  :defer 1
   :defer 1)
 
 ;; iedit - edit same text in one buffer or region
@@ -47,8 +46,8 @@
   :defer 1)
 
 ;; info-colors, make the info manual as colorful
-(use-package info-colors
-  :hook (Info-selection . info-colors-fontify-node))
+;; (use-package info-colors
+;;   :hook (Info-selection . info-colors-fontify-node))
 
 ;; move-dup, move/copy line or region
 (use-package move-dup
@@ -117,6 +116,11 @@
 (use-package highlight-parentheses
   :diminish
   :hook (prog-mode . highlight-parentheses-mode))
+(define-globalized-minor-mode global-highlight-parentheses-mode
+  highlight-parentheses-mode
+  (lambda ()
+    (highlight-parentheses-mode t)))
+(global-highlight-parentheses-mode t)
 ;; 变量高亮
 (use-package rainbow-identifiers
   :hook ((prog-mode emacs-lisp-mode) . rainbow-identifiers-mode))
@@ -155,6 +159,31 @@
   :defer 1)
 (winum-mode)
 
+;; Org Mode
+(use-package org
+  :ensure nil
+  :config
+  (setq org-hide-leading-stars t
+        org-hide-emphasis-markers t
+        org-startup-indented t
+        org-latex-listings 'minted
+        ;; use tectonic to export pdf
+        org-latex-pdf-process '("tectonic -Z shell-escape %f"))
+  ;; solve CJK issue when export to pdf
+  (add-to-list 'org-latex-packages-alist '("" "ctex"))
+  ;; highlight code block
+  (add-to-list 'org-latex-packages-alist '("" "minted"))
+  ;; long word wrap when export to pdf
+  (add-to-list 'org-latex-packages-alist '("" "seqsplit")))
+
+;; Recentf
+(use-package recentf
+  :hook (after-init . recentf-mode)
+  :bind (("C-c r" . #'recentf-open-files))
+  :config
+  (setq-default recentf-max-menu-items 30
+                recentf-max-saved-items 30)
+  (add-to-list 'recentf-exclude '("~\/.emacs.d\/elpa\/")))
 
 (provide 'init-package)
 

@@ -13,9 +13,6 @@
 ;; settings for Melpa/Elpa/GNU repos for Emacs package manager
 (require 'init-elpa)
 
-;; change default Emacs settings with built-in packages
-(require 'init-builtin)
-
 ;; windows number
 (require 'init-winum)
 
@@ -24,6 +21,9 @@
 
 ;; all the third-part packages configed here
 (require 'init-package)
+
+;; change default Emacs settings with built-in packages
+(require 'init-builtin)
 
 ;; custom setting
 (require 'init-setting)

@@ -69,38 +69,10 @@
 (add-hook 'after-init-hook 'column-number-mode)
 (setq mode-line-compact t)
 
-;; Org Mode
-(use-package org
-  :ensure nil
-  :config
-  (setq org-hide-leading-stars t
-        org-hide-emphasis-markers t
-        org-startup-indented t
-        org-latex-listings 'minted
-        ;; use tectonic to export pdf
-        org-latex-pdf-process '("tectonic -Z shell-escape %f"))
-  ;; solve CJK issue when export to pdf
-  (add-to-list 'org-latex-packages-alist '("" "ctex"))
-  ;; highlight code block
-  (add-to-list 'org-latex-packages-alist '("" "minted"))
-  ;; long word wrap when export to pdf
-  (add-to-list 'org-latex-packages-alist '("" "seqsplit")))
-
-
 ;; pulse the cursor line
 (dolist (cmd '(recenter-top-bottom other-window))
   (advice-add cmd :after
               (lambda (&rest _) (pulse-momentary-highlight-one-line (point)))))
-
-
-;; Recentf
-(use-package recentf
-  :hook (after-init . recentf-mode)
-  :bind (("C-c r" . #'recentf-open-files))
-  :config
-  (setq-default recentf-max-menu-items 30
-                recentf-max-saved-items 30)
-  (add-to-list 'recentf-exclude '("~\/.emacs.d\/elpa\/")))
 
 ;; Repeat Mode (builtin from 28)
 (add-hook 'after-init-hook 'repeat-mode)
