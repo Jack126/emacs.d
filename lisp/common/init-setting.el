@@ -96,25 +96,6 @@ when it inserts comment at the end of the line."
   (message (buffer-file-name))
   (kill-new (file-truename buffer-file-name))
 )
-;;winum
-(setq winum-keymap
-    (let ((map (make-sparse-keymap)))
-      (define-key map (kbd "C-`") 'winum-select-window-by-number)
-      (define-key map (kbd "C-²") 'winum-select-window-by-number)
-      (define-key map (kbd "M-0") 'winum-select-window-0-or-10)
-      (define-key map (kbd "M-1") 'winum-select-window-1)
-      (define-key map (kbd "M-2") 'winum-select-window-2)
-      (define-key map (kbd "M-3") 'winum-select-window-3)
-      (define-key map (kbd "M-4") 'winum-select-window-4)
-      (define-key map (kbd "M-5") 'winum-select-window-5)
-      (define-key map (kbd "M-6") 'winum-select-window-6)
-      (define-key map (kbd "M-7") 'winum-select-window-7)
-      (define-key map (kbd "M-8") 'winum-select-window-8)
-      map))
-;; set neotree the number 0
-(defun winum-assign-0-to-neotree ()
-  (when (string-match-p (buffer-name) ".*\\*NeoTree\\*.*") 10))
-(add-to-list 'winum-assign-functions #'winum-assign-0-to-neotree)
 
 (global-set-key (kbd "M-;") 'qiang-comment-dwim-line) 
 (global-set-key (kbd "M-q") 'query-replace)
@@ -138,4 +119,5 @@ when it inserts comment at the end of the line."
 ;;(global-set-key (kbd "<f8>") #'speedbar)
 (global-set-key (kbd "C-c o") 'crux-smart-open-line) ;;当前行下插入一行
 (global-set-key (kbd "C-a") 'crux-move-beginning-of-line) ;; 替代默认C-a，回到行首
+
 (provide 'init-setting)
