@@ -118,10 +118,10 @@ eg.from datetime import datetime."
 
 ;; php
 (use-package company-php)
-(add-hook 'php-mode-hook  ;;for-php-mode
-          '(lambda ()
+(add-hook 'php-mode-hook
+          (lambda ()
              (company-mode t)  
-             (ac-php-core-eldoc-setup) ;; enable eldoc
+             (ac-php-core-eldoc-setup)
              (make-local-variable 'company-backends)  
              (add-to-list 'company-backends 'company-ac-php-backend) 
 ))
