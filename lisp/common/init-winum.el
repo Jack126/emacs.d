@@ -1,6 +1,5 @@
 ;;; init-fn.el --- customized functions -*- lexical-binding: t -*-
 ;;; Commentary:
-;; (c) Cabins Kong, 2022-
 
 ;;; Code:
 (setq winum-keymap

@@ -1,9 +1,5 @@
 ;;; init-lang.el --- configuration for IDE programming -*- lexical-binding: t -*-
 
-;; Author: Cabins
-;; Maintainer: Cabins
-;; Homepage: github.com/cabins
-
 ;;; Commentary:
 ;;; Code:
 
