@@ -69,29 +69,10 @@
 (add-hook 'after-init-hook 'column-number-mode)
 (setq mode-line-compact t)
 
-;; Org Mode
-;; (use-package org
-;;   :defer 1
-;;   :ensure nil
-;;   :config
-;;   (setq org-hide-leading-stars t
-;;         org-hide-emphasis-markers t
-;;         org-startup-indented t))
-
 ;; pulse the cursor line
 (dolist (cmd '(recenter-top-bottom other-window))
   (advice-add cmd :after
               (lambda (&rest _) (pulse-momentary-highlight-one-line (point)))))
-
-;; Recentf
-(use-package recentf
-  :defer 1
-  :hook (after-init . recentf-mode)
-  :bind (("C-c r" . #'recentf-open-files))
-  :config
-  (setq-default recentf-max-menu-items 30
-                recentf-max-saved-items 30)
-  (add-to-list 'recentf-exclude '("~\/.emacs.d\/elpa\/")))
 
 ;; Repeat Mode (builtin from 28)
 (add-hook 'after-init-hook 'repeat-mode)
@@ -103,8 +84,8 @@
 ;; global visual line mode
 (add-hook 'after-init-hook 'global-visual-line-mode)
 
-;; windmove.el, use shift-<arrow key> to switch buffers
-;;(add-hook 'after-init-hook 'windmove-default-keybindings)
+;; auto-highlight-symbol
+(add-hook 'after-init-hook 'global-auto-highlight-symbol-mode)
 
 (provide 'init-builtin)
 

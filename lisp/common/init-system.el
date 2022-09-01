@@ -30,23 +30,6 @@
     (pixel-scroll-precision-mode)
   (pixel-scroll-mode))
 
-;; 显示标题栏文件路径
-(defun show-file-name ()
- "Show the full path file name in the minibuffer."
-  (interactive)
-  (message (buffer-file-name))
-  (kill-new (file-truename buffer-file-name))
-)
-(global-set-key (kbd "C-c z") 'show-file-name)
-
-;; line number
-(setq display-line-numbers-type `relative)
-;;显示时间、星期、日期
-(display-time-mode 1) ;; 常显
-(setq display-time-day-and-date t) 
-;; 使用 X 剪贴板
-(setq x-select-enable-clipboard t)
-
 (provide 'init-system)
 ;;; init-system.el ends here
 ;; Local Variables:

@@ -13,20 +13,20 @@
 ;; settings for Melpa/Elpa/GNU repos for Emacs package manager
 (require 'init-elpa)
 
-;; change default Emacs settings with built-in packages
-(require 'init-builtin)
+;; windows number
+(require 'init-winum)
+
+;; calendar
+(require 'init-calendar)
 
 ;; all the third-part packages configed here
 (require 'init-package)
 
-;; theme
-(require 'init-theme)
+;; change default Emacs settings with built-in packages
+(require 'init-builtin)
 
 ;; custom setting
 (require 'init-setting)
-
-;; youdao
-(require 'init-youdao)
 
 (provide 'init-common)
 ;;; init-common.el ends here

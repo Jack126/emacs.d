@@ -1,8 +1,10 @@
 # -*- mode: snippet -*-
-# name: desc
-# key: desc
+# name: file header
+# key: fh
 # binding: direct-keybinding
 # --
+
+<?php
 
 /**
 * Desc: $0

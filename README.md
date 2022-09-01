@@ -60,7 +60,7 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 
 1. C-c f 格式化代码
 2. C-x p f 项目中文件查找
-3. C-x p g 项目中关键字查找
+3. C-x p g 项目中关键字查找(可配合关键词TODO，DEBUG简单使用todo功能)
 4. C-x p p 项目切换
 5. C-c d 拷贝当前行 （搭配 M-y 粘贴 使用，贼好用）
 6. C-c r 查看最近打开文件
@@ -72,7 +72,7 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 12. C-x u 撤销
 13. C-h k 查看按键是否绑定（快捷键冲突检测用）
 14. C-s , C-r 查找（前后），查找下一个 继续查找按 C-s 或 C-r
-15. F8 neotree 显示隐藏
+15. F8 neotree 显示隐藏 (可屏蔽neotree，使用speedbar)
 16. 多行注释：
     1. 选中一段区域到最后一行行首（！很重要！）；
     2. 按 C-x r t ；
@@ -85,6 +85,21 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 20. M-. 查找方法定义
 21. M-, 跳回
 22. M-q 查找替换
-23. M-o 窗口切换
+23. M-o 窗口切换(M-数字，跳窗口)
 24. M-g g 跳行
 25. C-S SPC mark-set (C-SPC 替代品, S - Shift)
+26. C-l 重新绘制屏幕画面，当前行放在画面中心处
+27. C-x C-t 交换两行的位置(下交换上)
+28. M-u 使从光标位置到单词结尾处的字母变成大写
+29. M-l 与M-u 相反使从光标位置到单词结尾处的字母变成小写
+30. M-c 使从光标位置开始的单词的首字母变为大写 (M-l)
+31. f5 php-mode和web-mode之间快速切换
+32. f12 calendar 打开日历 ,q 退出(init-calendar 详细说明)
+33. f9 list bookmarks
+34. home beginning-of-buffer
+35. end end-of-buffer
+36. C-c y 单词翻译
+37. C-c t 展示 todo list
+38. C-c w 显示天气
+39. C-c o 当前行下插入一行
+40. C-a 回到行首 (C-e 行尾)

@@ -31,12 +31,9 @@
 ;; System default coding
 (set-language-environment 'utf-8)
 (global-hl-line-mode 1)
-;; Load theme early to avoid the blinking
-;; use new modus theme when greater than 28
-;; Comment out these lines, if you use customized themes.
-;; (if (>= emacs-major-version 28)
-;;     (load-theme 'modus-vivendi t)
-;;   (load-theme 'wombat t))
+
+(add-to-list 'custom-theme-load-path "~/.emacs.d/modules/themes/")
+(load-theme 'zenburn t)
 
 ;;; early-init.el ends here
 ;; Local Variables:
