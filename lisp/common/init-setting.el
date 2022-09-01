@@ -76,17 +76,6 @@ when it inserts comment at the end of the line."
   (if (and (not (region-active-p)) (not (looking-at "[ \t]*$")))
       (comment-or-uncomment-region (line-beginning-position) (line-end-position))
     (comment-dwim arg)))
-;;go-to-char 
-(defun wy-go-to-char (n char)
-  "Move forward to Nth occurence of CHAR.
-Typing `wy-go-to-char-key' again will move forwad to the next Nth
-occurence of CHAR."
-  (interactive "p\ncGo to char: ")
-  (search-forward (string char) nil nil n)
-  (while (char-equal (read-char)
-             char)
-    (search-forward (string char) nil nil n))
-  (setq unread-command-events (list last-input-event)))
 
 ;; todo关键词 上色
 (add-hook 'prog-mode-hook
@@ -144,7 +133,6 @@ occurence of CHAR."
 (global-set-key [end] 'end-of-buffer) ;;文件末尾
 (global-set-key [f5] 'toggle-php-flavor-mode) ;;切换php，web模式
 (global-set-key (kbd "C-c t") 'show-todo-list) ;;展示所有todo标签
-(global-set-key (kbd "C-c a") 'wy-go-to-char) ;;go-to-char 
 (global-set-key (kbd "C-c z") 'show-file-name) ;; 展示本文件物理地址
 (global-set-key (kbd "C-c w") 'tianqi) ;;查看天气
 ;;(global-set-key (kbd "<f8>") #'speedbar)
