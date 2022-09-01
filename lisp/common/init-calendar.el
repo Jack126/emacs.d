@@ -12,7 +12,7 @@
 
 ;; 设置 calendar 的显示
 (setq calendar-remove-frame-by-deleting t)
-(setq calendar-week-start-day 1) ; 设置星期一为每周的第一天
+;;(setq calendar-week-start-day 1) ; 设置星期一为每周的第一天
 (setq mark-diary-entries-in-calendar t) ; 标记calendar上有diary的日期
 (setq mark-holidays-in-calendar nil) ; 为了突出有diary的日期，calendar上不标记节日
 (setq view-calendar-holidays-initially nil) ; 打开calendar的时候不显示一堆节日
