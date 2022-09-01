@@ -5,9 +5,9 @@
 (setq calendar-location-name "北京")
 
 ;; 设置阴历显示，在 calendar 上用 pC 显示阴历
-(setq chinese-calendar-celestial-stem
+(setq calendar-chinese-celestial-stem
   ["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"])
-(setq chinese-calendar-terrestrial-branch
+(setq calendar-chinese-terrestrial-branch
   ["子" "丑" "寅" "卯" "辰" "巳" "戊" "未" "申" "酉" "戌" "亥"])
 
 ;; 设置 calendar 的显示
