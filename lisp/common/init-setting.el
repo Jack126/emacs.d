@@ -45,7 +45,7 @@
 (setq kill-ring-max 200)
 
 ;; weather
-(defun tianqi ()
+(defun weather ()
   "天气预报 based on https://github.com/chubin/wttr.in"
   (interactive)
   (eww "zh-cn.wttr.in/qingdao?TAFm")) ;;qingdao,laoshan?TAFm 带区县也是可以
@@ -128,7 +128,7 @@ when it inserts comment at the end of the line."
 (global-set-key [f5] 'toggle-php-flavor-mode) ;;切换php，web模式
 (global-set-key (kbd "C-c t") 'show-todo-list) ;;展示所有todo标签
 (global-set-key (kbd "C-c z") 'show-file-name) ;; 展示本文件物理地址
-(global-set-key (kbd "C-c w") 'tianqi) ;;查看天气
+(global-set-key (kbd "C-c w") 'weather) ;;查看天气
 ;;(global-set-key (kbd "<f8>") #'speedbar)
 (global-set-key (kbd "C-c o") 'crux-smart-open-line) ;;当前行下插入一行
 (global-set-key (kbd "C-a") 'crux-move-beginning-of-line) ;; 替代默认C-a，回到行首
