@@ -40,6 +40,10 @@
 (setq visible-bell t)
 ;; Speedbar
 (setq speedbar-show-unknown-files t)
+
+;;设置粘贴缓冲条目数量.用一个很大的kill ring(最多的记录个数). 这样防止我不小心删掉重要的东西
+(setq kill-ring-max 200)
+
 ;; weather
 (defun tianqi ()
   "天气预报 based on https://github.com/chubin/wttr.in"
