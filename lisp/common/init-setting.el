@@ -108,29 +108,33 @@ when it inserts comment at the end of the line."
   (dired "~/.emacs.d/"))
 
 
-(global-set-key (kbd "M-;") 'qiang-comment-dwim-line)
-(global-set-key (kbd "M-q") 'query-replace)
+(global-set-key (kbd "M-;") 'qiang-comment-dwim-line);; 添加行注释
+(global-set-key (kbd "M-q") 'query-replace);;字符查找替换
 (global-set-key (kbd "M-o") 'other-window) ;; other-window
 (global-set-key (kbd "M-,") 'pop-tag-mark) ;;previous-buffer
+
 (global-set-key (kbd "C-c ,") 'user) ;; user - Date
 (global-set-key (kbd "C-c d") 'copy-line) ;; duplicate-line ;; (M-y) 粘贴
 (global-set-key (kbd "C-c f")  'format-all-buffer) ;;格式化代码（prettier）
 (global-set-key (kbd "C-c C-j")  'imenu) ;;显示本文件 类名，方法
-(global-set-key [f1] 'manual-entry) ;;
-(global-set-key [C-f1] 'info ) ;;
-(global-set-key [f9] 'list-bookmarks) ;;列出所有书签
-(global-set-key [f12] 'calendar) ;;日历（init-calendar 详细说明）
-(global-set-key [f2] 'open-myemacs-dir) ;;打开emacs.d配置 init.el文件
-(global-set-key [f6] 'project-switch-project) ;;打开项目目录
-
-(global-set-key [home] 'beginning-of-buffer) ;;设置home键指向buffer开头，end键指向buffer结尾
-(global-set-key [end] 'end-of-buffer) ;;文件末尾
-(global-set-key [f5] 'toggle-php-flavor-mode) ;;切换php，web模式
 (global-set-key (kbd "C-c t") 'show-todo-list) ;;展示所有todo标签
 (global-set-key (kbd "C-c z") 'show-file-name) ;; 展示本文件物理地址
 (global-set-key (kbd "C-c w") 'weather) ;;查看天气
-;;(global-set-key (kbd "<f8>") #'speedbar)
 (global-set-key (kbd "C-c o") 'crux-smart-open-line) ;;当前行下插入一行
-(global-set-key (kbd "C-a") 'crux-move-beginning-of-line) ;; 替代默认C-a，回到行首
 (global-set-key (kbd "C-c p") 'project-find-file) ;;项目中查找文件
+(global-set-key (kbd "C-c ;") 'crux-duplicate-and-comment-current-line-or-region) ;;复制注释当前行
+
+(global-set-key [f1] 'manual-entry) ;;
+(global-set-key [C-f1] 'info ) ;;
+(global-set-key [f2] 'open-myemacs-dir) ;;打开emacs.d配置 init.el文件
+(global-set-key [f5] 'toggle-php-flavor-mode) ;;切换php，web模式
+(global-set-key [f6] 'project-switch-project) ;;打开项目目录
+;;(global-set-key (kbd "<f8>") #'speedbar)
+(global-set-key [f9] 'list-bookmarks) ;;列出所有书签
+(global-set-key [f12] 'calendar) ;;日历（init-calendar 详细说明）
+
+(global-set-key [home] 'beginning-of-buffer) ;;设置home键指向buffer开头，end键指向buffer结尾
+(global-set-key [end] 'end-of-buffer) ;;文件末尾
+
+(global-set-key (kbd "C-a") 'crux-move-beginning-of-line) ;; 替代默认C-a，回到行首
 (provide 'init-setting)
