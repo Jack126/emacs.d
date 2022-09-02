@@ -103,3 +103,6 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 38. C-c w 显示天气
 39. C-c o 当前行下插入一行
 40. C-a 回到行首 (C-e 行尾)
+41. f2 打开默认emacs.d配置文件目录
+42. f6 打开项目列表
+43. C-c ; 复制一行至当前行下方，注释上一行
