@@ -58,6 +58,7 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 
 ## Speedbar
 #### 函数speedbar-get-focus ：在buffer和speedbar之间切换
+
 ## Base Mode
 1. Q：退出speedbar，并杀死speedbar所在的frame
 2. q：退出speedbar，并隐藏speedbar所在的frame
