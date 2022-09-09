@@ -50,7 +50,7 @@
   (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.html\\.twig\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
   :config
@@ -125,6 +125,10 @@ eg.from datetime import datetime."
              (make-local-variable 'company-backends)  
              (add-to-list 'company-backends 'company-ac-php-backend) 
 ))
+
+
+;;ocaml
+;;(require 'init-lang-ocaml)
 
 (provide 'init-lang)
 

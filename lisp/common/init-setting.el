@@ -40,7 +40,7 @@
 (setq visible-bell t)
 ;; Speedbar
 (setq speedbar-show-unknown-files t)
-
+(setq speedbar-directory-unshown-regexp "^$")
 ;;设置粘贴缓冲条目数量.用一个很大的kill ring(最多的记录个数). 这样防止我不小心删掉重要的东西
 (setq kill-ring-max 200)
 
@@ -129,7 +129,8 @@ when it inserts comment at the end of the line."
 (global-set-key [f2] 'open-myemacs-dir) ;;打开emacs.d配置 init.el文件
 (global-set-key [f5] 'toggle-php-flavor-mode) ;;切换php，web模式
 (global-set-key [f6] 'project-switch-project) ;;打开项目目录
-;;(global-set-key (kbd "<f8>") #'speedbar)
+;;(global-set-key (kbd "<f8>") #'neotree)
+(global-set-key (kbd "<f7>") #'speedbar)
 (global-set-key [f9] 'list-bookmarks) ;;列出所有书签
 (global-set-key [f12] 'calendar) ;;日历（init-calendar 详细说明）
 
