@@ -57,7 +57,8 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 9. C-c C-c 改变根目录。
 
 ## Speedbar
-函数speedbar-get-focus ：在buffer和speedbar之间切换
+#### 函数speedbar-get-focus ：在buffer和speedbar之间切换
+## Base Mode
 1. Q：退出speedbar，并杀死speedbar所在的frame
 2. q：退出speedbar，并隐藏speedbar所在的frame
 3. g：刷新speedbar里显示的内容，比如你在启动speedbar后，在文件夹里又添加了文件，这个文件不会自动显示在当前的speedbar里，按了g后，就会显示出来了。
@@ -72,7 +73,7 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 12. +/=：展开list
 13. -：合上list
 14. 空格：展开/合上
-File Mode
+### File Mode
 15. U：移动到上一级文件夹
 16. I：显示项目的摘要信息，如果项目是文件，就显示文件的权限所属，文件大小等。
 17. B：编译光标所在行的 Emacs Lisp 文件
@@ -81,7 +82,7 @@ File Mode
 20. R：重命名当前光标所在行的文件（也可以改变当前文件的存放路径）
 21. D：删除当前光标所在行的文件
 22. O：删除当前光标所在行的文件（4.c），所对应的4.o文件。
-Buffer Mode
+### Buffer Mode
 23. k：杀死当前光标所在行的buffer
 24. r：重新加载前光标所在行的buffer所对应的文件到buffer
 
