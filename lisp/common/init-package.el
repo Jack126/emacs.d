@@ -67,9 +67,9 @@
 
 ;; org-superstar
 ;; make the org mode more beautiful with optimized leading chars
-(use-package org-superstar
-  :hook (org-mode . org-superstar-mode)
-  :config (setq org-superstar-prettify-item-bullets t))
+;; (use-package org-superstar
+  ;; :hook (org-mode . org-superstar-mode)
+  ;; :config (setq org-superstar-prettify-item-bullets t))
 
 ;; popwin
 (use-package popwin
@@ -91,7 +91,7 @@
   :bind ("C-o" . yas-expand))
 (add-to-list 'load-path
               "~/.emacs.d/snippets")
-(use-package yasnippet-snippets 
+(use-package yasnippet-snippets
   :defer 1
   :diminish)
 

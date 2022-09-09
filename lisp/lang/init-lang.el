@@ -68,7 +68,7 @@
 (add-hook 'web-mode-hook 'bs-web-mode-hook)
 
 
-;;python 
+;;python
 (defun check-run-command (command arg-string)
   "Find the EXEC-FILE and run the BODY."
 
@@ -104,8 +104,8 @@ eg.from datetime import datetime."
    (define-key python-mode-map (kbd "C-c p r") 'python-remove-all-unused-imports)))
 
 ;; Program Useful text/config files
-(use-package json-mode)
-(use-package markdown-mode)
+;;(use-package json-mode)
+;;(use-package markdown-mode)
 (use-package protobuf-mode)
 
 ;; Useful Tools
@@ -120,10 +120,10 @@ eg.from datetime import datetime."
 (use-package company-php)
 (add-hook 'php-mode-hook
           (lambda ()
-             (company-mode t)  
+             (company-mode t)
              (ac-php-core-eldoc-setup)
-             (make-local-variable 'company-backends)  
-             (add-to-list 'company-backends 'company-ac-php-backend) 
+             (make-local-variable 'company-backends)
+             (add-to-list 'company-backends 'company-ac-php-backend)
 ))
 
 
