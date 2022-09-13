@@ -44,6 +44,22 @@
 ;;设置粘贴缓冲条目数量.用一个很大的kill ring(最多的记录个数). 这样防止我不小心删掉重要的东西
 (setq kill-ring-max 200)
 
+;;eww
+(setq
+ browse-url-browser-function 'eww-browse-url ; Use eww as the default browser
+ shr-use-fonts  nil                          ; No special fonts
+ shr-use-colors nil                          ; No colours
+ shr-indentation 2                           ; Left-side margin
+ shr-width 70                                ; Fold text to 70 columns
+ eww-search-prefix "https://wiby.me/?q=")    ; Use another engine for searching
+
+(define-key global-map (kbd  "M-f")
+  (lambda ()
+    (interactive)
+    (forward-word)
+    (forward-word)
+    (backward-word)))
+
 ;; weather
 (defun weather ()
   "天气预报 based on https://github.com/chubin/wttr.in"
