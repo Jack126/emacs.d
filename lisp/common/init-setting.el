@@ -1,3 +1,5 @@
+;;; Commentary:
+
 ;; 切换php-mode web-mode
 (defun toggle-php-flavor-mode ()
   (interactive)
@@ -154,4 +156,8 @@ when it inserts comment at the end of the line."
 (global-set-key [end] 'end-of-buffer) ;;文件末尾
 
 (global-set-key (kbd "C-a") 'crux-move-beginning-of-line) ;; 替代默认C-a，回到行首
+
+(global-set-key (kbd "C-c 9") 'scroll-other-window);;其他window向下翻页
+(global-set-key (kbd "C-c 0") 'scroll-other-window-down);; 向上翻
+
 (provide 'init-setting)

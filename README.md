@@ -155,3 +155,5 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 41. f2 打开默认emacs.d配置文件目录
 42. f6 打开项目列表
 43. C-c ; 复制一行至当前行下方，注释上一行
+44. C-c 9 在当前窗口，下翻滚动另外窗口
+45. C-c 0 在当前窗口，上翻另外窗口
