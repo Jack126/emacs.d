@@ -139,7 +139,7 @@ when it inserts comment at the end of the line."
 (global-set-key (kbd "C-c z") 'show-file-name) ;; 展示本文件物理地址
 (global-set-key (kbd "C-c w") 'weather) ;;查看天气
 (global-set-key (kbd "C-c o") 'crux-smart-open-line) ;;当前行下插入一行
-(global-set-key (kbd "C-c p") 'project-find-file) ;;项目中查找文件
+(global-set-key (kbd "C-c [") 'project-find-file) ;;项目中查找文件
 (global-set-key (kbd "C-c ;") 'crux-duplicate-and-comment-current-line-or-region) ;;复制注释当前行
 
 (global-set-key [f1] 'manual-entry) ;;

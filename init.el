@@ -42,3 +42,4 @@
  ;; Local Variables:
 ;; byte-compile-warnings: (not unresolved obsolete)
 ;; End:
+(put 'upcase-region 'disabled nil)
