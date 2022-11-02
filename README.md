@@ -108,7 +108,7 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 # 常用快捷键
 
 1. C-c f 格式化代码
-2. C-x p f 项目中文件查找
+2. C-x p f (C-c [)项目中文件查找
 3. C-x p g 项目中关键字查找(可配合关键词TODO，DEBUG简单使用todo功能)
 4. C-x p p 项目切换
 5. C-c d 拷贝当前行 （搭配 M-y 粘贴 使用，贼好用）
@@ -120,7 +120,7 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 11. C-x k 关掉当前 buffer
 12. C-x u 撤销
 13. C-h k 查看按键是否绑定（快捷键冲突检测用）
-14. C-s , C-r 查找（前后），查找下一个 继续查找按 C-s 或 C-r
+14. C-s (C-r) 向前(后)查找，查找下一个 继续查找按 C-s 或 C-r
 15. F8 neotree 显示隐藏 (可屏蔽neotree，使用speedbar)
 16. 多行注释：
     1. 选中一段区域到最后一行行首（！很重要！）；
