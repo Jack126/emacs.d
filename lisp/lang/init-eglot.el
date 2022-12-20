@@ -22,6 +22,11 @@
          ("C-c e i" . #'eglot-code-action-organize-imports)
          ("C-c e q" . #'eglot-code-action-quickfix))
   :config
+  (progn
+    (setq eldoc-echo-area-use-multiline-p 3
+          eldoc-echo-area-display-truncation-message nil)
+    (set-face-attribute 'eglot-highlight-symbol-face nil
+                        :background "#b3d7ff"))
   ;; (setq eglot-ignored-server-capabilities '(:documentHighlightProvider))
   (add-to-list 'eglot-server-programs '(web-mode "vls"))
 ;;   (defun eglot-actions-before-save()
