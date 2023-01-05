@@ -34,12 +34,12 @@
 ;; DON'T forget to define and load custom file at last
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (when (file-exists-p custom-file)
-    (load custom-file))
+  (load custom-file))
 
 (provide 'init)
 
 ;;; init.el ends here
- ;; Local Variables:
+;; Local Variables:
 ;; byte-compile-warnings: (not unresolved obsolete)
 ;; End:
 (put 'upcase-region 'disabled nil)
