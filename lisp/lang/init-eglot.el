@@ -29,10 +29,10 @@
                         :background "#b3d7ff"))
   ;; (setq eglot-ignored-server-capabilities '(:documentHighlightProvider))
   (add-to-list 'eglot-server-programs '(web-mode "vls"))
-;;   (defun eglot-actions-before-save()
-;;     (add-hook 'before-save-hook #'eglot-format-buffer))
-;;   (add-hook 'eglot--managed-mode-hook #'eglot-actions-before-save)
-)
+  ;;   (defun eglot-actions-before-save()
+  ;;     (add-hook 'before-save-hook #'eglot-format-buffer))
+  ;;   (add-hook 'eglot--managed-mode-hook #'eglot-actions-before-save)
+  )
 
 (provide 'init-eglot)
 

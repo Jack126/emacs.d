@@ -21,12 +21,6 @@
 (global-set-key (kbd "M-n") #'flymake-goto-next-error)
 (global-set-key (kbd "M-p") #'flymake-goto-prev-error)
 
-;; Language Server
-;; **************************************************
-;; `eglot', a light-weight LSP client
-(require 'init-eglot)
-;; `lsp-mode', a full-feature LSP client
-;; (require 'init-lsp)
 
 ;; Golang
 (use-package go-mode)
@@ -70,7 +64,7 @@
 
 ;;python
 (defun check-run-command (command arg-string)
-  "Find the EXEC-FILE and run the BODY."
+  "FIND the EXEC-FILE and RUN the BODY.  COMMAND ARG-STRING."
 
   (if (not (executable-find command))
       (message "[ERROR]: <%s> not found!" command)
@@ -84,8 +78,8 @@
   "Sort the imports with isort."
   (interactive)
   (check-run-command "isort"
-		     (format "--atomic --profile=black %s"
-			     (buffer-file-name))))
+		             (format "--atomic --profile=black %s"
+			                 (buffer-file-name))))
 
 ;; BE CAREFUL! Maybe bugs here, always call this function manually.
 ;;;###autoload
@@ -94,8 +88,8 @@
 eg.from datetime import datetime."
   (interactive)
   (check-run-command "autoflake"
-		     (format "-i --remove-all-unused-imports %s"
-			     (buffer-file-name))))
+		             (format "-i --remove-all-unused-imports %s"
+			                 (buffer-file-name))))
 
 (add-hook
  'python-mode-hook
@@ -120,15 +114,23 @@ eg.from datetime import datetime."
 (use-package company-php)
 (add-hook 'php-mode-hook
           (lambda ()
-             (company-mode t)
-             (ac-php-core-eldoc-setup)
-             (make-local-variable 'company-backends)
-             (add-to-list 'company-backends 'company-ac-php-backend)
-))
+            (company-mode t)
+            (ac-php-core-eldoc-setup)
+            (make-local-variable 'company-backends)
+            (add-to-list 'company-backends 'company-ac-php-backend)
+            ))
 
 
 ;;ocaml
 ;;(require 'init-lang-ocaml)
+
+;; Language Server
+;; **************************************************
+;; `eglot', a light-weight LSP client
+(require 'init-eglot)
+;; `lsp-mode', a full-feature LSP client
+;; (require 'init-lsp)
+
 
 (provide 'init-lang)
 
