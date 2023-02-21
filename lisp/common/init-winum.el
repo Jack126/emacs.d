@@ -46,8 +46,7 @@
             (set-window-buffer-start-and-point w1 b2 s2 p2)
             (set-window-buffer-start-and-point w2 b1 s1 p1)))))))
 
-(define-key map (kbd "M-]") 'rotate-windows)
-
+(global-set-key (kbd "M-]") 'rotate-windows)
 (provide 'init-winum)
 ;;; init-fn.el ends here
 ;; Local Variables:
