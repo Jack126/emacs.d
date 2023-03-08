@@ -42,6 +42,8 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 
 7. 需安装 ctags（brew install ctags ) , ctags -R -e 可在当前项目下生成 TAGS ，搭配快捷键 M-. , M-, 跳转方法，回跳 （ > , < 去，回。简单不)
 
+8. user-package.info user-package 用法文档说明
+
 # 快捷键
 
 ## NeoTree (窗口有效)
