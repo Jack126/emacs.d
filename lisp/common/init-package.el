@@ -6,7 +6,7 @@
 ;;; Code:
 
 (use-package company
-  :hook (prog-mode . company-mode)
+  :hook (prog-mode company-mode)
   :config (setq company-minimum-prefix-length 1
                 company-show-quick-access t))
 

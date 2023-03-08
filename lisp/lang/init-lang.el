@@ -38,6 +38,7 @@
 (use-package emmet-mode
   :hook ((web-mode css-mode) . emmet-mode))
 
+
 (use-package web-mode
   :init
   ;; use web-mode to handle vue/html files
@@ -73,7 +74,7 @@
     (revert-buffer t t t)))
 
 ;; BE CAREFUL! Maybe bugs here, always call this function manually.
-;;;###autoload
+;; autoload
 (defun python-isort ()
   "Sort the imports with isort."
   (interactive)
@@ -82,7 +83,7 @@
 			                 (buffer-file-name))))
 
 ;; BE CAREFUL! Maybe bugs here, always call this function manually.
-;;;###autoload
+;; autoload
 (defun python-remove-all-unused-imports ()
   "Remove all the unused imports, do NOT use pyimport, as it has bugs.
 eg.from datetime import datetime."
@@ -98,8 +99,6 @@ eg.from datetime import datetime."
    (define-key python-mode-map (kbd "C-c p r") 'python-remove-all-unused-imports)))
 
 ;; Program Useful text/config files
-;;(use-package json-mode)
-;;(use-package markdown-mode)
 (use-package protobuf-mode)
 
 ;; Useful Tools
