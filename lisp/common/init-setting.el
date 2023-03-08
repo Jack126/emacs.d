@@ -31,7 +31,7 @@
 (setq-default initial-scratch-message (my-show-scratch-buffer-message))
 
 ;; line number
-(setq display-line-numbers-type `relative)
+;;(setq display-line-numbers-type `relative)
 ;;显示时间、星期、日期
 (display-time-mode 1) ;; 常显
 (setq display-time-day-and-date t)
