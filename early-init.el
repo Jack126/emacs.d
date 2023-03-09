@@ -34,7 +34,7 @@
 
 ;;(add-to-list 'custom-theme-load-path "~/.emacs.d/modules/themes/")
 ;;(load-theme 'monokai t)
-(load-theme 'tango-dark t)
+(load-theme 'misterioso t)
 ;;; early-init.el ends here
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)

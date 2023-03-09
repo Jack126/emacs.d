@@ -1,4 +1,10 @@
-;;设置我所在地方的经纬度，calendar里有个功能是日月食的预测，和你的经纬度相联系的。
+;;; init-elpa.el --- initialize the elpa repository -*- lexical-binding: t -*-
+;;; Commentary:
+;; (c) Jack126
+
+;; code
+
+;; 设置我所在地方的经纬度，calendar里有个功能是日月食的预测，和你的经纬度相联系的。
 ;; 让emacs能计算日出日落的时间，在 calendar 上用 S 即可看到
 (setq calendar-latitude +36.07)
 (setq calendar-longitude +120.38)

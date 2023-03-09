@@ -4,22 +4,22 @@ forked [cabins](https://github.com/cabins/emacs.d) , 很喜欢作者一句 “�
 
 # Installation
 
-1. Just run the code below:
+- Just run the code below:
 
 ```bash
 git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 ```
 
-2. Launch Emacs.
-3. Enjoy the life.
+- Launch Emacs.
+- Enjoy the life.
 
 # PS
 
 目前 emacs 新手一枚，摸索大佬配置中前进，望诸君共勉!
 
-1. 目前 emacs 版本 28.1 ，系统版本 mac 10.15.7 下正常使用，其他版本下未测
-2. 目前支持终端下使用，gui 模式亦可（该模式下文字大小需调整 lisp/common/init-fn.el 51 行 height）
-3. 需安装字体 Nerd Font
+- 目前 emacs 版本 28.1 ，系统版本 mac 10.15.7 下正常使用，其他版本下未测
+- 目前支持终端下使用，gui 模式亦可（该模式下文字大小需调整 lisp/common/init-fn.el 51 行 height）
+- 需安装字体 Nerd Font
 
 ```
 
@@ -34,15 +34,15 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
     brew install font-hack-nerd-font
 ```
 
-4. 建议使用 iterm2（终端色彩下能好看一点） [iterm2](https://www.iterm2.com/downloads.html)
+- 建议使用 iterm2（终端色彩下能好看一点） [iterm2](https://www.iterm2.com/downloads.html)
 
-5. 使用[auto-save](https://github.com/manateelazycat/auto-save) 自动保存（C-x C-s)可以少按几次了。。
+- 使用[auto-save](https://github.com/manateelazycat/auto-save) 自动保存（C-x C-s)可以少按几次了。。
 
-6. 使用 eglot 需搭配其他开发环境使用，需另搭建（请自行查阅）
+- 使用 eglot 需搭配其他开发环境使用，需另搭建（请自行查阅）
 
-7. 需安装 ctags（brew install ctags ) , ctags -R -e 可在当前项目下生成 TAGS ，搭配快捷键 M-. , M-, 跳转方法，回跳 （ > , < 去，回。简单不)
+- 需安装 ctags（brew install ctags ) , ctags -R -e 可在当前项目下生成 TAGS ，搭配快捷键 M-. , M-, 跳转方法，回跳 （ > , < 去，回。简单不)
 
-8. user-package.info user-package 用法文档说明
+- user-package.info user-package 用法文档说明
 
 # 快捷键
 
@@ -76,7 +76,7 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 12. +/=：展开list
 13. -：合上list
 14. 空格：展开/合上
-### File Mode
+#### File Mode
 15. U：移动到上一级文件夹
 16. I：显示项目的摘要信息，如果项目是文件，就显示文件的权限所属，文件大小等。
 17. B：编译光标所在行的 Emacs Lisp 文件
@@ -85,7 +85,7 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 20. R：重命名当前光标所在行的文件（也可以改变当前文件的存放路径）
 21. D：删除当前光标所在行的文件
 22. O：删除当前光标所在行的文件（4.c），所对应的4.o文件。
-### Buffer Mode
+#### Buffer Mode
 23. k：杀死当前光标所在行的buffer
 24. r：重新加载前光标所在行的buffer所对应的文件到buffer
 
