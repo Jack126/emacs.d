@@ -22,7 +22,6 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 - 需安装字体 Nerd Font
 
 ```
-
     brew cask
 
     brew tap homebrew/cask-fonts
