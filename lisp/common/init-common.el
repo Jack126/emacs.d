@@ -28,6 +28,9 @@
 ;; custom setting
 (require 'init-setting)
 
+;; email mu4e
+;;(require 'init-mu4e)
+
 (provide 'init-common)
 ;;; init-common.el ends here
 ;; Local Variables:

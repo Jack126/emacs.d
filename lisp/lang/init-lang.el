@@ -92,11 +92,10 @@ eg.from datetime import datetime."
 		             (format "-i --remove-all-unused-imports %s"
 			                 (buffer-file-name))))
 
-(add-hook
- 'python-mode-hook
- (lambda ()
-   (define-key python-mode-map (kbd "C-c p s") 'python-isort)
-   (define-key python-mode-map (kbd "C-c p r") 'python-remove-all-unused-imports)))
+(add-hook 'python-mode-hook
+            (lambda ()
+            (define-key python-mode-map (kbd "C-c p s") 'python-isort)
+            (define-key python-mode-map (kbd "C-c p r") 'python-remove-all-unused-imports)))
 
 ;; Program Useful text/config files
 (use-package protobuf-mode)
