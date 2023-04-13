@@ -43,6 +43,52 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 
 - user-package.info user-package 用法文档说明
 
+- 邮件
+
+```
+1. brew install mu offlineimap
+2. 
+file : ~/.offlineimaprc
+[general]
+accounts = 163
+maxsyncaccounts = 3
+pythonfile = ~/workspace/mail/config/offlineimap.py
+# 该配置防止由于网络导致 offlieimap 挂起
+socktimeout = 60
+
+[Account 163]
+localrepository = 163-Local
+remoterepository = 163-Remote
+utf8foldernames = True
+
+[Repository 163-Local]
+type = Maildir
+localfolders = ~/workspace/mail/.mail/163
+
+[Repository 163-Remote]
+type = IMAP
+remotehost = imap.163.com 
+remoteuser = test@163.com
+remotepasseval = secure_string_for("test@163.com") (mac 密码管理器，手动录入)
+ssl = true
+sslcacertfile = /etc/ssl/cert.pem
+maxconnections = 4
+realdelete = yes
+
+file : offlineimap.py
+#!/usr/bin/python
+# python2
+import commands
+def secure_string_for(account):
+    return commands.getoutput(
+        "/usr/bin/security find-generic-password -l %s -gw" % account)
+
+
+3. stmpmail 密码 执行名利：machine smtp.163.com login test@163.com password 密钥
+```
+
+- A股，achive(git clone https://github.com/zakudriver/achive.git ~/.emacs.d/modules/)
+
 # 快捷键
 
 ## NeoTree (窗口有效)
@@ -159,3 +205,5 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 44. C-c 9 在当前窗口，下翻滚动另外窗口
 45. C-c 0 在当前窗口，上翻另外窗口
 46. M-] 窗口调换位置（4个 ，斜角兑换； 3个逆时针调换）
+47. C-x m 发送邮件(开通imap端口)
+48. M-x mu4e 收邮件
