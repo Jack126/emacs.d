@@ -186,6 +186,18 @@
                 recentf-max-saved-items 50)
   (add-to-list 'recentf-exclude '("~\/.emacs.d\/elpa\/")))
 
+
+;; achive
+(use-package achive
+  :load-path "~/.emacs.d/modules/achive"
+  :bind
+  ("C-c a a" . achive)
+  :custom
+  (achive-auto-refresh t)
+  (achive-refresh-seconds 5)
+  (achive-stock-list '("sz002317" "sz000400" "sh600350" "sh600438" "sh600703")))
+
+
 (provide 'init-package)
 
 ;; Local Variables:
