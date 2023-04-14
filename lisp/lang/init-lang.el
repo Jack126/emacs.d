@@ -112,6 +112,7 @@ eg.from datetime import datetime."
 (use-package company-php)
 (add-hook 'php-mode-hook
           (lambda ()
+            (define-key php-mode-map (kbd "C-c p w") 'toggle-php-flavor-mode)
             (company-mode t)
             (ac-php-core-eldoc-setup)
             (make-local-variable 'company-backends)
