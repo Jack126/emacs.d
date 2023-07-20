@@ -38,16 +38,6 @@
       completions-detailed t
       completions-format 'one-column)
 
-;; Flyspell
-;; to use this package, you may install 'aspell' and dict by manual
-;; for example, "pacman -S aspell" on archlinux
-;; and "pacman -S pacman -S mingw64/mingw-w64-x86_64-aspell{,-en}" on msys2 (Windows)
-;; for performance issue, do NOT use on Windows
-;; (use-package flyspell
-;;   :defer 1
-;;   :hook ((text-mode org-mode) . flyspell-mode))
-(add-hook 'text-mode-hook 'flyspell-mode)
-
 ;; Follow Mode - Continue reading with parallel buffer
 (add-hook 'after-init-hook 'follow-mode)
 

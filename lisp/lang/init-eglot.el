@@ -14,7 +14,6 @@
           java-mode
           js-mode
           python-mode
-          rust-mode
           lua-mode
           web-mode) . eglot-ensure)
   :bind (("C-c e f" . #'eglot-format)

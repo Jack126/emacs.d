@@ -66,7 +66,7 @@
 (defun weather ()
   "天气预报 based on https://github.com/chubin/wttr.in"
   (interactive)
-  (eww "zh-cn.wttr.in/qingdao?TAFm")) ;;qingdao,laoshan?TAFm 带区县也是可以
+  (eww "zh-cn.wttr.in/qingdao,laoshan?TAFm")) ;;qingdao,laoshan?TAFm 带区县也是可以
 
 ;; M-x user
 (defun user()
@@ -129,7 +129,8 @@ when it inserts comment at the end of the line."
 (global-set-key (kbd "M-;") 'qiang-comment-dwim-line);; 添加行注释
 (global-set-key (kbd "M-q") 'query-replace);;字符查找替换
 (global-set-key (kbd "M-o") 'other-window) ;; other-window
-(global-set-key (kbd "M-,") 'pop-tag-mark) ;;previous-buffer
+(global-set-key (kbd "M-,") 'lsp-bridge-find-def-return) ;;previous-buffer
+(global-set-key (kbd "M-.") 'lsp-bridge-find-def) ;;lsp-bridge-find-def
 
 (global-set-key (kbd "C-c ,") 'user) ;; user - Date
 (global-set-key (kbd "C-c d") 'copy-line) ;; duplicate-line ;; (M-y) 粘贴
@@ -145,7 +146,7 @@ when it inserts comment at the end of the line."
 (global-set-key [f1] 'manual-entry) ;;
 (global-set-key [C-f1] 'info ) ;;
 (global-set-key [f2] 'open-myemacs-dir) ;;打开emacs.d配置 init.el文件
-(global-set-key [f5] 'mu4e) ;;打开邮件
+;;(global-set-key [f5] 'mu4e) ;;打开邮件
 (global-set-key [f6] 'project-switch-project) ;;打开项目目录
 ;;(global-set-key (kbd "<f8>") #'neotree)
 (global-set-key (kbd "<f7>") #'speedbar)

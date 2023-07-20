@@ -27,17 +27,10 @@
 ;; lua
 (use-package lua-mode)
 
-;;rust
-(use-package rust-mode
-  :config
-  (setq rust-format-on-save t)
-  (define-key rust-mode-map (kbd "C-c C-c") 'rust-run))
-
 ;;web
 ;; use C-j to expand emmet
 (use-package emmet-mode
   :hook ((web-mode css-mode) . emmet-mode))
-
 
 (use-package web-mode
   :init
@@ -109,15 +102,15 @@ eg.from datetime import datetime."
 ;;(require 'init-autocomplete)
 
 ;; php
-(use-package company-php)
-(add-hook 'php-mode-hook
-          (lambda ()
-            (define-key php-mode-map (kbd "C-c p w") 'toggle-php-flavor-mode)
-            (company-mode t)
-            (ac-php-core-eldoc-setup)
-            (make-local-variable 'company-backends)
-            (add-to-list 'company-backends 'company-ac-php-backend)
-            ))
+;; (use-package company-php)
+;; (add-hook 'php-mode-hook
+;;           (lambda ()
+;;             (define-key php-mode-map (kbd "C-c p w") 'toggle-php-flavor-mode)
+;;             (company-mode t)
+;;             (ac-php-core-eldoc-setup)
+;;             (make-local-variable 'company-backends)
+;;             (add-to-list 'company-backends 'company-ac-php-backend)
+;;             ))
 
 
 ;;ocaml
@@ -126,9 +119,9 @@ eg.from datetime import datetime."
 ;; Language Server
 ;; **************************************************
 ;; `eglot', a light-weight LSP client
-(require 'init-eglot)
+;;(require 'init-eglot)
 ;; `lsp-mode', a full-feature LSP client
-;; (require 'init-lsp)
+(require 'init-lsp)
 
 
 (provide 'init-lang)
