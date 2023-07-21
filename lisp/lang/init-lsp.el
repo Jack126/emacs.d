@@ -10,7 +10,7 @@
 
 (require 'lsp-bridge)
 (global-lsp-bridge-mode)
-
+(setq lsp-bridge-python-lsp-server "pyright")
 (provide 'init-lsp)
 ;;; init-lsp.el ends here
 

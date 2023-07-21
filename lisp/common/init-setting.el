@@ -129,8 +129,7 @@ when it inserts comment at the end of the line."
 (global-set-key (kbd "M-;") 'qiang-comment-dwim-line);; 添加行注释
 (global-set-key (kbd "M-q") 'query-replace);;字符查找替换
 (global-set-key (kbd "M-o") 'other-window) ;; other-window
-(global-set-key (kbd "M-,") 'lsp-bridge-find-def-return) ;;previous-buffer
-(global-set-key (kbd "M-.") 'lsp-bridge-find-def) ;;lsp-bridge-find-def
+(global-set-key (kbd "M-,") 'previous-buffer) ;;previous-buffer
 
 (global-set-key (kbd "C-c ,") 'user) ;; user - Date
 (global-set-key (kbd "C-c d") 'copy-line) ;; duplicate-line ;; (M-y) 粘贴

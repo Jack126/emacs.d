@@ -5,11 +5,11 @@
 
 ;;; Code:
 
-;; (use-package company
-;;   :hook ((prog-mode . company-mode)
-;;          (inferior-emacs-lisp-mode . company-mode))
-;;   :config (setq company-minimum-prefix-length 1
-;;                 company-show-quick-access nil))
+(use-package company
+  :hook ((prog-mode . company-mode)
+         (inferior-emacs-lisp-mode . company-mode))
+  :config (setq company-minimum-prefix-length 1
+                company-show-quick-access nil))
 
 ;; crux, a collection of many useful extensions/commands
 ;; without key-binding you can use
@@ -95,6 +95,7 @@
 (use-package yasnippet-snippets
   :defer 1
   :diminish)
+
 
 ;; auto-save
 (add-to-list 'load-path "~/.emacs.d/modules/auto-save/") ; add auto-save to your load-path
@@ -198,12 +199,12 @@
   (achive-stock-list '("sz002317" "sz000400" "sh600350" "sh600438" "sh600703")))
 
 
-(use-package markdown-mode
-  :ensure t
-  :mode ("README\\.md\\'" . gfm-mode)
-  :init (setq markdown-command "multimarkdown")
-  :bind (:map markdown-mode-map
-         ("C-c C-e" . markdown-do)))
+;; (use-package markdown-mode
+;;   :ensure t
+;;   :mode ("README\\.md\\'" . gfm-mode)
+;;   :init (setq markdown-command "multimarkdown")
+;;   :bind (:map markdown-mode-map
+;;          ("C-c C-e" . markdown-do)))
 
 
 
