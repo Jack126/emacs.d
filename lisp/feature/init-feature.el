@@ -2,6 +2,10 @@
 ;;; Commentary:
 
 ;;; Code:
+(advice-add 'load-theme :after
+            (lambda (&rest _)
+              (set-face-attribute 'mode-line nil :box nil)
+              (set-face-attribute 'mode-line-inactive nil :box nil)))
 
 ;; UI
 ;; disable scrollbar/toolbar on all platform

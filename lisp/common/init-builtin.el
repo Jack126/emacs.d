@@ -4,13 +4,22 @@
 
 ;;; Code:
 
-;; use short answers for YES/NO ect.
-(setq use-short-answers t)
-
-;; make tab-width always 4
-;; only use spaces instead of TAB, use C-q TAB to input the TAB char
-(setq-default tab-width 4
-              indent-tabs-mode nil)
+;; Misc configurations for default
+(setq-default cursor-type 'bar
+              fill-column 72 ;; RFC2822 Style
+              frame-title-format "🎫 %b %p"
+              indent-tabs-mode nil ;; Use space for indent
+              isearch-allow-motion t
+              isearch-lazy-count t
+              load-prefer-newer t
+              mode-line-compact t ;; Use compact modeline style
+              read-file-name-completion-ignore-case t
+              ring-bell-function 'ignore
+              tab-width 4 ;; Tab width
+              truncate-lines nil
+              truncate-partial-width-windows nil
+              use-short-answers t ;; Use y/n for yes/no case
+              )
 
 ;; auto-fill-mode, Help by command or variable name
 (add-hook 'after-init-hook 'auto-fill-mode)
@@ -47,17 +56,8 @@
 ;; ibuffer
 (defalias 'list-buffers 'ibuffer)
 
-;; iSearch
-(setq isearch-allow-motion t
-      isearch-lazy-count t)
-
 ;; minibuffer
 (add-hook 'after-init-hook 'minibuffer-electric-default-mode)
-
-;; modeline settings
-;; column number is useless in most time, but useful when debug code.
-(add-hook 'after-init-hook 'column-number-mode)
-(setq mode-line-compact t)
 
 ;; pulse the cursor line
 (dolist (cmd '(recenter-top-bottom other-window))
@@ -69,7 +69,8 @@
 
 ;; Show Paren Mode
 (setq show-paren-when-point-in-periphery t
-      show-paren-when-point-inside-paren t)
+      show-paren-when-point-inside-paren t
+      show-paren-style 'mixed)
 
 ;; global visual line mode
 (add-hook 'after-init-hook 'global-visual-line-mode)

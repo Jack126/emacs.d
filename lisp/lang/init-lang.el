@@ -5,22 +5,38 @@
 
 ;; Common features when programming
 ;; **************************************************
-(add-hook 'prog-mode-hook
-          (lambda ()
-            (display-line-numbers-mode)
-            (electric-layout-mode)
-            (electric-pair-mode)
-            (hs-minor-mode)
-            (prettify-symbols-mode)))
+;; (add-hook 'prog-mode-hook
+;;           (lambda ()
+;;             (display-line-numbers-mode)
+;;             (electric-layout-mode)
+;;             (electric-pair-mode)
+;;             (hs-minor-mode)
+;;             (prettify-symbols-mode)))
 
-;; cc-mode
-(add-hook 'c-mode-common-hook 'c-toggle-auto-hungry-state)
+;; ;; cc-mode
+;; (add-hook 'c-mode-common-hook 'c-toggle-auto-hungry-state)
+
+;; ;; Flymake
+;; (add-hook 'prog-mode-hook 'flymake-mode)
+;; (global-set-key (kbd "M-n") #'flymake-goto-next-error)
+;; (global-set-key (kbd "M-p") #'flymake-goto-prev-error)
+
+
+;; 编程模式下建议开启的一些设置
+(defun prog-extra-modes()
+  "Extra modes when in programming mode."
+
+  (column-number-mode)
+  (display-line-numbers-mode)
+  (electric-pair-mode)
+  (flymake-mode)
+  (hs-minor-mode)
+  (prettify-symbols-mode))
+(add-hook 'prog-mode-hook 'prog-extra-modes)
 
 ;; Flymake
-(add-hook 'prog-mode-hook 'flymake-mode)
 (global-set-key (kbd "M-n") #'flymake-goto-next-error)
 (global-set-key (kbd "M-p") #'flymake-goto-prev-error)
-
 
 ;; Golang
 (use-package go-mode)
@@ -93,13 +109,6 @@ eg.from datetime import datetime."
 ;; Program Useful text/config files
 (use-package protobuf-mode)
 
-;; Useful Tools
-;;(use-package quickrun)                  ; quickrun code
-;; (use-package restclient                 ; restclient support
-;;   :mode (("\\.http\\'" . restclient-mode)))
-
-;; Specific Languages
-;;(require 'init-autocomplete)
 
 ;; php
 (use-package company-php)
@@ -116,8 +125,6 @@ eg.from datetime import datetime."
 ;; **************************************************
 ;; `eglot', a light-weight LSP client
 (require 'init-eglot)
-;; `lsp-mode', a full-feature LSP client
-;;(require 'init-lsp)
 
 
 (provide 'init-lang)
