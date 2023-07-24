@@ -144,7 +144,7 @@ when it inserts comment at the end of the line."
 ;;(global-set-key [f5] 'mu4e) ;;打开邮件
 (global-set-key [f6] 'project-switch-project) ;;打开项目目录
 ;;(global-set-key (kbd "<f8>") #'neotree)
-(global-set-key (kbd "<f7>") #'speedbar)
+(global-set-key (kbd "<f8>") #'speedbar)
 (global-set-key [f9] 'list-bookmarks) ;;列出所有书签
 (global-set-key [f12] 'calendar) ;;日历（init-calendar 详细说明）
 
