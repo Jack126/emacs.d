@@ -38,13 +38,10 @@
   :hook (prog-mode . format-all-ensure-formatter)
   :bind ("C-c f" . #'format-all-buffer))
 
-;; gnu-elpa-keyring-update
-(use-package gnu-elpa-keyring-update
-  :defer 1)
 
 ;; iedit - edit same text in one buffer or region
-(use-package iedit
-  :defer 1)
+;; (use-package iedit
+;;   :defer 1)
 
 ;; info-colors, make the info manual as colorful
 ;; (use-package info-colors
