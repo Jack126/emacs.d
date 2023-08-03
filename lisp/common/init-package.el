@@ -203,7 +203,8 @@
 ;;   :bind (:map markdown-mode-map
 ;;          ("C-c C-e" . markdown-do)))
 
-
+(use-package tablist
+    :defer 1)
 
 (provide 'init-package)
 

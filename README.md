@@ -95,7 +95,7 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 #### Buffer Mode
 23. k：杀死当前光标所在行的buffer
 24. r：重新加载前光标所在行的buffer所对应的文件到buffer
-
+ 
 
 ## eww
 1. 'TAB' - Next link
