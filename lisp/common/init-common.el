@@ -29,7 +29,7 @@
 (require 'init-setting)
 
 ;; email mu4e
-;;(require 'init-mu4e)
+(require 'init-mu4e)
 
 
 (provide 'init-common)

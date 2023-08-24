@@ -9,12 +9,11 @@
 (setq 
       send-mail-function 'smtpmail-send-it
       message-send-mail-function 'smtpmail-send-it
-      ;;smtpmail-smtp-user "jack92_liang@163.com"
       smtpmail-smtp-server "smtp.163.com"
       smtpmail-smtp-service 465
       smtpmail-stream-type 'ssl
-      user-full-name  "Jack Liang"
-      user-mail-address "jack92_liang@163.com")
+      user-full-name  ""
+      user-mail-address "")
 ;;Debug
 (setq smtpmail-debug-info t)
 (setq smtpmail-debug-verb t)
