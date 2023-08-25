@@ -13,3 +13,4 @@
 !bin/**
 !modules/**
 !snippets/**
+lisp/common/init-mu4e.el
