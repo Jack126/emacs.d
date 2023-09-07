@@ -3,6 +3,7 @@
 ;;; Code:
 
 ;; OCaml
+;; opam user-setup install and then clear init.el
 (use-package utop)
 (use-package ocamlformat)
 (use-package dune-format)
