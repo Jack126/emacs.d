@@ -127,6 +127,11 @@ eg.from datetime import datetime."
 (require 'init-eglot)
 
 
+;; ocaml
+(require 'init-ocaml)
+
+
+
 (provide 'init-lang)
 
 ;;; init-lang.el ends here

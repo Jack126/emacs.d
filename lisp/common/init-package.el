@@ -193,7 +193,7 @@
   :custom
   (achive-auto-refresh t)
   (achive-refresh-seconds 5)
-  (achive-stock-list '("sz002317" "sz000400" "sh600350" "sh600438" "sh600703")))
+  (achive-stock-list '("sz002317" "sz000400" "sh600438" "sh600703")))
 
 
 ;; (use-package markdown-mode
