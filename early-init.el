@@ -32,9 +32,9 @@
 (set-language-environment 'utf-8)
 (global-hl-line-mode 1)
 
-;;(add-to-list 'custom-theme-load-path "~/.emacs.d/modules/themes/")
-;;(load-theme 'monokai t)
-(load-theme 'misterioso t)
+(add-to-list 'custom-theme-load-path "~/.emacs.d/modules/themes/")
+(load-theme 'fantom t)
+;;(load-theme 'misterioso t)
 ;;; early-init.el ends here
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)
