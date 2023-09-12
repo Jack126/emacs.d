@@ -3,73 +3,88 @@
 ;; (c) Cabins Kong, 2022-
 
 ;;; Code:
+(require 'subr-x)
 
-;; for debug
-;;;###autoload
+(defun font-installed-p (font-name)
+  "Check if font with FONT-NAME is available."
+  (find-font (font-spec :name font-name)))
 
-(defmacro cabins/timer (&rest body)
-  "Measure the time of code BODY running."
-  `(let ((time (current-time)))
-     ,@body
-     (float-time (time-since time))))
-
-
-(defun cabins/available-font (font-list)
-  "Get the first available font from FONT-LIST."
-
-  (cl-loop for font in font-list
-           when (member font (font-family-list))
-           return font))
-
-(defvar cn-fonts-list '("黑体" "STHeiti" "微软雅黑" "文泉译微米黑")
-  "定义使用的中文字体候选列表.")
-
-(defvar en-fonts-list '("Hack Nerd Font" "Cascadia Code" "Courier New" "Monaco" "Ubuntu Mono")
-"定义使用的英文字体候选列表.")
-
-(defvar emoji-fonts-list '("Apple Color Emoji" "Segoe UI Emoji" "Noto Color Emoji" "Symbola" "Symbol")
-  "定义使用Emoji字体候选列表.")
-
-;;;###autoload
 (defun cabins/font-setup ()
   "Font setup."
 
   (interactive)
-  (let* ((cf (cabins/available-font cn-fonts-list))
-	     (ef (cabins/available-font en-fonts-list))
-         (em (cabins/available-font emoji-fonts-list)))
-    (when ef
-      (dolist (face '(default fixed-pitch fixed-pitch-serif variable-pitch))
-	    (set-face-attribute face nil :family ef :height 150)))
-    (when em
-      (set-fontset-font t 'emoji em)
-      (set-fontset-font t 'symbol em))
-    (when cf
-      (dolist (charset '(kana han cjk-misc bopomofo))
-	    (set-fontset-font t charset cf))
-      (setq face-font-rescale-alist
-	        (mapcar (lambda (item) (cons item 1.2)) `(,cf ,em))))))
-(add-hook 'after-init-hook #'cabins/font-setup)
+  (when (display-graphic-p)
+    ;; Default font
+    (cl-loop for font in '("Courier Prime" "Cascadia Code" "Fira Code" "Jetbrains Mono" "Hack" "Source Code Pro" "Menlo" "Monaco" "Consolas")
+             when (font-installed-p font)
+             return (set-face-attribute 'default nil :family font))
 
-;;;autoload
-(defun tenon--cleaner-ui ()
+    ;; Unicode characters
+    (cl-loop for font in '("Segoe UI Symbol" "Symbola" "Symbol")
+             when (font-installed-p font)
+             return (set-fontset-font t 'unicode font nil 'prepend))
+
+    ;; Emoji
+    (cl-loop for font in '("Noto Color Emoji" "Apple Color Emoji")
+             when (font-installed-p font)
+             return (set-fontset-font t 'emoji (font-spec :family font) nil 'prepend))
+
+    ;; Chinese characters
+    (cl-loop for font in '("霞鹜文楷" "WenQuanYi Micro Hei" "PingFang SC" "Microsoft Yahei UI" "Microsoft Yahei" "STFangsong")
+             when (font-installed-p font)
+             return (progn
+                      (setq face-font-rescale-alist `((,font . 1.2)))
+                      (set-fontset-font t '(#x4e00 . #x9fff) (font-spec :family font))))))
+
+;;;###autoload
+(defun make-ui-cleaner ()
   "Remove all the unnecessary elements."
 
-  (when (and (fboundp 'scroll-bar-mode) (not (eq scroll-bar-mode -1)))
-    (scroll-bar-mode -1))
-
-  (when (and (fboundp 'tool-bar-mode) (not (eq tool-bar-mode -1)))
-    (tool-bar-mode -1))
-
-  (if (and (fboundp 'menu-bar-mode)
-           (display-graphic-p))
-      (menu-bar-mode +1)
-    (menu-bar-mode -1))
-
   ;; tooltips in echo-aera
-  (when (and (fboundp 'tooltip-mode) (not (eq tooltip-mode -1)))
-    (tooltip-mode -1)))
+  (when (fboundp 'tooltip-mode) (tooltip-mode -1))
+  (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+  (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+  ;; for menu-bar, only show when runs on GUI mode & macos
+  (when (fboundp 'menu-bar-mode)
+    (if (and (display-graphic-p) (eq system-type 'darwin))
+      (menu-bar-mode +1)
+    (menu-bar-mode -1))))
 
+;;;###autoload
+(defun cabins/available-theme (theme-list)
+  "Get the first available theme from THEME-LIST."
+
+  (cl-loop for theme in theme-list
+           when (member theme (custom-available-themes))
+           return theme))
+
+(defun cabins/os-dark-mode()
+  "Check the os dark mode, only support Windows for now."
+
+  (let* ((cmd (cond
+               ((member system-type '(ms-dos windows-nt cygwin))
+                "powershell (Get-ItemProperty -Path HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize -Name AppsUseLightTheme).AppsUseLightTheme")
+               ((eq system-type 'darwin)
+                "defaults read -g AppleInterfaceStyle")
+               ((eq system-type 'gnu/linux)
+                "gsettings get org.gnome.desktop.interface color-scheme")))
+         (mode (string-trim (shell-command-to-string cmd))))
+    (message mode)
+    (if (member mode '("0" "Dark" "'prefer-dark'")) t nil)))
+
+(defun cabins/load-theme()
+  "Load theme, Auto change color scheme according to system dark mode on Windows."
+
+  (interactive)
+  (when (display-graphic-p)
+    (let ((light-theme (cabins/available-theme '(modus-operandi leuven tsdh-light tango whiteboard)))
+          (dark-theme (cabins/available-theme '(dracula modus-vivendi leuven-dark tsdh-dark tango-dark wombat dichromacy))))
+      (if (cabins/os-dark-mode)
+          (load-theme dark-theme t)
+        (load-theme light-theme t)))))
+
+(add-hook 'emacs-startup-hook 'cabins/font-setup)
+(add-hook 'emacs-startup-hook 'cabins/load-theme)
 
 (provide 'init-fn)
 ;;; init-fn.el ends here

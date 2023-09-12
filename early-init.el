@@ -1,6 +1,6 @@
 ;;; early-init.el --- Emacs 27 introduces early-init.el, which runs before init.el
 ;;; Commentary:
-;; Runs before pgackage and UI initializetion happens.
+;; Runs before package and UI initializetion happens.
 ;;; Code:
 
 (unless (>= emacs-major-version 28)
@@ -12,7 +12,7 @@
 (add-hook 'after-init-hook #'(lambda () (setq gc-cons-threshold 800000)))
 
 ;; Prevent unwanted runtime compilation for native-comp users
-(setq native-comp-deferred-compilation nil)
+(setq inhibit-automatic-native-compilation t)
 
 ;; Package initialize occurs automatically, before `user-init-file' is loaded
 ;; but after `early-init-file'. If you want to handle package initialization,
@@ -28,9 +28,14 @@
 ;; Do not resize the frame at this early stage.
 (setq frame-inhibit-implied-resize t)
 
+;; Clean GUI
+(push '(scroll-bar-mode . nil) default-frame-alist)
+(push '(tool-bar-mode . nil) default-frame-alist)
+(push '(menu-bar-mode . nil) default-frame-alist)
+
 ;; System default coding
 (set-language-environment 'utf-8)
-(global-hl-line-mode 1)
+;;(global-hl-line-mode 1)
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/modules/themes/")
 (load-theme 'fantom t)

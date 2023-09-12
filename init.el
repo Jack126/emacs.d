@@ -1,11 +1,6 @@
 ;;; init.el --- the entry of emacs config -*- lexical-binding: t -*-
 
-;; Author: Cabins
-;; Maintainer: Cabins
-;; Version: 1.0
-;; Homepage: https://github.com/cabins/termux-emacs
-;;; Commentary:
-;; (c) Cabins Kong, 2022-
+;; Github: https://gitee.com/yaoyue126/emacs.d
 
 ;;; Code:
 
@@ -13,11 +8,23 @@
 (setq default-directory "~/")
 
 ;; update load-path to make customized lisp codes work
-(dolist (folder '("common" "lang" "feature" "platform"))
-  (push (expand-file-name (format "lisp/%s" folder) user-emacs-directory) load-path))
+(dolist (folder (directory-files (concat user-emacs-directory "lisp") t directory-files-no-dot-files-regexp))
+  (add-to-list 'load-path folder))
 
-;; common settings (no dependecies with version/os)
-(require 'init-common)
+;; customized functions
+(require 'init-fn)
+
+;; change Emacs default settings here, variables only (NOT include built-in packages)
+(require 'init-system)
+
+;; settings for Melpa/Elpa/GNU repos for Emacs package manager
+(require 'init-elpa)
+
+;; change default Emacs settings with built-in packages
+(require 'init-builtin)
+
+;; all the third-part packages configed here
+(require 'init-package)
 
 ;; different settings depends on os platform
 (require 'init-platform)
@@ -28,6 +35,18 @@
 ;; other features, such as UI/daemon etc.
 (require 'init-feature)
 
+;; windows number
+(require 'init-winum)
+
+;; calendar
+(require 'init-calendar)
+
+;; email mu4e
+(require 'init-mu4e)
+
+;; custom setting
+(require 'init-setting)
+
 ;; DON'T forget to define and load custom file at last
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (when (file-exists-p custom-file)
@@ -35,3 +54,8 @@
 
 (provide 'init)
 
+;;; init.el ends here
+;;; Local Variables:
+;; coding: utf-8
+;; byte-compile-warnings: (not unresolved obsolete)
+;; End:
