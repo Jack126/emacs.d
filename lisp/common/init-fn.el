@@ -15,9 +15,12 @@
   (interactive)
   (when (display-graphic-p)
     ;; Default font
-    (cl-loop for font in '("Courier Prime" "Cascadia Code" "Fira Code" "Jetbrains Mono" "Hack" "Source Code Pro" "Menlo" "Monaco" "Consolas")
+    (cl-loop for font in '("JetbrainsMono Nerd Font" "Courier Prime" "Cascadia Code" "Fira Code" "Hack" "Source Code Pro" "Menlo" "Monaco" "Consolas")
              when (font-installed-p font)
-             return (set-face-attribute 'default nil :family font))
+             return (set-face-attribute 'default nil 
+                                        :family font
+                                        :height (cond ((eq system-type 'darwin) 155)
+                                                      (t 100))))
 
     ;; Unicode characters
     (cl-loop for font in '("Segoe UI Symbol" "Symbola" "Symbol")
@@ -84,7 +87,7 @@
         (load-theme light-theme t)))))
 
 (add-hook 'emacs-startup-hook 'cabins/font-setup)
-(add-hook 'emacs-startup-hook 'cabins/load-theme)
+;;(add-hook 'emacs-startup-hook 'cabins/load-theme)
 
 (provide 'init-fn)
 ;;; init-fn.el ends here
