@@ -18,20 +18,8 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 目前 emacs 新手一枚，摸索大佬配置中前进，望诸君共勉!
 
 - 目前 emacs 版本 28.1 ，系统版本 mac 10.15.7 下正常使用，其他版本下未测
+
 - 目前支持终端下使用，gui 模式亦可（该模式下文字大小需调整 lisp/common/init-fn.el 51 行 height）
-- 需安装字体 Nerd Font
-
-```
-    brew cask
-
-    brew tap homebrew/cask-fonts
-
-    brew install font-fira-code
-
-    brew install font-Fira-Code-nerd-font
-
-    brew install font-hack-nerd-font
-```
 
 - 建议使用 iterm2（终端色彩下能好看一点） [iterm2](https://www.iterm2.com/downloads.html)
 
@@ -156,14 +144,14 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 33. f9 list bookmarks
 34. home beginning-of-buffer
 35. end end-of-buffer
-37. C-c t 展示 TODO list
-38. C-c w 显示天气
-39. C-c o 当前行下插入一行
-40. C-a 回到行首 (C-e 行尾)-
-41. f2 打开默认emacs.d配置文件目录
-42. f6 打开项目列表
-43. C-c ; 复制一行至当前行下方，注释上一行
-44. C-c 9 在当前窗口，下翻滚动另外窗口
-45. C-c 0 在当前窗口，上翻另外窗口
-46. M-] 窗口调换位置（4个 ，斜角兑换； 3个逆时针调换）
-47. C-x m 发送邮件(开通imap端口)
+36. C-c t 展示 TODO list
+37. C-c w 显示天气
+38. C-c o 当前行下插入一行
+39. C-a 回到行首 (C-e 行尾)-
+40. f2 打开默认emacs.d配置文件目录
+41. f6 打开项目列表
+42. C-c ; 复制一行至当前行下方，注释上一行
+43. C-c 9 在当前窗口，下翻滚动另外窗口
+44. C-c 0 在当前窗口，上翻另外窗口
+45. M-] 窗口调换位置（4个 ，斜角兑换； 3个逆时针调换）
+46. C-x m 发送邮件(开通imap端口)
