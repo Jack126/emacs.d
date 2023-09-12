@@ -34,24 +34,14 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 - 邮件
 
 ```
- stmpmail 密码 执行名利：machine smtp.163.com login test@163.com password 密钥
+ stmpmail 密码 执行:
+
+ machine smtp.163.com login test@163.com password 密钥
 ```
 
-- A股，achive(git clone https://github.com/zakudriver/achive.git ~/.emacs.d/modules/)
+- A股，[achive](https://github.com/zakudriver/achive)
 
 # 快捷键
-
-## NeoTree (窗口有效)
-
-1. n 下一行 ， p 上一行。
-2. SPC or RET or TAB 若是文件，在其他 buffer 打开；若是目录，可切换折叠、收起。
-3. g 刷新树。
-4. A 最大/最小化 NeoTree 窗口
-5. H 切换显示隐藏文件。
-6. C-c C-n 创建文件，若以 / 结尾则表示创建文件夹。
-7. C-c C-d 删除文件或目录。
-8. C-c C-r 重命名文件或目录。
-9. C-c C-c 改变根目录。
 
 ## Speedbar
 #### 函数speedbar-get-focus ：在buffer和speedbar之间切换
@@ -118,7 +108,7 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 12. C-x u 撤销
 13. C-h k 查看按键是否绑定（快捷键冲突检测用）
 14. C-s (C-r) 向前(后)查找，查找下一个 继续查找按 C-s 或 C-r
-15. F8 neotree 显示隐藏 (可屏蔽neotree，使用speedbar)
+15. F8 使用speedbar 显示隐藏
 16. 多行注释：
     1. 选中一段区域到最后一行行首（！很重要！）；
     2. 按 C-x r t ；

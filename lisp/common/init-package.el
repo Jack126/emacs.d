@@ -39,7 +39,6 @@
   :hook (prog-mode . format-all-ensure-formatter)
   :bind ("C-c f" . #'format-all-buffer))
 
-
 ;; iedit - edit same text in one buffer or region
 ;; (use-package iedit
 ;;   :defer 1)
@@ -52,23 +51,6 @@
 (use-package move-dup
   :defer 1
   :hook (after-init . global-move-dup-mode))
-
-;; neotree, file tree manager
-;; (use-package neotree
-;;   :defer 1
-;;   :commands (neo-buffer--lock-width neo-buffer--unlock-width)
-;;   :config (setq neo-autorefresh t
-;; 		        neo-theme 'nerd
-;; 		        neo-click-changes-root t
-;; 		        neo-smart-open t
-;;                 )
-;;   :bind ("<f8>" . neotree-toggle))
-
-;; org-superstar
-;; make the org mode more beautiful with optimized leading chars
-;; (use-package org-superstar
-  ;; :hook (org-mode . org-superstar-mode)
-  ;; :config (setq org-superstar-prettify-item-bullets t))
 
 ;; popwin
 (use-package popwin
@@ -93,7 +75,6 @@
 (use-package yasnippet-snippets
   :defer 1
   :diminish)
-
 
 ;; auto-save
 (add-to-list 'load-path "~/.emacs.d/modules/auto-save/") ; add auto-save to your load-path
@@ -157,6 +138,12 @@
   ;; long word wrap when export to pdf
   (add-to-list 'org-latex-packages-alist '("" "seqsplit")))
 
+;; org-superstar
+;; make the org mode more beautiful with optimized leading chars
+;; (use-package org-superstar
+  ;; :hook (org-mode . org-superstar-mode)
+  ;; :config (setq org-superstar-prettify-item-bullets t))
+
 ;; Recentf
 (use-package recentf
   :hook (after-init . recentf-mode)
@@ -178,38 +165,15 @@
   (achive-stock-list '("sz002317" "sz000400" "sh600438" "sh600703")))
 
 
-;; (use-package markdown-mode
-;;   :ensure t
-;;   :mode ("README\\.md\\'" . gfm-mode)
-;;   :init (setq markdown-command "multimarkdown")
-;;   :bind (:map markdown-mode-map
-;;          ("C-c C-e" . markdown-do)))
+(use-package markdown-mode
+  :ensure t
+  :mode ("README\\.md\\'" . gfm-mode)
+  :init (setq markdown-command "multimarkdown")
+  :bind (:map markdown-mode-map
+         ("C-c C-e" . markdown-do)))
 
 (use-package tablist
     :defer 1)
-
-
-;; (use-package doom-themes
-;;   :ensure t
-;;   :config
-;;   ;; Global settings (defaults)
-;;   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-;;         doom-themes-enable-italic t) ; if nil, italics is universally disabled
-;;   (load-theme 'doom-one t)
-
-;;   ;; Enable flashing mode-line on errors
-;;   (doom-themes-visual-bell-config)
-;;   ;; Enable custom neotree theme (all-the-icons must be installed!)
-;;   (doom-themes-neotree-config)
-;;   ;; or for treemacs users
-;;   (setq doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
-;;   (doom-themes-treemacs-config)
-;;   ;; Corrects (and improves) org-mode's native fontification.
-;;   (doom-themes-org-config))
-
-;; (use-package doom-modeline
-;;   :ensure t
-;;   :init (doom-modeline-mode 1))
 
 (provide 'init-package)
 
