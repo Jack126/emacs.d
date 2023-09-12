@@ -130,25 +130,6 @@
 ;;   ;; To use MELPA Stable use ":pin melpa-stable",
 ;;   :pin melpa)
 
-;; youdao
-(use-package youdao-dictionary)
-;; youdao dictionary
-(defconst *youdao-dictionary-key* "C-c y")
-;; Translation result display scheme, optional postframe, tootip, popup-tip
-(defconst *youdao-dictionary-result-display-scheme* 'postframe)
-(global-set-key
- (kbd *youdao-dictionary-key*)
- #'(lambda ()
-    (interactive)
-    (if (display-graphic-p)
-      (cond
-       ((eq *youdao-dictionary-result-display-scheme* 'tooltip)
-	(youdao-dictionary-search-at-point-tooltip))
-       ((eq *youdao-dictionary-result-display-scheme* 'postframe)
-	(youdao-dictionary-search-at-point-posframe))
-       ((eq *youdao-dictionary-result-display-scheme* 'popup-tip)
-	(youdao-dictionary-search-at-point+)))
-      (youdao-dictionary-search-at-point+))))
 
 ;; auto-highlight-symbol
 (use-package auto-highlight-symbol)
@@ -224,6 +205,10 @@
 ;;   (doom-themes-treemacs-config)
 ;;   ;; Corrects (and improves) org-mode's native fontification.
 ;;   (doom-themes-org-config))
+
+;; (use-package doom-modeline
+;;   :ensure t
+;;   :init (doom-modeline-mode 1))
 
 (provide 'init-package)
 

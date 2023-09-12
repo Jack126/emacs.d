@@ -21,13 +21,13 @@
            when (member font (font-family-list))
            return font))
 
-(defvar cn-fonts-list '("Hack Nerd Font" "黑体" "STHeiti" "微软雅黑" "文泉译微米黑")
+(defvar cn-fonts-list '("黑体" "STHeiti" "微软雅黑" "文泉译微米黑")
   "定义使用的中文字体候选列表.")
 
 (defvar en-fonts-list '("Hack Nerd Font" "Cascadia Code" "Courier New" "Monaco" "Ubuntu Mono")
 "定义使用的英文字体候选列表.")
 
-(defvar emoji-fonts-list '("Hack Nerd Font" "Apple Color Emoji" "Segoe UI Emoji" "Noto Color Emoji" "Symbola" "Symbol")
+(defvar emoji-fonts-list '("Apple Color Emoji" "Segoe UI Emoji" "Noto Color Emoji" "Symbola" "Symbol")
   "定义使用Emoji字体候选列表.")
 
 ;;;###autoload

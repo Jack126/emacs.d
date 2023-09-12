@@ -156,7 +156,6 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 33. f9 list bookmarks
 34. home beginning-of-buffer
 35. end end-of-buffer
-36. C-c y 单词翻译
 37. C-c t 展示 TODO list
 38. C-c w 显示天气
 39. C-c o 当前行下插入一行
