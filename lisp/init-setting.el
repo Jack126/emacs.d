@@ -136,7 +136,6 @@ when it inserts comment at the end of the line."
 (global-set-key (kbd "C-c w") 'weather) ;;查看天气
 (global-set-key (kbd "C-c o") 'crux-smart-open-line) ;;当前行下插入一行
 (global-set-key (kbd "C-c [") 'project-find-file) ;;项目中查找文件
-(global-set-key (kbd "C-c ;") 'crux-duplicate-and-comment-current-line-or-region) ;;复制注释当前行
 
 (global-set-key [f1] 'manual-entry) ;;
 (global-set-key [C-f1] 'info ) ;;
@@ -150,8 +149,6 @@ when it inserts comment at the end of the line."
 
 (global-set-key [home] 'beginning-of-buffer) ;;设置home键指向buffer开头，end键指向buffer结尾
 (global-set-key [end] 'end-of-buffer) ;;文件末尾
-
-(global-set-key (kbd "C-a") 'crux-move-beginning-of-line) ;; 替代默认C-a，回到行首
 
 (global-set-key (kbd "C-c 9") 'scroll-other-window);;其他window向下翻页
 (global-set-key (kbd "C-c 0") 'scroll-other-window-down);; 向上翻
