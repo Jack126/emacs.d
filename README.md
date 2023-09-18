@@ -121,7 +121,7 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 20. M-. 查找方法定义
 21. M-, 跳回
 22. M-q 查找替换
-23. M-o 窗口切换(M-数字，跳窗口)
+23. M-o 窗口切换(M-1(左)，2(下)，3(上)，4(右)，跳窗口)
 24. M-g g 跳行
 25. C-S SPC mark-set (C-SPC 替代品, S - Shift)
 26. C-l 重新绘制屏幕画面，当前行放在画面中心处

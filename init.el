@@ -36,7 +36,7 @@
 (require 'init-feature)
 
 ;; windows number
-(require 'init-winum)
+;;(require 'init-winum)
 
 ;; calendar
 (require 'init-calendar)
