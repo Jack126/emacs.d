@@ -39,13 +39,6 @@
   :hook (prog-mode . format-all-ensure-formatter)
   :bind ("C-c f" . #'format-all-buffer))
 
-;; iedit - edit same text in one buffer or region
-;; (use-package iedit
-;;   :defer 1)
-
-;; info-colors, make the info manual as colorful
-;; (use-package info-colors
-;;   :hook (Info-selection . info-colors-fontify-node))
 
 ;; move-dup, move/copy line or region
 (use-package move-dup
@@ -63,18 +56,6 @@
   :diminish
   :hook (after-init . which-key-mode))
 
-;; Settings for yasnippet
-;; (use-package yasnippet
-;;   :defer 1
-;;   :diminish yas-minor-mode
-;;   :hook (prog-mode . yas-minor-mode)
-;;   :config (yas-reload-all)
-;;   :bind ("C-o" . yas-expand))
-;; (add-to-list 'load-path
-;;               "~/.emacs.d/snippets")
-;; (use-package yasnippet-snippets
-;;   :defer 1
-;;   :diminish)
 
 ;; auto-save
 (add-to-list 'load-path "~/.emacs.d/modules/auto-save/") ; add auto-save to your load-path
@@ -122,21 +103,21 @@
 ;; (winum-mode)
 
 ;; Org Mode
-(use-package org
-  :ensure nil
-  :config
-  (setq org-hide-leading-stars t
-        org-hide-emphasis-markers t
-        org-startup-indented t
-        org-latex-listings 'minted
-        ;; use tectonic to export pdf
-        org-latex-pdf-process '("tectonic -Z shell-escape %f"))
-  ;; solve CJK issue when export to pdf
-  (add-to-list 'org-latex-packages-alist '("" "ctex"))
-  ;; highlight code block
-  (add-to-list 'org-latex-packages-alist '("" "minted"))
-  ;; long word wrap when export to pdf
-  (add-to-list 'org-latex-packages-alist '("" "seqsplit")))
+;; (use-package org
+;;   :ensure nil
+;;   :config
+;;   (setq org-hide-leading-stars t
+;;         org-hide-emphasis-markers t
+;;         org-startup-indented t
+;;         org-latex-listings 'minted
+;;         ;; use tectonic to export pdf
+;;         org-latex-pdf-process '("tectonic -Z shell-escape %f"))
+;;   ;; solve CJK issue when export to pdf
+;;   (add-to-list 'org-latex-packages-alist '("" "ctex"))
+;;   ;; highlight code block
+;;   (add-to-list 'org-latex-packages-alist '("" "minted"))
+;;   ;; long word wrap when export to pdf
+;;   (add-to-list 'org-latex-packages-alist '("" "seqsplit")))
 
 ;; org-superstar
 ;; make the org mode more beautiful with optimized leading chars
@@ -163,6 +144,9 @@
   (achive-auto-refresh t)
   (achive-refresh-seconds 5)
   (achive-stock-list '("sz002317" "sz000400" "sh600438" "sh600703")))
+(use-package tablist
+    :defer 1)
+;; end achive
 
 
 (use-package markdown-mode
@@ -172,9 +156,7 @@
   :bind (:map markdown-mode-map
          ("C-c C-e" . markdown-do)))
 
-(use-package tablist
-    :defer 1)
-
+;; windmove
 (use-package windmove
   :config (windmove-default-keybindings)
   :bind ("M-1" . windmove-left)
