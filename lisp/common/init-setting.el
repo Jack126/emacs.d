@@ -26,7 +26,8 @@
      (t
       (concat ";; Happy hacking "
               (or user-login-name "")
-              " - Emacs loves you!\n\n")))))
+              " - " (current-time-string) "\n\n"
+              )))))
 
 (setq-default initial-scratch-message (my-show-scratch-buffer-message))
 
