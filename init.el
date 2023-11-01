@@ -51,7 +51,7 @@
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (when (file-exists-p custom-file)
   (load custom-file))
-
+(setq debug-on-error t)
 (provide 'init)
 
 ;;; init.el ends here
