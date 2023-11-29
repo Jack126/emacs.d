@@ -137,7 +137,7 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 36. C-c t 展示 TODO list
 37. C-c w 显示天气
 38. C-c o 当前行下插入一行
-39. C-a 回到行首 (C-e 行尾)-
+39. C-a 回到行首 (C-e 行尾)
 40. f2 打开默认emacs.d配置文件目录
 41. f6 打开项目列表
 42. C-c ; 复制一行至当前行下方，注释上一行
@@ -145,3 +145,5 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 44. C-c 0 在当前窗口，上翻另外窗口
 45. M-] 窗口调换位置（4个 ，斜角兑换； 3个逆时针调换）
 46. C-x m 发送邮件(开通imap端口)
+47. C-c a a 打开a股(M-x achive-add 添加股票代码)
+48. C-x C-t 切换上下行
