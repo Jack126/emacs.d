@@ -73,23 +73,23 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 #### Buffer Mode
 23. k：杀死当前光标所在行的buffer
 24. r：重新加载前光标所在行的buffer所对应的文件到buffer
- 
+
 
 ## eww
-1. 'TAB' - Next link
+1. TAB - Next link
 2. Shift+TAB - Previous link
-3. 'b' - Add bookmark
-4. 'B' - View bookmarks
-5. 'd' - Download link under point
-6. 'l' - Go back
-7. 'r' - Go forward
-8. 'H' - View history
-9. 'g' - reload the page
-10. 'G' - Enter a new URL or search
-11. 'R' - Attempt to improve readability
-12. 'w' - Copy the current URL
+3. b - Add bookmark
+4. B - View bookmarks
+5. d - Download link under point
+6. l - Go back
+7. r - Go forward
+8. H - View history
+9. g - reload the page
+10. G - Enter a new URL or search
+11. R - Attempt to improve readability
+12. w - Copy the current URL
 13. M-<RET> - Open link in new tab
-14. 's' - Get a list of eww tabs
+14. s - Get a list of eww tabs
 
 
 # 常用快捷键
