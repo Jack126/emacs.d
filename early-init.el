@@ -39,7 +39,8 @@
 
 ;;(add-to-list 'custom-theme-load-path "~/.emacs.d/modules/themes/")
 ;;(load-theme 'fantom t)
-(load-theme 'misterioso t)
+;;(load-theme 'misterioso t)
+(load-theme 'tango-dark t)
 ;;; early-init.el ends here
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)
