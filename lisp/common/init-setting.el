@@ -1,14 +1,5 @@
 ;;; Commentary:
 
-;; 切换php-mode web-mode
-(defun toggle-php-flavor-mode ()
-  (interactive)
-  "Toggle mode between PHP & Web-Mode Helper modes"
-  (cond ((string= mode-name "PHP")
-         (web-mode))
-        ((string= mode-name "Web")
-         (php-mode))))
-
 ;; hello message
 (defun my-show-scratch-buffer-message ()
   "Show something in scratch buffer."
@@ -32,16 +23,16 @@
 (setq-default initial-scratch-message (my-show-scratch-buffer-message))
 
 
-(setq 
-    ;;display-line-numbers-type `relative ;; line number
-    display-time-mode 1 ;;显示时间、星期、日期  常显
-    display-time-day-and-date t
-    x-select-enable-clipboard t ;; 使用 X 剪贴板
-    visible-bell t ;; 关闭提示音
-    speedbar-show-unknown-files t ;; Speedbar
-    speedbar-directory-unshown-regexp "^$"
-    kill-ring-max 200 ;;设置粘贴缓冲条目数量.用一个很大的kill ring(最多的记录个数). 这样防止我不小心删掉重要的东西
-)
+(setq
+ ;;display-line-numbers-type `relative ;; line number
+ display-time-mode 1 ;;显示时间、星期、日期  常显
+ display-time-day-and-date t
+ x-select-enable-clipboard t ;; 使用 X 剪贴板
+ visible-bell t ;; 关闭提示音
+ speedbar-show-unknown-files t ;; Speedbar
+ speedbar-directory-unshown-regexp "^$"
+ kill-ring-max 200 ;;设置粘贴缓冲条目数量.用一个很大的kill ring(最多的记录个数). 这样防止我不小心删掉重要的东西
+ )
 
 ;;eww
 (setq

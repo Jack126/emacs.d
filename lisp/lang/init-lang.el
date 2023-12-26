@@ -3,25 +3,6 @@
 ;;; Commentary:
 ;;; Code:
 
-;; Common features when programming
-;; **************************************************
-;; (add-hook 'prog-mode-hook
-;;           (lambda ()
-;;             (display-line-numbers-mode)
-;;             (electric-layout-mode)
-;;             (electric-pair-mode)
-;;             (hs-minor-mode)
-;;             (prettify-symbols-mode)))
-
-;; ;; cc-mode
-;; (add-hook 'c-mode-common-hook 'c-toggle-auto-hungry-state)
-
-;; ;; Flymake
-;; (add-hook 'prog-mode-hook 'flymake-mode)
-;; (global-set-key (kbd "M-n") #'flymake-goto-next-error)
-;; (global-set-key (kbd "M-p") #'flymake-goto-prev-error)
-
-
 ;; 编程模式下建议开启的一些设置
 (defun prog-extra-modes()
   "Extra modes when in programming mode."
@@ -102,7 +83,7 @@ eg.from datetime import datetime."
 			                 (buffer-file-name))))
 
 (add-hook 'python-mode-hook
-            (lambda ()
+          (lambda ()
             (define-key python-mode-map (kbd "C-c p s") 'python-isort)
             (define-key python-mode-map (kbd "C-c p r") 'python-remove-all-unused-imports)))
 
@@ -111,6 +92,16 @@ eg.from datetime import datetime."
 
 
 ;; php
+
+;; 切换php-mode web-mode
+(defun toggle-php-flavor-mode ()
+  (interactive)
+  "Toggle mode between PHP & Web-Mode Helper modes"
+  (cond ((string= mode-name "PHP")
+         (web-mode))
+        ((string= mode-name "Web")
+         (php-mode))))
+
 (use-package company-php)
 (add-hook 'php-mode-hook
           (lambda ()
