@@ -14,7 +14,7 @@
 :commands (ocamlformat-before-save)
 :config
 ;; (require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
-(define-key tuareg-mode-map (kbd "C-I") 'ocamlformat-before-save))
+(define-key tuareg-mode-map (kbd "C-c f") 'ocamlformat-before-save))
 
 (provide 'init-ocaml)
 ;;; init-ocaml.el ends here
