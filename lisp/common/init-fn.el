@@ -1,8 +1,8 @@
 ;;; init-fn.el --- customized functions -*- lexical-binding: t -*-
 ;;; Commentary:
 ;; (c) Cabins Kong, 2022-
-
 ;;; Code:
+
 (require 'subr-x)
 
 (defun font-installed-p (font-name)

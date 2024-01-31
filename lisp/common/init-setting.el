@@ -1,4 +1,7 @@
+;;; init-system.el --- configs for startup -*- lexical-binding: t -*-
 ;;; Commentary:
+;; (c) Jack126
+;;; Code:
 
 ;; hello message
 (defun my-show-scratch-buffer-message ()

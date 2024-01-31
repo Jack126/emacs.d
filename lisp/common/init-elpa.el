@@ -1,7 +1,6 @@
 ;;; init-elpa.el --- initialize the elpa repository -*- lexical-binding: t -*-
 ;;; Commentary:
 ;; (c) Cabins Kong, 2022-
-
 ;;; Code:
 
 ;; add melpa to package-archives

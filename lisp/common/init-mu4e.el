@@ -1,8 +1,8 @@
 ;;; init-system.el --- configs for startup -*- lexical-binding: t -*-
 ;;; Commentary:
 ;; (c) Cabins Kong, 2022-
-
 ;;; Code:
+
 (require 'auth-source);; probably not necessary
 (setq auth-sources '("~/.authinfo"))
 

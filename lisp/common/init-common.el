@@ -1,7 +1,6 @@
 ;;; init-common.el --- customized functions -*- lexical-binding: t -*-
 ;;; Commentary:
 ;; (c) Cabins Kong, 2022-
-
 ;;; Code:
 
 ;; customized functions

@@ -1,7 +1,6 @@
 ;;; init-elpa.el --- initialize the elpa repository -*- lexical-binding: t -*-
 ;;; Commentary:
 ;; (c) Jack126
-
 ;; code
 
 ;; 设置我所在地方的经纬度，calendar里有个功能是日月食的预测，和你的经纬度相联系的。

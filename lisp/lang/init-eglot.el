@@ -1,10 +1,5 @@
 ;;; init-eglot.el --- config for eglot -*- lexical-binding: t -*-
 ;;; Commentary:
-;;
-;; If you don't like eglot/lsp-mode for specific languages, some alternatives are:
-;; - `java-mode' with `meghanada-mode' & `meghanada-server'
-;; - `python-mode' with `elpy'
-
 ;;; Code:
 
 (use-package eglot
@@ -26,11 +21,7 @@
           eldoc-echo-area-display-truncation-message nil)
     (set-face-attribute 'eglot-highlight-symbol-face nil
                         :background "#b3d7ff"))
-  ;; (setq eglot-ignored-server-capabilities '(:documentHighlightProvider))
   (add-to-list 'eglot-server-programs '(web-mode "vls"))
-    ;; (defun eglot-actions-before-save()
-    ;;   (add-hook 'before-save-hook #'eglot-format-buffer))
-    ;; (add-hook 'eglot--managed-mode-hook #'eglot-actions-before-save)
   )
 
 (provide 'init-eglot)

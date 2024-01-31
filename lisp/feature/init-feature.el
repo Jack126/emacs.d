@@ -1,6 +1,5 @@
 ;;; init-feature.el --- -*- lexical-binding: t -*-
 ;;; Commentary:
-
 ;;; Code:
 
 (advice-add 'load-theme :after

@@ -1,7 +1,6 @@
 ;;; init-builtin.el --- initialize the builtin plugins -*- lexical-binding: t -*-
 ;;; Commentary:
 ;; (c) Cabins Kong, 2022-
-
 ;;; Code:
 
 ;; Misc configurations for default

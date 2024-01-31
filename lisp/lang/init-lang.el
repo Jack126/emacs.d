@@ -92,7 +92,6 @@ eg.from datetime import datetime."
 
 
 ;; php
-
 ;; 切换php-mode web-mode
 (defun toggle-php-flavor-mode ()
   (interactive)
