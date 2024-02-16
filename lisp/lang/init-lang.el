@@ -120,6 +120,10 @@ eg.from datetime import datetime."
 ;; ocaml
 (require 'init-ocaml)
 
+;; rust
+(use-package rust-mode
+    :config
+    (define-key rust-mode-map (kbd "C-c f") 'rust-format-buffer))
 
 
 (provide 'init-lang)

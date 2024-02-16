@@ -10,6 +10,7 @@
           js-mode
           python-mode
           lua-mode
+          rust-mode
           web-mode) . eglot-ensure)
   :bind (("C-c e f" . #'eglot-format)
          ("C-c e a" . #'eglot-code-actions)
@@ -23,7 +24,6 @@
                         :background "#b3d7ff"))
   (add-to-list 'eglot-server-programs '(web-mode "vls"))
   )
-
 (provide 'init-eglot)
 
 ;;; init-eglot.el ends here
