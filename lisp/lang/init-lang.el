@@ -111,6 +111,12 @@ eg.from datetime import datetime."
             (add-to-list 'company-backends 'company-ac-php-backend)
             ))
 
+
+;; rust
+(use-package rust-mode
+    :config
+    (define-key rust-mode-map (kbd "C-c f") 'rust-format-buffer))
+
 ;; Language Server
 ;; **************************************************
 ;; `eglot', a light-weight LSP client
@@ -120,10 +126,7 @@ eg.from datetime import datetime."
 ;; ocaml
 (require 'init-ocaml)
 
-;; rust
-(use-package rust-mode
-    :config
-    (define-key rust-mode-map (kbd "C-c f") 'rust-format-buffer))
+
 
 
 (provide 'init-lang)
