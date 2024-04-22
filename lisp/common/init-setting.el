@@ -116,6 +116,14 @@ when it inserts comment at the end of the line."
   (interactive)
   (dired "~/.emacs.d/"))
 
+;; open eshell
+(defun open-myemacs-eshell()
+  "Open myown eshell."
+  (interactive)
+  (split-window-below)
+  (eshell)
+)
+
 
 (global-set-key (kbd "M-;") 'qiang-comment-dwim-line);; 添加行注释
 (global-set-key (kbd "M-q") 'query-replace);;字符查找替换
@@ -138,7 +146,6 @@ when it inserts comment at the end of the line."
 (global-set-key [f2] 'open-myemacs-dir) ;;打开emacs.d配置 init.el文件
 ;;(global-set-key [f5] 'mu4e) ;;打开邮件
 (global-set-key [f6] 'project-switch-project) ;;打开项目目录
-;;(global-set-key (kbd "<f8>") #'neotree)
 (global-set-key (kbd "<f8>") #'speedbar)
 (global-set-key [f9] 'list-bookmarks) ;;列出所有书签
 (global-set-key [f12] 'calendar) ;;日历（init-calendar 详细说明）
@@ -150,5 +157,6 @@ when it inserts comment at the end of the line."
 
 (global-set-key (kbd "C-c 9") 'scroll-other-window);;其他window向下翻页
 (global-set-key (kbd "C-c 0") 'scroll-other-window-down);; 向上翻
+(global-set-key (kbd "C-c e") 'open-myemacs-eshell) ;;eshell
 
 (provide 'init-setting)
