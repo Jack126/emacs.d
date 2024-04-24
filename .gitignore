@@ -13,5 +13,4 @@
 !lisp/**/**
 !bin/
 !bin/**
-!modules/**
 !snippets/**

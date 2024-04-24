@@ -11,8 +11,6 @@
   (set-face-attribute 'default nil :family "Sarasa Mono SC"))
 
 ;; packages
-
-
 (use-package package
   :hook after-init-hook
   :config
@@ -96,8 +94,8 @@
 (use-package recentf
   :ensure t
   :hook (after-init . recentf-mode)
-  ;; recentf-open since v29.1, recentf-open-files since v22
-  :bind (("C-c r" . #'recentf-open))
+  ;; recentf-open(minibuffer) since v29.1, recentf-open-files(window) since v22
+  :bind (("C-c r" . #'recentf-open-files))
   :config
   (setq-default recentf-max-menu-items 50
                 recentf-max-saved-items 50)
