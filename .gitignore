@@ -1,5 +1,7 @@
 # Ignore all the files
 *
+.DS_Store
+.persistent-scratch
 
 # Excludes - only control these files
 !.gitignore
@@ -13,4 +15,3 @@
 !bin/**
 !modules/**
 !snippets/**
-lisp/common/init-mu4e.el

@@ -1,1 +1,1 @@
-抄了 centaur mini配置，增加个人用setting配置，特殊情况下用
+emacs29

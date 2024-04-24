@@ -1,178 +1,321 @@
-;;; init-mini.el --- Centaur Emacs minimal configurations.	-*- lexical-binding: t no-byte-compile: t -*-
-
-;; Copyright (C) 2018-2023 Vincent Zhang
-
-;; Author: Vincent Zhang <seagle0128@gmail.com>
-;; URL: https://github.com/seagle0128/.emacs.d
-;; Version: 1.1.0
-;; Keywords: .emacs.d centaur
-
-;; This file is not part of GNU Emacs.
-;;
-;; This program is free software; you can redistribute it and/or
-;; modify it under the terms of the GNU General Public License as
-;; published by the Free Software Foundation; either version 3, or
-;; (at your option) any later version.
-;;
-;; This program is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-;; General Public License for more details.
-;;
-;; You should have received a copy of the GNU General Public License
-;; along with this program; see the file COPYING.  If not, write to
-;; the Free Software Foundation, Inc., 51 Franklin Street, Fifth
-;; Floor, Boston, MA 02110-1301, USA.
-;;
-
+;;; init.el --- the entry of emacs config -*- lexical-binding: t -*-
+;; Author: Cabins
+;; Github: https://github.com/cabins-emacs.d
 ;;; Commentary:
-;;
-;; Minimal configurations for debugging purpose.
-;;
-
+;; (c) Cabins Kong, 2022-
 ;;; Code:
 
-;; Load path
-(push (expand-file-name "site-lisp" user-emacs-directory) load-path)
-(push (expand-file-name "lisp" user-emacs-directory) load-path)
-(require 'init-setting)
-;; Packages
-;; Without this comment Emacs25 adds (package-initialize) here
-(setq package-archives
-      '(("gnu"   . "http://elpa.gnu.org/packages/")
-        ("melpa" . "http://melpa.org/packages/")))
+(defvar cabins-os-win (memq system-type '(ms-dos windows-nt cygwin)))
+(defvar cabins-os-mac (eq system-type 'darwin))
+(when (find-font (font-spec :family "Sarasa Mono SC"))
+  (set-face-attribute 'default nil :family "Sarasa Mono SC"))
 
-;; Explicitly set the prefered coding systems to avoid annoying prompt
-;; from emacs (especially on Microsoft Windows)
+;; packages
+
+
+(use-package package
+  :hook after-init-hook
+  :config
+  (add-to-list 'package-archives '("melpa" . "http://mirrors.ustc.edu.cn/elpa/melpa/"))
+  (unless (bound-and-true-p package--initialized)
+    (package-initialize)))
+
+;; Emacs builtin packages
+(setq-default auto-window-vscroll nil
+	      default-directory "~"
+	      default-text-properties '(line-spacing 0.2 line-height 1.2) ;default line height
+	      frame-title-format "%b"
+	      help-window-select t
+	      initial-major-mode 'fundamental-mode
+	      inhibit-startup-screen t ; disable the startup screen splash
+	      isearch-allow-motion t
+	      isearch-lazy-count t
+	      kill-whole-line t
+	      mode-line-compact t
+	      make-backup-files nil	; disable backup file
+	      read-process-output-max (* 4 1024 1024)
+	      require-final-newline t
+	      scroll-conservatively 1000
+	      show-trailing-whitespace t
+	      system-time-locale "C"
+	      use-short-answers t)
+
+;; auto revert
+;; `global-auto-revert-mode' is provided by autorevert.el (builtin)
+(add-hook 'after-init-hook 'global-auto-revert-mode)
+
+;; auto save to the visited file (provided by `files.el')
+(add-hook 'after-init-hook 'auto-save-visited-mode)
+
+;; Delete Behavior
+;; `delete-selection-mode' is provided by delsel.el (builtin)
+(add-hook 'after-init-hook 'delete-selection-mode)
+
+;; visual-line-mode
+(add-hook 'after-init-hook 'global-visual-line-mode)
+
+;; pixel-scroll-precise-mode
+(add-hook 'after-init-hook 'pixel-scroll-precision-mode)
+
+;; fido-mode
+;; `fido-mode' is provided by icomplete.el
+(use-package icomplete
+  :hook (after-init . fido-mode)
+  :config (setq completions-detailed t))
+
+;; Highlight Current Line
+(use-package hl-line
+  :ensure t
+  :when (display-graphic-p)
+  :hook (prog-mode . hl-line-mode))
+
+;; ibuffer
+(defalias 'list-buffers 'ibuffer)
+
+;; Org Mode
+(use-package org
+  :ensure t
+  :hook (org-mode . org-num-mode)
+  :config
+  (setq org-hide-leading-stars t
+	org-hide-emphasis-markers t
+	org-startup-indented t))
+
+;; Pulse the cursor line
+(dolist (cmd '(recenter-top-bottom other-window))
+  (advice-add cmd :after (lambda (&rest _) (pulse-momentary-highlight-one-line))))
+
+;; Show Paren Mode
+(use-package paren
+  :config
+  (setq show-paren-when-point-in-periphery t
+	show-paren-when-point-inside-paren t
+	show-paren-style 'mixed))
+
+;; Recentf
+(use-package recentf
+  :ensure t
+  :hook (after-init . recentf-mode)
+  ;; recentf-open since v29.1, recentf-open-files since v22
+  :bind (("C-c r" . #'recentf-open))
+  :config
+  (setq-default recentf-max-menu-items 50
+                recentf-max-saved-items 50)
+  (add-to-list 'recentf-exclude '("~\/.emacs.d\/elpa\/")))
+
+;; Third part packages
+;; make use-package default behavior better
+;; with `use-package-always-ensure' you won't need ":ensure t" all the time
+;; with `use-package-always-defer' you won't need ":defer t" all the time
+(setq use-package-enable-imenu-support t
+      use-package-expand-minimally t)
+
+;; Settings for company, auto-complete only for coding.
+(use-package company
+  :ensure t
+  :hook (prog-mode . company-mode))
+
+;; Settings for exec-path-from-shell
+;; fix the PATH environment variable issue
+(use-package exec-path-from-shell
+  :ensure t
+  :when (or (memq window-system '(mac ns x))
+	    (unless cabins-os-win
+	      (daemonp)))
+  :init (exec-path-from-shell-initialize))
+
+;; format all, formatter for almost languages
+;; great for programmers
+(use-package format-all :ensure t
+  ;; enable format on save with format-all-mode
+  ;; :hook ((prog-mode . format-all-mode)
+  ;; 	   (format-all-mode . format-all-ensure-formatter))
+  ;; and bind a shortcut to manual format
+  :bind ("C-c f" . #'format-all-region-or-buffer))
+
+;; iedit - edit same text in one buffer or region
+(use-package iedit
+  :ensure t
+  :bind ("C-;" . iedit-mode))
+
+;; move-dup, move/copy line or region
+(use-package move-dup
+  :ensure t
+  :hook (after-init . global-move-dup-mode))
+
+;; Settings for which-key - suggest next key
+(use-package which-key :ensure t
+  :hook (after-init . which-key-mode))
+
+;;Configs for OS
+;; Special configs for MS-Windows
+(when (and cabins-os-win
+	   (boundp 'w32-get-true-file-attributes))
+  (setq w32-get-true-file-attributes nil
+	w32-pipe-read-delay 0
+	w32-pipe-buffer-size (* 64 1024)))
+
+;; Special configs for macOS
+(when cabins-os-mac
+  (setq mac-command-modifier 'meta
+	mac-option-modifier 'super
+	ns-use-native-fullscreen t))
+
+;; solve the Chinese paste issue
+;; let Emacs auto-guess the selection coding according to the Windows/system settings
 (prefer-coding-system 'utf-8)
+;; (setq locale-coding-system 'utf-8)
+(unless cabins-os-win
+  (set-selection-coding-system 'utf-8))
 
-;; Better defaults
-;; (setq initial-scratch-message nil)
-(setq inhibit-splash-screen t)
-(setq uniquify-buffer-name-style 'post-forward-angle-brackets) ; Show path if names are same
-(setq adaptive-fill-regexp "[ t]+|[ t]*([0-9]+.|*+)[ t]*")
-(setq adaptive-fill-first-line-regexp "^* *$")
-(setq delete-by-moving-to-trash t)         ; Deleting files go to OS's trash folder
-(setq make-backup-files nil)               ; Forbide to make backup files
-(setq auto-save-default nil)               ; Disable auto save
-(setq set-mark-command-repeat-pop t)       ; Repeating C-SPC after popping mark pops it again
-;; (setq kill-whole-line t)                   ; Kill line including '\n'
+;; Configs for programming languages
+(add-hook 'prog-mode-hook (lambda () (setq-local column-number-mode t)))
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+(add-hook 'prog-mode-hook 'electric-pair-mode)
+(add-hook 'prog-mode-hook 'flymake-mode)
+(add-hook 'prog-mode-hook 'hs-minor-mode)
+(add-hook 'prog-mode-hook 'prettify-symbols-mode)
+(add-hook 'prog-mode-hook 'which-function-mode)
 
-(setq-default major-mode 'text-mode)
+;; Flymake
+(use-package flymake
+  :ensure t
+  :hook (prog-mode . flymake-mode)
+  :bind (("M-n" . #'flymake-goto-next-error)
+	 ("M-p" . #'flymake-goto-prev-error)))
 
-(setq sentence-end "\\([。！？]\\|……\\|[.?!][]\"')}]*\\($\\|[ \t]\\)\\)[ \t\n]*")
-(setq sentence-end-double-space nil)
 
-;; Tab and Space
-;; Permanently indent with spaces, never with TABs
-(setq-default c-basic-offset   4
-              tab-width        4
-              indent-tabs-mode nil)
+;; Markdown file support
+(use-package markdown-mode
+  :ensure t)
 
-;; UI
-(load-theme 'wombat t)
+;; achive
+(use-package achive
+  :load-path "~/.emacs.d/modules/achive"
+  :bind
+  ("C-c a a" . achive)
+  :custom
+  (achive-auto-refresh t)
+  (achive-refresh-seconds 5)
+  (achive-stock-list '("sz002317" "sz000400" "sh600438" "sh600703")))
+(use-package tablist
+    :defer 1)
+;; end achive
 
-(unless (eq window-system 'ns)
-  (menu-bar-mode -1))
-(when (fboundp 'tool-bar-mode)
-  (tool-bar-mode -1))
-(when (fboundp 'scroll-bar-mode)
-  (scroll-bar-mode -1))
-(when (fboundp 'horizontal-scroll-bar-mode)
-  (horizontal-scroll-bar-mode -1))
+;; crux, a collection of many useful extensions/commands
+;; without key-binding you can use
+;; C-a for its original definition
+;; M-m to the indentation of current line
+;; C-M-<ARROW> for duplicate lines
+;; crux commands? Pls use M-x.
+(use-package crux
+  :ensure t
+  :defer 1
+  :bind ("C-k" . crux-smart-kill-line))
 
-;; (global-hl-line-mode 1)
+;; windmove.el, use  <SHIFT - arrow key> to switch buffers
+(use-package windmove
+  :ensure t
+  :config (windmove-default-keybindings)
+  :bind ("M-1" . windmove-left)
+  :bind ("M-2" . windmove-down)
+  :bind ("M-3" . windmove-up)
+  :bind ("M-4" . windmove-right))
 
-;; (if (fboundp 'display-line-numbers-mode)
-;;     (global-display-line-numbers-mode 1)
-;;   (global-linum-mode 1))
+;; auto-save
+(add-to-list 'load-path "~/.emacs.d/modules/auto-save/") ; add auto-save to your load-path
+(require 'auto-save)
+(auto-save-enable)
+(setq auto-save-silent t)   ; quietly save
+(setq auto-save-delete-trailing-whitespace t)  ; automatically delete spaces at the end of the line when saving
+;;; custom predicates if you don't want auto save.
+;;; disable auto save mode when current filetype is an gpg file.
+(setq auto-save-disable-predicates
+      '((lambda ()
+      (string-suffix-p
+      "gpg"
+      (file-name-extension (buffer-name)) t))))
 
-;; Basic modes
-(show-paren-mode 1)
-(delete-selection-mode 1)
-(global-auto-revert-mode 1)
-(recentf-mode 1)
-(when (fboundp 'savehist-mode)
-  (savehist-mode 1))
-(if (fboundp 'save-place-mode)
-    (save-place-mode 1)
-  (require 'saveplace)
-  (setq-default save-place t))
+(add-to-list 'load-path (concat user-emacs-directory "lisp"))
+(require 'init-functions)
+(require 'init-calendar)
+(require 'init-mu4e)
+(require 'init-setting)
+(require 'init-programming)
 
-(setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
-(electric-pair-mode 1)
+;; Language Server (eglot - builtin since v29)
+(use-package eglot
+  :bind ("C-c f" . eglot-format)
+  :init
+  (advice-add 'eglot-code-action-organize-imports :before #'eglot-format-buffer)
+  (add-hook 'eglot-managed-mode-hook (lambda () (add-hook 'before-save-hook #'eglot-format-buffer)))
+  (add-hook 'prog-mode-hook
+	    (lambda () (unless (member major-mode '(emacs-lisp-mode))
+			 (eglot-ensure)))))
 
-(add-hook 'prog-mode-hook #'subword-mode)
-(add-hook 'minibuffer-setup-hook #'subword-mode)
+(use-package treesit
+  :when (and (fboundp 'treesit-available-p) (treesit-available-p))
+  :mode (("\\(?:Dockerfile\\(?:\\..*\\)?\\|\\.[Dd]ockerfile\\)\\'" . dockerfile-ts-mode)
+	 ("\\.go\\'" . go-ts-mode)
+	 ("/go\\.mod\\'" . go-mod-ts-mode)
+	 ("\\.rs\\'" . rust-ts-mode)
+	 ("\\.ts\\'" . typescript-ts-mode)
+	 ("\\.y[a]?ml\\'" . yaml-ts-mode))
+  :config (setq treesit-font-lock-level 4)
+  :init
+  (setq major-mode-remap-alist
+	'((sh-mode         . bash-ts-mode)
+	  (c-mode          . c-ts-mode)
+	  (c++-mode        . c++-ts-mode)
+	  (c-or-c++-mode   . c-or-c++-ts-mode)
+	  (css-mode        . css-ts-mode)
+	  (js-mode         . js-ts-mode)
+	  (java-mode       . java-ts-mode)
+	  (js-json-mode    . json-ts-mode)
+	  (makefile-mode   . cmake-ts-mode)
+	  (python-mode     . python-ts-mode)
+	  (ruby-mode       . ruby-ts-mode)
+	  (conf-toml-mode  . toml-ts-mode)))
+  (setq treesit-language-source-alist
+	'((bash       . ("https://github.com/tree-sitter/tree-sitter-bash"))
+	  (c          . ("https://github.com/tree-sitter/tree-sitter-c"))
+	  (cpp        . ("https://github.com/tree-sitter/tree-sitter-cpp"))
+	  (css        . ("https://github.com/tree-sitter/tree-sitter-css"))
+	  (cmake      . ("https://github.com/uyha/tree-sitter-cmake"))
+	  (csharp     . ("https://github.com/tree-sitter/tree-sitter-c-sharp.git"))
+	  (dockerfile . ("https://github.com/camdencheek/tree-sitter-dockerfile"))
+	  (elisp      . ("https://github.com/Wilfred/tree-sitter-elisp"))
+	  (go         . ("https://github.com/tree-sitter/tree-sitter-go"))
+	  (gomod      . ("https://github.com/camdencheek/tree-sitter-go-mod.git"))
+	  (html       . ("https://github.com/tree-sitter/tree-sitter-html"))
+	  (java       . ("https://github.com/tree-sitter/tree-sitter-java.git"))
+	  (javascript . ("https://github.com/tree-sitter/tree-sitter-javascript"))
+	  (json       . ("https://github.com/tree-sitter/tree-sitter-json"))
+	  (lua        . ("https://github.com/Azganoth/tree-sitter-lua"))
+	  (make       . ("https://github.com/alemuller/tree-sitter-make"))
+	  (markdown   . ("https://github.com/MDeiml/tree-sitter-markdown" nil "tree-sitter-markdown/src"))
+	  (ocaml      . ("https://github.com/tree-sitter/tree-sitter-ocaml" nil "ocaml/src"))
+	  (org        . ("https://github.com/milisims/tree-sitter-org"))
+	  (python     . ("https://github.com/tree-sitter/tree-sitter-python"))
+	  (php        . ("https://github.com/tree-sitter/tree-sitter-php"))
+	  (typescript . ("https://github.com/tree-sitter/tree-sitter-typescript" nil "typescript/src"))
+	  (tsx        . ("https://github.com/tree-sitter/tree-sitter-typescript" nil "tsx/src"))
+	  (ruby       . ("https://github.com/tree-sitter/tree-sitter-ruby"))
+	  (rust       . ("https://github.com/tree-sitter/tree-sitter-rust"))
+	  (sql        . ("https://github.com/m-novikov/tree-sitter-sql"))
+	  (vue        . ("https://github.com/merico-dev/tree-sitter-vue"))
+	  (yaml       . ("https://github.com/ikatyang/tree-sitter-yaml"))
+	  (toml       . ("https://github.com/tree-sitter/tree-sitter-toml"))
+	  (zig        . ("https://github.com/GrayJack/tree-sitter-zig")))))
 
-;; Completion
-(if (fboundp 'fido-mode)
-    (progn
-      (fido-mode 1)
-      (when (fboundp 'fido-vertical-mode)
-        (fido-vertical-mode 1))
+(setq custom-file (locate-user-emacs-file "custom.el"))
+(when (file-exists-p custom-file)
+  (load custom-file))
 
-      (defun fido-recentf-open ()
-        "Use `completing-read' to find a recent file."
-        (interactive)
-        (if (find-file (completing-read "Find recent file: " recentf-list))
-            (message "Opening file...")
-          (message "Aborting")))
-      (global-set-key (kbd "C-x C-r") 'fido-recentf-open))
-  (progn
-    (ido-mode 1)
-    (ido-everywhere 1)
+(provide 'init)
 
-    (setq ido-use-virtual-buffers t
-          ido-use-filename-at-point 'guess
-          ido-create-new-buffer 'always
-          ido-enable-flex-matching t)
-
-    (defun ido-recentf-open ()
-      "Use `ido-completing-read' to find a recent file."
-      (interactive)
-      (if (find-file (ido-completing-read "Find recent file: " recentf-list))
-          (message "Opening file...")
-        (message "Aborting")))
-    (global-set-key (kbd "C-x C-r") 'ido-recentf-open)))
-
-;; Key Modifiers
-(cond
- ((eq system-type 'windows-nt)
-  ;; make PC keyboard's Win key or other to type Super or Hyper
-  ;; (setq w32-pass-lwindow-to-system nil)
-  (setq w32-lwindow-modifier 'super     ; Left Windows key
-        w32-apps-modifier 'hyper)       ; Menu/App key
-  (w32-register-hot-key [s-t]))
- ((eq window-system 'mac)
-  ;; Compatible with Emacs Mac port
-  (setq mac-option-modifier 'meta
-        mac-command-modifier 'super)
-  (global-set-key [(super a)] #'mark-whole-buffer)
-  (global-set-key [(super v)] #'yank)
-  (global-set-key [(super c)] #'kill-ring-save)
-  (global-set-key [(super s)] #'save-buffer)
-  (global-set-key [(super l)] #'goto-line)
-  (global-set-key [(super w)] #'delete-frame)
-  (global-set-key [(super z)] #'undo)))
-
-;; Keybindings
-(global-set-key (kbd "<C-return>") #'rectangle-mark-mode)
-
-(defun revert-current-buffer ()
-  "Revert the current buffer."
-  (interactive)
-  (message "Revert this buffer")
-  (text-scale-set 0)
-  (widen)
-  (revert-buffer t t))
-(global-set-key (kbd "<f5>") #'revert-current-buffer)
-
-(add-hook 'emacs-lisp-mode-hook
-          (lambda ()
-            (local-set-key (kbd "C-c C-x") #'ielm)
-            (local-set-key (kbd "C-c C-c") #'eval-defun)
-            (local-set-key (kbd "C-c C-b") #'eval-buffer)))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; Init-mini.el ends here
+;;; init.el ends here
+;;; Local Variables:
+;; coding: utf-8
+;; byte-compile-warnings: (not unresolved obsolete)
+;; End:

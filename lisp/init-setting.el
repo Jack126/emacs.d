@@ -1,46 +1,18 @@
+;;; init-system.el --- configs for startup -*- lexical-binding: t -*-
 ;;; Commentary:
+;; (c) Jack126
+;;; Code:
 
-;; 切换php-mode web-mode
-(defun toggle-php-flavor-mode ()
-  (interactive)
-  "Toggle mode between PHP & Web-Mode Helper modes"
-  (cond ((string= mode-name "PHP")
-         (web-mode))
-        ((string= mode-name "Web")
-         (php-mode))))
-
-;; hello message
-(defun my-show-scratch-buffer-message ()
-  "Show something in scratch buffer."
-  (let* ((fortune-prog (or (executable-find "fortune-zh")
-                           (executable-find "fortune"))))
-    (cond
-     (fortune-prog
-      (format
-       ";; %s\n\n"
-       (replace-regexp-in-string
-        "\n" "\n;; " ; comment each line
-        (replace-regexp-in-string
-         "\\(\n$\\|\\|\\[m *\\|\\[[0-9][0-9];?[0-9]?m *\\|\\[;m\\)" ""    ; remove trailing line break
-         (shell-command-to-string fortune-prog)))))
-     (t
-      (concat ";; Happy hacking "
-              (or user-login-name "")
-              " - Emacs loves you!\n\n")))))
-
-(setq-default initial-scratch-message (my-show-scratch-buffer-message))
-
-
-(setq 
-    ;;display-line-numbers-type `relative ;; line number
-    display-time-mode 1 ;;显示时间、星期、日期  常显
-    display-time-day-and-date t
-    x-select-enable-clipboard t ;; 使用 X 剪贴板
-    visible-bell t ;; 关闭提示音
-    speedbar-show-unknown-files t ;; Speedbar
-    speedbar-directory-unshown-regexp "^$"
-    kill-ring-max 200 ;;设置粘贴缓冲条目数量.用一个很大的kill ring(最多的记录个数). 这样防止我不小心删掉重要的东西
-)
+(setq
+ ;;display-line-numbers-type `relative ;; line number
+ display-time-mode 1 ;;显示时间、星期、日期  常显
+ display-time-day-and-date t
+ x-select-enable-clipboard t ;; 使用 X 剪贴板
+ visible-bell t ;; 关闭提示音
+ speedbar-show-unknown-files t ;; Speedbar
+ speedbar-directory-unshown-regexp "^$"
+ kill-ring-max 200 ;;设置粘贴缓冲条目数量.用一个很大的kill ring(最多的记录个数). 这样防止我不小心删掉重要的东西
+ )
 
 ;;eww
 (setq
@@ -121,6 +93,36 @@ when it inserts comment at the end of the line."
   (interactive)
   (dired "~/.emacs.d/"))
 
+;; open eshell
+(defun open-myemacs-eshell()
+  "Open myown eshell."
+  (interactive)
+  (split-window-below)
+  (eshell)
+)
+
+(defun rotate-windows (arg)
+  "Rotate your windows; use the prefix argument to rotate the other direction"
+  (interactive "P")
+  (if (not (> (count-windows) 1))
+      (message "You can't rotate a single window!")
+    (let* ((rotate-times (prefix-numeric-value arg))
+           (direction (if (or (< rotate-times 0) (equal arg '(4)))
+                          'reverse 'identity)))
+      (dotimes (_ (abs rotate-times))
+        (dotimes (i (- (count-windows) 1))
+          (let* ((w1 (elt (funcall direction (window-list)) i))
+                 (w2 (elt (funcall direction (window-list)) (+ i 1)))
+                 (b1 (window-buffer w1))
+                 (b2 (window-buffer w2))
+                 (s1 (window-start w1))
+                 (s2 (window-start w2))
+                 (p1 (window-point w1))
+                 (p2 (window-point w2)))
+            (set-window-buffer-start-and-point w1 b2 s2 p2)
+            (set-window-buffer-start-and-point w2 b1 s1 p1)))))))
+
+(global-set-key (kbd "M-]") 'rotate-windows)
 
 (global-set-key (kbd "M-;") 'qiang-comment-dwim-line);; 添加行注释
 (global-set-key (kbd "M-q") 'query-replace);;字符查找替换
@@ -136,13 +138,13 @@ when it inserts comment at the end of the line."
 (global-set-key (kbd "C-c w") 'weather) ;;查看天气
 (global-set-key (kbd "C-c o") 'crux-smart-open-line) ;;当前行下插入一行
 (global-set-key (kbd "C-c [") 'project-find-file) ;;项目中查找文件
+(global-set-key (kbd "C-c ;") 'crux-duplicate-and-comment-current-line-or-region) ;;复制注释当前行
 
 (global-set-key [f1] 'manual-entry) ;;
 (global-set-key [C-f1] 'info ) ;;
 (global-set-key [f2] 'open-myemacs-dir) ;;打开emacs.d配置 init.el文件
 ;;(global-set-key [f5] 'mu4e) ;;打开邮件
 (global-set-key [f6] 'project-switch-project) ;;打开项目目录
-;;(global-set-key (kbd "<f8>") #'neotree)
 (global-set-key (kbd "<f8>") #'speedbar)
 (global-set-key [f9] 'list-bookmarks) ;;列出所有书签
 (global-set-key [f12] 'calendar) ;;日历（init-calendar 详细说明）
@@ -150,7 +152,10 @@ when it inserts comment at the end of the line."
 (global-set-key [home] 'beginning-of-buffer) ;;设置home键指向buffer开头，end键指向buffer结尾
 (global-set-key [end] 'end-of-buffer) ;;文件末尾
 
+(global-set-key (kbd "C-a") 'crux-move-beginning-of-line) ;; 替代默认C-a，回到行首
+
 (global-set-key (kbd "C-c 9") 'scroll-other-window);;其他window向下翻页
 (global-set-key (kbd "C-c 0") 'scroll-other-window-down);; 向上翻
+(global-set-key (kbd "C-c e") 'open-myemacs-eshell) ;;eshell
 
 (provide 'init-setting)
