@@ -236,6 +236,11 @@
       "gpg"
       (file-name-extension (buffer-name)) t))))
 
+;; fido-mode
+;; `fido-mode' is provided by icomplete.el
+;; minibuffer 变成垂直
+(add-hook 'after-init-hook 'fido-vertical-mode)
+
 (add-to-list 'load-path (concat user-emacs-directory "lisp"))
 (require 'init-functions)
 (require 'init-calendar)
