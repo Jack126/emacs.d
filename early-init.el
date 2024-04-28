@@ -15,9 +15,10 @@
 
 ;; Prevent unwanted runtime compilation for native-comp users
 ;; (setq inhibit-automatic-native-compilation t)
+;;(add-to-list 'custom-theme-load-path "~/.emacs.d/modules/themes/")
+;; (load-theme 'zenburn t)
 
 (load-theme 'misterioso t)
-
 
 ;; Package initialize occurs automatically, before `user-init-file' is loaded
 ;; but after `early-init-file'. If you want to handle package initialization,
