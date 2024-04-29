@@ -97,7 +97,8 @@ when it inserts comment at the end of the line."
 (defun open-myemacs-eshell()
   "Open myown eshell."
   (interactive)
-  (split-window-below)
+  (split-window-vertically)
+  (windmove-down)
   (eshell)
 )
 
