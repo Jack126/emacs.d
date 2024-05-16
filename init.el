@@ -7,8 +7,8 @@
 
 (defvar cabins-os-win (memq system-type '(ms-dos windows-nt cygwin)))
 (defvar cabins-os-mac (eq system-type 'darwin))
-(when (find-font (font-spec :family "Sarasa Mono SC"))
-  (set-face-attribute 'default nil :family "Sarasa Mono SC"))
+(when (find-font (font-spec :family "JetbrainsMono Nerd Font"))
+  (set-face-attribute 'default nil :family "JetbrainsMono Nerd Font"))
 
 ;; packages
 (use-package package
@@ -34,7 +34,7 @@
 	      read-process-output-max (* 4 1024 1024)
 	      require-final-newline t
 	      scroll-conservatively 1000
-	      show-trailing-whitespace t
+	      ;; show-trailing-whitespace t
 	      system-time-locale "C"
 	      use-short-answers t)
 
