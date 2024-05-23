@@ -37,8 +37,8 @@
 (set-language-environment 'utf-8)
 ;;(global-hl-line-mode 1)
 
-(add-to-list 'custom-theme-load-path "~/.emacs.d/modules/themes/")
-(load-theme 'fantom t)
+;;(add-to-list 'custom-theme-load-path "~/.emacs.d/modules/themes/")
+(load-theme 'misterioso t)
 ;;(load-theme 'misterioso t)
 ;;; early-init.el ends here
 ;; Local Variables:
