@@ -15,6 +15,7 @@
           js-mode
           python-mode
           lua-mode
+          php-mode
           web-mode) . eglot-ensure)
   :bind (("C-c e f" . #'eglot-format)
          ("C-c e a" . #'eglot-code-actions)
