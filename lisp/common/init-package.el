@@ -116,7 +116,15 @@
 ;; auto-highlight-symbol
 (use-package auto-highlight-symbol)
 
-
+;; windmove.el, use  <SHIFT - arrow key> to switch buffers
+(use-package windmove
+  :ensure t
+  :config (windmove-default-keybindings)
+  :bind ("M-1" . windmove-left)
+  :bind ("M-2" . windmove-down)
+  :bind ("M-3" . windmove-up)
+  :bind ("M-4" . windmove-right))
+  
 ;; Org Mode
 (use-package org
   :ensure nil
