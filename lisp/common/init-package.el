@@ -116,10 +116,6 @@
 ;; auto-highlight-symbol
 (use-package auto-highlight-symbol)
 
-;;; winum
-(use-package winum
-  :defer 1)
-(winum-mode)
 
 ;; Org Mode
 (use-package org

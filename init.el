@@ -33,7 +33,7 @@
 (require 'init-lang)
 
 ;; other features, such as UI/daemon etc.
-(require 'init-feature)
+;;(require 'init-feature)
 
 ;; windows number
 (require 'init-winum)
