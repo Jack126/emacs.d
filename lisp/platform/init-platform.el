@@ -18,8 +18,8 @@
  (os--macos
   ;; <macOS> Command -> Meta, Option -> Super
   (setq 
-  ;;mac-command-modifier 'meta
-	;;    mac-option-modifier 'super
+        mac-command-modifier 'meta
+	    mac-option-modifier 'super
 	    ns-use-native-fullscreen t))
  (t nil))
 
