@@ -119,6 +119,7 @@ avoid delete current indent space when you programming."
   nil "disable auto save in these case.")
 
 ;; Emacs' default auto-save is stupid to generate #foo# files!
+(setq make-backup-files nil)
 (setq auto-save-default nil)
 (setq create-lockfiles nil)
 
@@ -131,7 +132,8 @@ avoid delete current indent space when you programming."
           (set-buffer buf)
           (when (and
                  ;; Buffer associate with a filename?
-                 (buffer-file-name)
+                 (or (buffer-file-name)
+                     (auto-save-is-remote-file))
                  ;; Buffer is modifiable?
                  (buffer-modified-p)
                  ;; Yassnippet is not active?
@@ -140,6 +142,12 @@ avoid delete current indent space when you programming."
                  ;; Company is not active?
                  (or (not (boundp 'company-candidates))
                      (not company-candidates))
+                 ;; Corfu is not active?
+                 (or (not (boundp 'corfu--total))
+                     (zerop corfu--total))
+                 ;; Org-capture is not active?
+                 (not (eq (buffer-base-buffer (get-buffer (concat "CAPTURE-" (buffer-name))))
+                          buf))
                  ;; tell auto-save don't save
                  (not (seq-some (lambda (predicate)
                                   (funcall predicate))
@@ -149,10 +157,14 @@ avoid delete current indent space when you programming."
                 ;; `inhibit-message' can shut up Emacs, but we want
                 ;; it doesn't clean up echo area during saving
                 (with-temp-message ""
-                  (let ((inhibit-message t))
-                    (basic-save-buffer)))
-              (basic-save-buffer))
-            ))
+                  (let (;; `inhibit-message' make save message don't show in minibuffer
+                        (inhibit-message t)
+                        ;; `inhibit-redisplay' prevent intermediate messages from flashing to the user
+                        (inhibit-redisplay t)
+                        ;; `message-log-max' make save message don't flash in `*Messages*' buffer
+                        (message-log-max nil))
+                    (auto-save-save-buffer)))
+              (auto-save-save-buffer))))
         ;; Tell user when auto save files.
         (unless auto-save-silent
           (cond
@@ -162,8 +174,13 @@ avoid delete current indent space when you programming."
            ((> (length autosave-buffer-list) 1)
             (message "# Saved %d files: %s"
                      (length autosave-buffer-list)
-                     (mapconcat 'identity autosave-buffer-list ", ")))))
-        ))))
+                     (mapconcat 'identity autosave-buffer-list ", ")))))))))
+
+(defun auto-save-save-buffer ()
+  (let ((write-region-inhibit-fsync t))
+    (if (auto-save-is-remote-file)
+        (lsp-bridge-remote-save-buffer)
+      (basic-save-buffer))))
 
 (defun auto-save-delete-trailing-whitespace-except-current-line ()
   (interactive)
@@ -197,14 +214,16 @@ Cancel any previous timer."
 (defun auto-save-enable ()
   (interactive)
   (auto-save-set-timer)
-  (add-hook 'before-save-hook 'auto-save-delete-trailing-whitespace-except-current-line)
-  )
+  (add-hook 'before-save-hook 'auto-save-delete-trailing-whitespace-except-current-line))
 
 (defun auto-save-disable ()
   (interactive)
   (auto-save-cancel-timer)
-  (remove-hook 'before-save-hook 'auto-save-delete-trailing-whitespace-except-current-line)
-  )
+  (remove-hook 'before-save-hook 'auto-save-delete-trailing-whitespace-except-current-line))
+
+(defun auto-save-is-remote-file ()
+  (and (boundp 'lsp-bridge-remote-file-flag)
+       lsp-bridge-remote-file-flag))
 
 (provide 'auto-save)
 
