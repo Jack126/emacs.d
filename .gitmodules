@@ -1,0 +1,19 @@
+[submodule "lazycat-theme"]
+path = modules/lsp-bridge
+url = git@github.com:manateelazycat/lsp-bridge.git
+
+[submodule "auto-save"]
+path = modules/auto-save
+url = git@github.com:manateelazycat/auto-save.git
+
+[submodule "achive"]
+path = modules/achive
+url = git@github.com:zakudriver/achive.git
+
+[submodule "popon"]
+path = modules/popon
+url = https://codeberg.org/akib/emacs-popon.git
+
+[submodule "acm-terminal"]
+path = modules/acm-terminal
+url = git@github.com:twlz0ne/acm-terminal.git
