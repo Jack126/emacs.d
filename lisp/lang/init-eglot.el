@@ -28,11 +28,9 @@
     (set-face-attribute 'eglot-highlight-symbol-face nil
                         :background "#b3d7ff"))
   ;; (setq eglot-ignored-server-capabilities '(:documentHighlightProvider))
-  (add-to-list 'eglot-server-programs '((web-mode "vls") (php-mode "phpactor" "language-server")))
-    ;; (defun eglot-actions-before-save()
-    ;;   (add-hook 'before-save-hook #'eglot-format-buffer))
-    ;; (add-hook 'eglot--managed-mode-hook #'eglot-actions-before-save)
-  )
+  (add-to-list 'eglot-server-programs '((web-mode "vls") 
+                                        (php-mode "phpactor" "language-server"))
+    ))
 
 (provide 'init-eglot)
 

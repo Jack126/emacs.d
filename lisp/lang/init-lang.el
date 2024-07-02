@@ -113,26 +113,20 @@ eg.from datetime import datetime."
 ;; php
 (use-package php-mode)
 
-;; (use-package company-php)
-;; (add-hook 'php-mode-hook
-;;           (lambda ()
-;;             (define-key php-mode-map (kbd "C-c p w") 'toggle-php-flavor-mode)
-;;             (company-mode t)
-;;             (ac-php-core-eldoc-setup)
-;;             (make-local-variable 'company-backends)
-;;             (add-to-list 'company-backends 'company-ac-php-backend)
-;;             ))
-
 ;; Language Server
 ;; **************************************************
 ;; `eglot', a light-weight LSP client
-(require 'init-eglot)
+;;(setq rustic-lsp-client 'eglot)
+;;(require 'init-eglot)
 
-
+;; lsp-bridge
+(require 'init-lsp)
 ;; ocaml
-(require 'init-ocaml)
-
-
+;;(require 'init-ocaml)
+;; Rust
+(use-package rust-mode
+  :mode ("\\.rs$" . rust-mode)
+)
 
 (provide 'init-lang)
 
