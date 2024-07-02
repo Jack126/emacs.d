@@ -1,4 +1,4 @@
-[submodule "lazycat-theme"]
+[submodule "lsp-bridge"]
 path = modules/lsp-bridge
 url = git@github.com:manateelazycat/lsp-bridge.git
 
