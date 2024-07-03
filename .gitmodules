@@ -17,3 +17,12 @@ url = https://codeberg.org/akib/emacs-popon.git
 [submodule "acm-terminal"]
 path = modules/acm-terminal
 url = git@github.com:twlz0ne/acm-terminal.git
+
+
+[submodule "blink-search"]
+path = modules/blink-search
+url = git@github.com:manateelazycat/blink-search.git
+
+[submodule "cache-path-from-shell"]
+path = modules/cache-path-from-shell
+url = git@github.com:manateelazycat/cache-path-from-shell.git

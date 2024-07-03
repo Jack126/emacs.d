@@ -31,6 +31,10 @@
               (daemonp)))
   :init (exec-path-from-shell-initialize))
 
+;; exec 命令缓存
+;; (add-to-list 'load-path (expand-file-name "~/.emacs.d/modules/cache-path-from-shell/"))
+;; (require 'cache-path-from-shell)
+
 ;; format all, formatter for almost languages
 ;; great for programmers
 (use-package format-all
@@ -39,13 +43,6 @@
   :hook (prog-mode . format-all-ensure-formatter)
   :bind ("C-c f" . #'format-all-buffer))
 
-;; iedit - edit same text in one buffer or region
-;; (use-package iedit
-;;   :defer 1)
-
-;; info-colors, make the info manual as colorful
-;; (use-package info-colors
-;;   :hook (Info-selection . info-colors-fontify-node))
 
 ;; move-dup, move/copy line or region
 (use-package move-dup
@@ -142,12 +139,6 @@
   ;; long word wrap when export to pdf
   (add-to-list 'org-latex-packages-alist '("" "seqsplit")))
 
-;; org-superstar
-;; make the org mode more beautiful with optimized leading chars
-;; (use-package org-superstar
-  ;; :hook (org-mode . org-superstar-mode)
-  ;; :config (setq org-superstar-prettify-item-bullets t))
-
 ;; Recentf
 (use-package recentf
   :hook (after-init . recentf-mode)
@@ -167,8 +158,10 @@
   (achive-auto-refresh t)
   (achive-refresh-seconds 5)
   (achive-stock-list '("sz002317" "sz000400" "sh600438" "sh600703")))
+(use-package tablist
+    :defer 1)
 
-
+;; markdown
 (use-package markdown-mode
   :ensure t
   :mode ("README\\.md\\'" . gfm-mode)
@@ -176,8 +169,10 @@
   :bind (:map markdown-mode-map
          ("C-c C-e" . markdown-do)))
 
-(use-package tablist
-    :defer 1)
+
+;; blink-search
+;; (add-to-list 'load-path "~/.emacs.d/modules/blink-search")
+;; (require 'blink-search)
 
 (provide 'init-package)
 
