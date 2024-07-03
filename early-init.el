@@ -40,10 +40,10 @@
 ;;(global-hl-line-mode 1)
 
 ;;(add-to-list 'custom-theme-load-path "~/.emacs.d/modules/themes/")
-;;(load-theme 'misterioso t)
+(load-theme 'misterioso t)
 ;;(load-theme 'lazycat-dark t)
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/modules/themes"))
-(require 'lazycat-theme)
+;;(add-to-list 'load-path (expand-file-name "~/.emacs.d/modules/themes"))
+;;(require 'lazycat-theme)
 ;;; early-init.el ends here
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)
