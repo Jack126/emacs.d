@@ -41,16 +41,16 @@
 
 ;;(add-to-list 'custom-theme-load-path "~/.emacs.d/modules/themes/")
 (load-theme 'misterioso t)
-;;(load-theme 'misterioso t)
+;;(load-theme 'zenburn t)
 ;;; early-init.el ends here
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)
 ;; END:
 ;; start time
 (add-hook 'emacs-startup-hook
-    (lambda ()
-        (message "Emacs ready in %s with %d garbage collections."
-            (format "%.2f seconds"
-                (float-time
-                    (time-subtract after-init-time before-init-time)))
-        gcs-done)))
+          (lambda ()
+            (message "Emacs ready in %s with %d garbage collections."
+                     (format "%.2f seconds"
+                             (float-time
+                              (time-subtract after-init-time before-init-time)))
+                     gcs-done)))

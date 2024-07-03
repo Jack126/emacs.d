@@ -1,14 +1,19 @@
+;;; init-lang.el --- configuration for IDE programming -*- lexical-binding: t -*-
 
-;; (use-package lsp-bridge
-;;   :ensure t
-;;   :load-path "~/.emacs.d/modules/lsp-bridge")
+;;; Commentary:
+;;; Code: lsp-bridge config
+
+;; Common features when programming
+;; **************************************************
+
 (unless (display-graphic-p)
   (add-to-list 'load-path "~/.emacs.d/modules/popon")
   (add-to-list 'load-path "~/.emacs.d/modules/acm-terminal"))
 
 (unless (display-graphic-p)
-              (with-eval-after-load 'acm
-                (require 'acm-terminal)))
+  (with-eval-after-load 'acm
+    (require 'acm-terminal)))
+
 
 (add-to-list 'load-path "~/.emacs.d/modules/lsp-bridge")
 
@@ -27,3 +32,8 @@
 (global-lsp-bridge-mode)
 
 (provide 'init-lsp)
+
+;;; init-lsp.el ends here
+;; Local Variables:
+;; byte-compile-warnings: (not free-vars unresolved)
+;; End:

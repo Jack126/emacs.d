@@ -86,7 +86,7 @@ eg.from datetime import datetime."
 			                 (buffer-file-name))))
 
 (add-hook 'python-mode-hook
-            (lambda ()
+          (lambda ()
             (define-key python-mode-map (kbd "C-c p s") 'python-isort)
             (define-key python-mode-map (kbd "C-c p r") 'python-remove-all-unused-imports)))
 
@@ -106,7 +106,7 @@ eg.from datetime import datetime."
 ;; Rust
 (use-package rust-mode
   :mode ("\\.rs$" . rust-mode)
-)
+  )
 ;; lsp-bridge
 (require 'init-lsp)
 ;; ocaml
