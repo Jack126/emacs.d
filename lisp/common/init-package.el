@@ -5,13 +5,6 @@
 
 ;;; Code:
 
-;; Settings for company, auto-complete only for coding.
-;; (use-package company
-;;   :hook ((prog-mode . company-mode)
-;;          (inferior-emacs-lisp-mode . company-mode))
-;;   :config (setq company-minimum-prefix-length 1
-;;                 company-show-quick-access nil))
-
 ;; crux, a collection of many useful extensions/commands
 ;; without key-binding you can use
 ;; C-a for its original definition
@@ -62,11 +55,13 @@
 
 ;; Settings for yasnippet
 (use-package yasnippet
-  :defer 1
-  :diminish yas-minor-mode
-  :hook (prog-mode . yas-minor-mode)
-  :config (yas-reload-all)
-  :bind ("C-o" . yas-expand))
+  :hook
+  (after-init . yas-global-mode)
+  :custom
+  (yas-keymap-disable-hook t)
+  :bind (:map yas-minor-mode-map
+              ("TAB" . nil)
+              ("<tab>" . nil)))
 (add-to-list 'load-path
               "~/.emacs.d/snippets")
 (use-package yasnippet-snippets
@@ -164,7 +159,7 @@
 ;; markdown
 (use-package markdown-mode
   :ensure t
-  :mode ("README\\.md\\'" . gfm-mode)
+  :mode ("\\.md$" . markdown-mode)
   :init (setq markdown-command "multimarkdown")
   :bind (:map markdown-mode-map
          ("C-c C-e" . markdown-do)))
