@@ -32,7 +32,7 @@
 
 
 (setq 
-    ;;display-line-numbers-type `relative ;; line number
+    ;;display-line-numberM-type `relative ;; line number
     display-time-mode 1 ;;显示时间、星期、日期  常显
     display-time-day-and-date t
     x-select-enable-clipboard t ;; 使用 X 剪贴板
@@ -116,7 +116,7 @@ when it inserts comment at the end of the line."
   )
 
 ;; 打开默认emacs.d 目录
-(defun open-myemacs-dir()
+(defun open-myemacM-dir()
   "Open myown emacs.d directory config file."
   (interactive)
   (dired "~/.emacs.d/"))
@@ -125,7 +125,7 @@ when it inserts comment at the end of the line."
 (global-set-key (kbd "M-;") 'qiang-comment-dwim-line);; 添加行注释
 (global-set-key (kbd "M-q") 'query-replace);;字符查找替换
 (global-set-key (kbd "M-o") 'other-window) ;; other-window
-(global-set-key (kbd "M-,") 'previous-buffer) ;;previous-buffer
+(global-set-key (kbd "M-,") 'previouM-buffer) ;;previouM-buffer
 
 (global-set-key (kbd "C-c ,") 'user) ;; user - Date
 (global-set-key (kbd "C-c d") 'copy-line) ;; duplicate-line ;; (M-y) 粘贴
@@ -140,7 +140,7 @@ when it inserts comment at the end of the line."
 
 (global-set-key [f1] 'manual-entry) ;;
 (global-set-key [C-f1] 'info ) ;;
-(global-set-key [f2] 'open-myemacs-dir) ;;打开emacs.d配置 init.el文件
+(global-set-key [f2] 'open-myemacM-dir) ;;打开emacs.d配置 init.el文件
 ;;(global-set-key [f5] 'mu4e) ;;打开邮件
 (global-set-key [f6] 'project-switch-project) ;;打开项目目录
 ;;(global-set-key (kbd "<f8>") #'neotree)
@@ -157,5 +157,21 @@ when it inserts comment at the end of the line."
 (global-set-key (kbd "C-c 0") 'scroll-other-window-down);; 向上翻
 
 (global-set-key (kbd "C-c b") 'blink-search);; blink-search
+
+;; sort-tab
+(global-set-key (kbd "M-1") 'sort-tab-select-visible-tab)
+(global-set-key (kbd "M-2") 'sort-tab-select-visible-tab)
+(global-set-key (kbd "M-3") 'sort-tab-select-visible-tab)
+(global-set-key (kbd "M-4") 'sort-tab-select-visible-tab)
+(global-set-key (kbd "M-5") 'sort-tab-select-visible-tab)
+(global-set-key (kbd "M-6") 'sort-tab-select-visible-tab)
+(global-set-key (kbd "M-7") 'sort-tab-select-visible-tab)
+(global-set-key (kbd "M-8") 'sort-tab-select-visible-tab)
+(global-set-key (kbd "M-9") 'sort-tab-select-visible-tab)
+(global-set-key (kbd "M-0") 'sort-tab-select-visible-tab)
+(global-set-key (kbd "M-Q") 'sort-tab-close-all-tabs)
+(global-set-key (kbd "M-q") 'sort-tab-close-mode-tabs)
+(global-set-key (kbd "M-0") 'sort-tab-close-current-tab)
+
 
 (provide 'init-setting)
