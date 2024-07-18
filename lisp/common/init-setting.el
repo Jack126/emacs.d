@@ -156,4 +156,6 @@ when it inserts comment at the end of the line."
 (global-set-key (kbd "C-c 9") 'scroll-other-window);;其他window向下翻页
 (global-set-key (kbd "C-c 0") 'scroll-other-window-down);; 向上翻
 
+(global-set-key (kbd "C-c b") 'blink-search);; blink-search
+
 (provide 'init-setting)
