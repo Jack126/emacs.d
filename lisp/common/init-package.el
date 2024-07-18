@@ -166,8 +166,8 @@
 
 
 ;; blink-search
-;; (add-to-list 'load-path "~/.emacs.d/modules/blink-search")
-;; (require 'blink-search)
+(add-to-list 'load-path "~/.emacs.d/modules/blink-search")
+(require 'blink-search)
 
 (provide 'init-package)
 
