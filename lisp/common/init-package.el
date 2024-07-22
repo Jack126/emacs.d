@@ -25,7 +25,7 @@
   :init (exec-path-from-shell-initialize))
 
 ;; exec 命令缓存
-;; (add-to-list 'load-path (expand-file-name "~/.emacs.d/modules/cache-path-from-shell/"))
+;; (add-to-list 'load-path (expand-file-name "~/.emacs.d/extensions/cache-path-from-shell/"))
 ;; (require 'cache-path-from-shell)
 
 ;; format all, formatter for almost languages
@@ -69,7 +69,7 @@
   :diminish)
 
 ;; auto-save
-(add-to-list 'load-path "~/.emacs.d/modules/auto-save/") ; add auto-save to your load-path
+(add-to-list 'load-path "~/.emacs.d/extensions/auto-save/") ; add auto-save to your load-path
 (require 'auto-save)
 (auto-save-enable)
 (setq auto-save-silent t)   ; quietly save
@@ -146,13 +146,13 @@
 
 ;; achive
 (use-package achive
-  :load-path "~/.emacs.d/modules/achive"
+  :load-path "~/.emacs.d/extensions/achive"
   :bind
   ("C-c a a" . achive)
   :custom
   (achive-auto-refresh t)
   (achive-refresh-seconds 5)
-  (achive-stock-list '("sz002317" "sz000400" "sh600438" "sh600703")))
+  (achive-stock-list '("sh600597" "sz000949" "sh600350" "sh600703")))
 (use-package tablist
     :defer 1)
 
@@ -166,11 +166,11 @@
 
 
 ;; blink-search
-(add-to-list 'load-path "~/.emacs.d/modules/blink-search")
+(add-to-list 'load-path "~/.emacs.d/extensions/blink-search")
 (require 'blink-search)
 
 ;; sort-tab
-(add-to-list 'load-path "~/.emacs.d/modules/sort-tab") ; add sort-tab to your load-path
+(add-to-list 'load-path "~/.emacs.d/extensions/sort-tab") ; add sort-tab to your load-path
 (require 'sort-tab)
 (sort-tab-mode 1)
 

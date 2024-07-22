@@ -7,15 +7,15 @@
 ;; **************************************************
 
 (unless (display-graphic-p)
-  (add-to-list 'load-path "~/.emacs.d/modules/popon")
-  (add-to-list 'load-path "~/.emacs.d/modules/acm-terminal"))
+  (add-to-list 'load-path "~/.emacs.d/extensions/popon")
+  (add-to-list 'load-path "~/.emacs.d/extensions/acm-terminal"))
 
 (unless (display-graphic-p)
   (with-eval-after-load 'acm
     (require 'acm-terminal)))
 
 
-(add-to-list 'load-path "~/.emacs.d/modules/lsp-bridge")
+(add-to-list 'load-path "~/.emacs.d/extensions/lsp-bridge")
 
 (require 'lsp-bridge)
 

@@ -1,28 +1,31 @@
-[submodule "lsp-bridge"]
-path = modules/lsp-bridge
-url = git@github.com:manateelazycat/lsp-bridge.git
+[submodule "extensions/lsp-bridge"]
+	path = extensions/lsp-bridge
+	url = git@github.com:manateelazycat/lsp-bridge.git
 
-[submodule "auto-save"]
-path = modules/auto-save
-url = git@github.com:manateelazycat/auto-save.git
+[submodule "extensions/auto-save"]
+	path = extensions/auto-save
+	url = git@github.com:manateelazycat/auto-save.git
 
-[submodule "achive"]
-path = modules/achive
-url = git@github.com:zakudriver/achive.git
+[submodule "extensions/achive"]
+	path = extensions/achive
+	url = git@github.com:zakudriver/achive.git
 
-[submodule "popon"]
-path = modules/popon
-url = https://codeberg.org/akib/emacs-popon.git
+[submodule "extensions/popon"]
+	path = extensions/popon
+	url = https://codeberg.org/akib/emacs-popon.git
 
-[submodule "acm-terminal"]
-path = modules/acm-terminal
-url = git@github.com:twlz0ne/acm-terminal.git
+[submodule "extensions/acm-terminal"]
+	path = extensions/acm-terminal
+	url = git@github.com:twlz0ne/acm-terminal.git
 
+[submodule "extensions/blink-search"]
+    path = extensions/blink-search
+    url = git@github.com:manateelazycat/blink-search.git
 
-[submodule "blink-search"]
-path = modules/blink-search
-url = git@github.com:manateelazycat/blink-search.git
+[submodule "extensions/cache-path-from-shell"]
+	path = extensions/cache-path-from-shell
+	url = git@github.com:manateelazycat/cache-path-from-shell.git
 
-[submodule "cache-path-from-shell"]
-path = modules/cache-path-from-shell
-url = git@github.com:manateelazycat/cache-path-from-shell.git
+[submodule "extensions/sort-tab"]
+	path = extensions/sort-tab
+	url = git@github.com:manateelazycat/sort-tab.git
