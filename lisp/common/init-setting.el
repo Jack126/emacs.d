@@ -168,9 +168,7 @@ when it inserts comment at the end of the line."
 (global-set-key (kbd "M-7") 'sort-tab-select-visible-tab)
 (global-set-key (kbd "M-8") 'sort-tab-select-visible-tab)
 (global-set-key (kbd "M-9") 'sort-tab-select-visible-tab)
-(global-set-key (kbd "M-0") 'sort-tab-select-visible-tab)
-(global-set-key (kbd "M-Q") 'sort-tab-close-all-tabs)
-(global-set-key (kbd "M-q") 'sort-tab-close-mode-tabs)
+(global-set-key (kbd "M-]") 'sort-tab-close-other-tabs)
 (global-set-key (kbd "M-0") 'sort-tab-close-current-tab)
 
 
