@@ -29,25 +29,16 @@
 (setq frame-inhibit-implied-resize t)
 
 ;; Clean GUI
-;; (push '(scroll-bar-mode . nil) default-frame-alist)
-;; (push '(tool-bar-mode . nil) default-frame-alist)
-;; (push '(menu-bar-mode . nil) default-frame-alist)
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
 ;; System default coding
 (set-language-environment 'utf-8)
-;;(global-hl-line-mode 1)
 
-;;(add-to-list 'custom-theme-load-path "~/.emacs.d/modules/themes/")
+;;(add-to-list 'custom-theme-load-path "~/.emacs.d/lisp/themes/")
 ;;(load-theme 'zenburn t)
-
 (load-theme 'misterioso t)
 
-;;; early-init.el ends here
-;; Local Variables:
-;; byte-compile-warnings: (not free-vars)
-;; END:
 ;; start time
 (add-hook 'emacs-startup-hook
           (lambda ()
@@ -56,3 +47,8 @@
                              (float-time
                               (time-subtract after-init-time before-init-time)))
                      gcs-done)))
+
+;;; early-init.el ends here
+;; Local Variables:
+;; byte-compile-warnings: (not free-vars)
+;; END:

@@ -12,7 +12,7 @@
   (add-to-list 'load-path folder))
 
 ;; customized functions
-(require 'init-fn)
+;;(require 'init-fn)
 
 ;; change Emacs default settings here, variables only (NOT include built-in packages)
 (require 'init-system)
@@ -21,13 +21,13 @@
 (require 'init-elpa)
 
 ;; change default Emacs settings with built-in packages
-(require 'init-builtin)
+;;(require 'init-builtin)
 
 ;; all the third-part packages configed here
 (require 'init-package)
 
 ;; different settings depends on os platform
-(require 'init-platform)
+;;(require 'init-platform)
 
 ;; settings for programming languages (include IDE/LSP feature)
 (require 'init-lang)

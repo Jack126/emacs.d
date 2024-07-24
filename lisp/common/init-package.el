@@ -104,30 +104,14 @@
 (use-package auto-highlight-symbol)
 
 ;; windmove.el, use  <SHIFT - arrow key> to switch buffers
-(use-package windmove
-  :ensure t
-  :config (windmove-default-keybindings)
-  :bind ("M-1" . windmove-left)
-  :bind ("M-2" . windmove-down)
-  :bind ("M-3" . windmove-up)
-  :bind ("M-4" . windmove-right))
+; (use-package windmove
+;   :ensure t
+;   :config (windmove-default-keybindings)
+;   :bind ("M-1" . windmove-left)
+;   :bind ("M-2" . windmove-down)
+;   :bind ("M-3" . windmove-up)
+;   :bind ("M-4" . windmove-right))
   
-;; Org Mode
-(use-package org
-  :ensure nil
-  :config
-  (setq org-hide-leading-stars t
-        org-hide-emphasis-markers t
-        org-startup-indented t
-        org-latex-listings 'minted
-        ;; use tectonic to export pdf
-        org-latex-pdf-process '("tectonic -Z shell-escape %f"))
-  ;; solve CJK issue when export to pdf
-  (add-to-list 'org-latex-packages-alist '("" "ctex"))
-  ;; highlight code block
-  (add-to-list 'org-latex-packages-alist '("" "minted"))
-  ;; long word wrap when export to pdf
-  (add-to-list 'org-latex-packages-alist '("" "seqsplit")))
 
 ;; Recentf
 (use-package recentf
@@ -158,7 +142,6 @@
   :init (setq markdown-command "multimarkdown")
   :bind (:map markdown-mode-map
          ("C-c C-e" . markdown-do)))
-
 
 ;; blink-search
 (add-to-list 'load-path "~/.emacs.d/extensions/blink-search")
