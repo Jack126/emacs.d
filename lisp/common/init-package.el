@@ -24,10 +24,6 @@
               (daemonp)))
   :init (exec-path-from-shell-initialize))
 
-;; exec 命令缓存
-;; (add-to-list 'load-path (expand-file-name "~/.emacs.d/extensions/cache-path-from-shell/"))
-;; (require 'cache-path-from-shell)
-
 ;; format all, formatter for almost languages
 ;; great for programmers
 (use-package format-all
@@ -35,7 +31,6 @@
   :diminish
   :hook (prog-mode . format-all-ensure-formatter)
   :bind ("C-c f" . #'format-all-buffer))
-
 
 ;; move-dup, move/copy line or region
 (use-package move-dup
