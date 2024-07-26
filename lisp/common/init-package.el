@@ -124,8 +124,10 @@
                      (registers . 5)))
   :init
   (dashboard-setup-startup-hook)
+ 
   (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*"))))
-
+(setq dashboard-startup-banner "~/.emacs.d/banner.txt")
+;;(setq dashboard-startup-banner 4)
 ;; Recentf
 (use-package recentf
   :hook (after-init . recentf-mode)
