@@ -31,16 +31,16 @@
 (setq-default initial-scratch-message (my/show-scratch-buffer-message))
 
 
-(setq 
-    ;;display-line-numberM-type `relative ;; line number
-    display-time-mode 1 ;;显示时间、星期、日期  常显
-    display-time-day-and-date t
-    x-select-enable-clipboard t ;; 使用 X 剪贴板
-    visible-bell t ;; 关闭提示音
-    speedbar-show-unknown-files t ;; Speedbar
-    speedbar-directory-unshown-regexp "^$"
-    kill-ring-max 200 ;;设置粘贴缓冲条目数量.用一个很大的kill ring(最多的记录个数). 这样防止我不小心删掉重要的东西
-)
+(setq
+ ;;display-line-numberM-type `relative ;; line number
+ display-time-mode 1 ;;显示时间、星期、日期  常显
+ display-time-day-and-date t
+ x-select-enable-clipboard t ;; 使用 X 剪贴板
+ visible-bell t ;; 关闭提示音
+ speedbar-show-unknown-files t ;; Speedbar
+ speedbar-directory-unshown-regexp "^$"
+ kill-ring-max 200 ;;设置粘贴缓冲条目数量.用一个很大的kill ring(最多的记录个数). 这样防止我不小心删掉重要的东西
+ )
 
 ;;eww
 (setq
@@ -121,6 +121,13 @@ when it inserts comment at the end of the line."
   (interactive)
   (dired "~/.emacs.d/"))
 
+;; open eshell
+(defun my/open-myemacs-eshell()
+  "Open myown eshell."
+  (interactive)
+  (split-window-right)
+  (eshell)
+)
 
 (global-set-key (kbd "M-;") 'my/qiang-comment-dwim-line);; 添加行注释
 (global-set-key (kbd "M-q") 'query-replace);;字符查找替换
@@ -152,6 +159,7 @@ when it inserts comment at the end of the line."
 (global-set-key (kbd "C-c 9") 'scroll-other-window);;其他window向下翻页
 (global-set-key (kbd "C-c 0") 'scroll-other-window-down);; 向上翻
 (global-set-key (kbd "C-c b") 'blink-search);; blink-search
+(global-set-key (kbd "C-c e") 'my/open-myemacs-eshell) ;;eshell
 
 ;; sort-tab
 (global-set-key (kbd "M-1") 'sort-tab-select-visible-tab)
