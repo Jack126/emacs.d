@@ -113,20 +113,20 @@
 ;   :bind ("M-4" . windmove-right))
 
 ;; dashboard
-(use-package dashboard
-  :custom
-  (dashboard-center-content 1)
-  (dashboard-set-heading-icons t)
-  (dashboard-set-file-icons t)
-  (dashboard-items '((projects . 5)
-                     (recents . 5)
-                     (agenda . 5)
-                     (registers . 5)))
-  :init
-  (dashboard-setup-startup-hook)
+; (use-package dashboard
+;   :custom
+;   (dashboard-center-content 1)
+;   (dashboard-set-heading-icons t)
+;   (dashboard-set-file-icons t)
+;   (dashboard-items '((projects . 5)
+;                      (recents . 5)
+;                      (agenda . 5)
+;                      (registers . 5)))
+;   :init
+;   (dashboard-setup-startup-hook)
  
-  (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*"))))
-(setq dashboard-startup-banner "~/.emacs.d/banner.txt")
+;   (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*"))))
+; (setq dashboard-startup-banner "~/.emacs.d/banner.txt")
 ;;(setq dashboard-startup-banner 4)
 ;; Recentf
 (use-package recentf

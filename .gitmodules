@@ -22,9 +22,6 @@
     path = extensions/blink-search
     url = git@github.com:manateelazycat/blink-search.git
 
-[submodule "extensions/cache-path-from-shell"]
-	path = extensions/cache-path-from-shell
-	url = git@github.com:manateelazycat/cache-path-from-shell.git
 
 [submodule "extensions/sort-tab"]
 	path = extensions/sort-tab
