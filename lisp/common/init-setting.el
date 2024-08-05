@@ -125,7 +125,6 @@ when it inserts comment at the end of the line."
 (defun my/open-myemacs-eshell()
   "Open myown eshell."
   (interactive)
-  (split-window-right)
   (eshell)
 )
 
