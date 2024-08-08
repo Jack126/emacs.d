@@ -17,13 +17,17 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 
 目前 emacs 新手一枚，摸索大佬配置中前进，望诸君共勉!
 
-- 目前 emacs 版本 28.1 ，系统版本 mac 10.15.7 下正常使用，其他版本下未测
+- 目前 emacs 版本 28.2 ，系统版本 mac 10.15.7(12) 下正常使用，其他版本下未测
 
 - 目前支持终端下使用，gui 模式亦可（该模式下文字大小需调整 lisp/common/init-fn.el 51 行 height）
 
 - 建议使用 iterm2（终端色彩下能好看一点） [iterm2](https://www.iterm2.com/downloads.html)
 
+- 后弃用iterm2，改用***alacritty+fish***，真香
+
 - 使用[auto-save](https://github.com/manateelazycat/auto-save) 自动保存（C-x C-s)可以少按几次了。。
+
+- 使用[sort-tab](https://github.com/manateelazycat/sort-tab)做tab切换，M+数字切换，M+0关闭当前tab
 
 - 使用 eglot 需搭配其他开发环境使用，需另搭建（请自行查阅）
 
@@ -121,7 +125,7 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 20. M-. 查找方法定义
 21. M-, 跳回
 22. M-q 查找替换
-23. M-o 窗口切换(M-数字，跳窗口)
+23. ~~M-o 窗口切换(M-数字，跳窗口)~~
 24. M-g g 跳行
 25. C-S SPC mark-set (C-SPC 替代品, S - Shift)
 26. C-l 重新绘制屏幕画面，当前行放在画面中心处
@@ -145,3 +149,6 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 44. C-c 0 在当前窗口，上翻另外窗口
 45. M-] 窗口调换位置（4个 ，斜角兑换； 3个逆时针调换）
 46. C-x m 发送邮件(开通imap端口)
+47. M+数字 切换tab，M+0关闭当前tab
+48. M+o 切换frame
+49. C-c e 打开eshell
