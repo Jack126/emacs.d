@@ -107,11 +107,22 @@ eg.from datetime import datetime."
 (use-package rust-mode
   :mode ("\\.rs$" . rust-mode)
   )
+
+;; F#
+(use-package fsharp-mode
+  :defer t
+  :ensure t)
+
+; (use-package ob-fsharp
+;   :defer t
+;   :ensure t)
 ;; lsp-bridge
 (require 'init-lsp)
 ;; ocaml
 ;;(require 'init-ocaml)
 
+;; lsp-fsharp
+(require 'init-fsharp)
 
 (provide 'init-lang)
 
