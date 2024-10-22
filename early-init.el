@@ -35,8 +35,8 @@
 ;; System default coding
 (set-language-environment 'utf-8)
 
-;;(add-to-list 'custom-theme-load-path "~/.emacs.d/lisp/themes/")
-;;(load-theme 'zenburn t)
+(add-to-list 'custom-theme-load-path "~/.emacs.d/lisp/themes/")
+(load-theme 'zenburn t)
 ;;(load-theme 'misterioso t)
 
 ;; start time
