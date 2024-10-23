@@ -19,8 +19,8 @@
 	url = git@github.com:twlz0ne/acm-terminal.git
 
 [submodule "extensions/blink-search"]
-    path = extensions/blink-search
-    url = git@github.com:manateelazycat/blink-search.git
+	path = extensions/blink-search
+	url = git@github.com:manateelazycat/blink-search.git
 
 
 [submodule "extensions/sort-tab"]
