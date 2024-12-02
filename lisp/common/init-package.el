@@ -187,6 +187,11 @@
 ;   ;; Corrects (and improves) org-mode's native fontification.
 ;   (doom-themes-org-config))
 
+;;; Require
+(use-package disable-mouse)
+;;; Code:
+(global-disable-mouse-mode)
+
 
 (provide 'init-package)
 
