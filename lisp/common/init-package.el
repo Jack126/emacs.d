@@ -90,8 +90,8 @@
     (highlight-parentheses-mode t)))
 (global-highlight-parentheses-mode t)
 ;; 变量高亮
-(use-package rainbow-identifiers
-  :hook ((prog-mode emacs-lisp-mode) . rainbow-identifiers-mode))
+; (use-package rainbow-identifiers
+;   :hook ((prog-mode emacs-lisp-mode) . rainbow-identifiers-mode))
 
 ;; 测试启动时间
 ;; (use-package esup

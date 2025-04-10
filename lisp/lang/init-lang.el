@@ -109,9 +109,9 @@ eg.from datetime import datetime."
   )
 
 ;; F#
-(use-package fsharp-mode
-  :defer t
-  :ensure t)
+; (use-package fsharp-mode
+;   :defer t
+;   :ensure t)
 
 ; (use-package ob-fsharp
 ;   :defer t

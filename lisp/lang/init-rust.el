@@ -69,7 +69,7 @@
   ;;(add-to-list 'auto-mode-alist '("\\.rs?\\'" . rustic-mode))
   :config
   (setq rustic-format-on-save t)
-  (setq rustic-lsp-client 'eglot)
+  ;;(setq rustic-lsp-client 'eglot)
   ;;:custom
   ;;(rustic-analyzer-command '("rustup" "run" "stable" "rust-analyzer"))
   )
