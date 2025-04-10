@@ -192,6 +192,11 @@
 ;;; Code:
 (global-disable-mouse-mode)
 
+;; undo tree
+(use-package undo-tree)
+(global-undo-tree-mode)
+(setq undo-limit 800000
+      undo-strong-limit 1200000)
 
 (provide 'init-package)
 
