@@ -238,6 +238,11 @@
   :defer 1
   :diminish)
 
+
+;;; color themes
+
+(use-package zenburn-theme)
+(load-theme 'zenburn t)
 ;; auto-save
 (add-to-list 'load-path "~/.emacs.d/extensions/auto-save/") ; add auto-save to your load-path
 (require 'auto-save)
