@@ -17,30 +17,18 @@ git clone https://github.com/Jack126/emacs.d ~/.emacs.d
 
 目前 emacs 新手一枚，摸索大佬配置中前进，望诸君共勉!
 
-1. 目前 emacs 版本 28.1 ，系统版本 mac 10.15.7 下正常使用，其他版本下未测
-2. 目前支持终端下使用，gui 模式亦可（该模式下文字大小需调整 lisp/common/init-fn.el 51 行 height）
-3. 需安装字体 Nerd Font
+1. 目前 emacs 版本 28.2/30.1 ，系统版本 mac 10.15.7 下正常使用，其他版本下未测
 
-```
+2. 需安装字体 Jetbains Mono
 
-    brew cask
+3. 建议使用 alacritty
 
-    brew tap homebrew/cask-fonts
+4. 使用[auto-save](https://github.com/manateelazycat/auto-save) 自动保存（C-x C-s)可以少按几次了。。
 
-    brew install font-fira-code
+5. 使用 lsp-bridge
 
-    brew install font-Fira-Code-nerd-font
+6. 需安装 universal-ctags , ctags -R -e 可在当前项目下生成 TAGS ，搭配快捷键 M-. , M-, 跳转方法，回跳 ( > , < 去，回。简单不)
 
-    brew install font-hack-nerd-font
-```
-
-4. 建议使用 iterm2（终端色彩下能好看一点） [iterm2](https://www.iterm2.com/downloads.html)
-
-5. 使用[auto-save](https://github.com/manateelazycat/auto-save) 自动保存（C-x C-s)可以少按几次了。。
-
-6. 使用 eglot 需搭配其他开发环境使用，需另搭建（请自行查阅）
-
-7. 需安装 ctags（brew install ctags ) , ctags -R -e 可在当前项目下生成 TAGS ，搭配快捷键 M-. , M-, 跳转方法，回跳 （ > , < 去，回。简单不)
 
 # 快捷键
 
