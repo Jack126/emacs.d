@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: desc
+# key: desc
+# binding: direct-keybinding
+# --
+
+/**
+* Desc: $0
+* Author: `(user-login-name)`
+* Datetime: `(current-time-string)`
+*/

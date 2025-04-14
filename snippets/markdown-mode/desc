@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: desc
+# key: desc
+# binding: direct-keybinding
+# --
+
+---
+layout: post
+title: $0
+category: $1
+tags: $2
+---
