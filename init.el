@@ -214,6 +214,7 @@
 
 (use-package zenburn-theme)
 (load-theme 'zenburn t)
+
 ;; auto-save
 (add-to-list 'load-path "~/.emacs.d/extensions/auto-save/") ; add auto-save to your load-path
 (require 'auto-save)
@@ -325,6 +326,11 @@
 	  (toml       . ("https://github.com/tree-sitter/tree-sitter-toml"))
 	  (zig        . ("https://github.com/GrayJack/tree-sitter-zig")))))
 
+
+;; 开启daemon 需要
+(require 'server)
+(unless (server-running-p)
+  (server-start))
 
 
 (setq custom-file (locate-user-emacs-file "custom.el"))
