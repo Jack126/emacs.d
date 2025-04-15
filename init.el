@@ -18,7 +18,7 @@
 (use-package package
   :config
   (setq package-quickstart t)
-  (add-to-list 'package-archives '("melpa" . "http://mirrors.ustc.edu.cn/elpa/melpa/"))
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
   (unless (bound-and-true-p package--initialized)
     (package-initialize)))
 
@@ -153,13 +153,6 @@
 (use-package crux
   :defer 1
   :bind ("C-k" . crux-smart-kill-line))
-
-;; undo-tree
-(use-package undo-tree
-  :config
-  (setq undo-limit 800000
-        undo-strong-limit 1200000))
-(global-undo-tree-mode)
 
 ;;Configs for OS
 ;; Special configs for MS-Windows
