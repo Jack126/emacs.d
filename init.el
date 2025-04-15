@@ -194,6 +194,13 @@
 (use-package markdown-mode
   :ensure t)
 
+;; git
+(use-package git-gutter
+  :ensure t
+  :hook (prog-mode . git-gutter-mode)
+  :config
+  (setq git-gutter:update-interval 0.1))
+
 ;; Settings for yasnippet
 (use-package yasnippet
   :hook
@@ -266,8 +273,7 @@
   :load-path "~/.emacs.d/extensions/sort-tab"
   :config (sort-tab-mode 1))
 
-
-
+;;;(sort-tab-is-hidden-buffer-p 'TAGS)
 
 ;; treesit
 
