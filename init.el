@@ -273,7 +273,9 @@
   :load-path "~/.emacs.d/extensions/sort-tab"
   :config (sort-tab-mode 1))
 
-;;;(sort-tab-is-hidden-buffer-p 'TAGS)
+;; blink-search
+(add-to-list 'load-path "~/.emacs.d/extensions/blink-search")
+(require 'blink-search)
 
 ;; treesit
 
