@@ -7,8 +7,8 @@
 
 (defvar cabins-os-win (memq system-type '(ms-dos windows-nt cygwin)))
 (defvar cabins-os-mac (eq system-type 'darwin))
-(when (find-font (font-spec :family "Sarasa Mono SC"))
-  (set-face-attribute 'default nil :family "Sarasa Mono SC"))
+(when (find-font (font-spec :family "JetBrainsMono Nerd Font"))
+  (set-face-attribute 'default nil :family "JetBrainsMono Nerd Font"))
 (menu-bar-mode -1)
 ;; packages
 (add-to-list 'load-path (concat user-emacs-directory "lisp"))
@@ -336,9 +336,9 @@
 
 
 ;; 开启daemon 需要
-(require 'server)
-(unless (server-running-p)
-  (server-start))
+;; (require 'server)
+;; (unless (server-running-p)
+;;   (server-start))
 
 
 (setq custom-file (locate-user-emacs-file "custom.el"))
