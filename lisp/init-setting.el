@@ -51,6 +51,12 @@
  shr-width 70                                ; Fold text to 70 columns
  eww-search-prefix "https://wiby.me/?q=")    ; Use another engine for searching
 
+;; 在 EWW 模式中隐藏空白字符
+(add-hook 'eww-mode-hook
+          (lambda ()
+            (setq-local whitespace-mode nil)
+            (setq-local show-trailing-whitespace nil)))
+
 (define-key global-map (kbd  "M-f")
   (lambda ()
     (interactive)
